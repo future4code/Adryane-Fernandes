@@ -29,6 +29,11 @@ button:focus {
     color: white;
 }
 
+
+button:active{
+    border: none;
+}
+
 img {
     width: 50px;
 }
@@ -80,7 +85,7 @@ div>p:first-child {
     margin: auto;
 }
 
-#container-de-descricao>ol {
+#container-de-descricao ol {
     padding: 15px 0px;
 }
 
@@ -136,6 +141,7 @@ td button:active{
     margin-top: 20px;
     height: 100px;
 }
+
 
 
 #back-button {
