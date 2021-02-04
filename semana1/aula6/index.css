@@ -27,6 +27,17 @@ input {
 
 button:focus {
     color: white;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+button{
+    border: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 
@@ -142,7 +153,13 @@ td button:active{
     height: 100px;
 }
 
+.icone:hover{
+    opacity: 0.5;
+}
 
+.icone:active{
+    opacity: 1;
+}
 
 #back-button {
     background-color: white;
