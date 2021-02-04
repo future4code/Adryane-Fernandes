@@ -74,6 +74,11 @@ div img {
     padding-top: 15%;
 }
 
+#container-de-descricao div{  
+    width: 190px;
+    margin: auto;
+}
+
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
