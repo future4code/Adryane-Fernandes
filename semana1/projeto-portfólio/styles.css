@@ -28,12 +28,21 @@ header{
     align-items: center;
     justify-content: space-between;
 }
-header a{
+header span a{
     color: white;
     text-decoration: none;
     padding: 15px;
 }
 
+header span a:hover{
+    color: #1EC6D9;
+    background-color: #ffffff11;
+    border-radius: 8px;
+}
+header picture img:hover{
+    width: 22px;
+    height: 22px;
+}
 header img{
     width: 20px;
     height: 20px;
@@ -69,6 +78,7 @@ h1 p:last-child{
 .tags:nth-child(4){
     margin-top: 55px;
 }
+
 .tags:last-child{
     margin-left: -25px;
 }
@@ -105,6 +115,10 @@ h2{
 main section{
     margin-left: 5%;
 }
+
+/* ==============
+===== SOBRE MIM  ====
+===============*/
 
 
 /* ==============
