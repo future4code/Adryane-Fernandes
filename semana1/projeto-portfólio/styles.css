@@ -9,13 +9,19 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-color: #300759;
-    /* background-image: linear-gradient(100deg, #300759, #169baa); */
     color: white;
+    
+}
+
+#body-principal{
+    background-image: linear-gradient(100deg, #300759, #169baa); 
+    background-repeat: no-repeat; 
+    height: 100vh;
 }
 
 main{
     padding: 0 5%;
+
 }
 
 /* ==============
@@ -55,7 +61,7 @@ header img{
 ===============*/
 
 #tag-h1{
-    margin-top: 11%;
+    margin-top: 8%;
 }
 
 h1{
@@ -68,20 +74,21 @@ h1 p:last-child{
     
 }
 
+#tag1{
+    margin-top: 20px;
+}
+#tag4{
+    margin-top: 60px;
+}
 .tags{
-    color: #367FBF;
-}
-.tags:first-child{
-    margin-top: 5px;
-}
-
-.tags:nth-child(4){
-    margin-top: 55px;
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .tags:last-child{
     margin-left: -25px;
+    padding-bottom: 25px;
 }
+
 h2{
     font-weight: 100;
     font-size: 12pt;
@@ -89,20 +96,19 @@ h2{
 }
 
 #botao-index{
-    background-color: #300759;
-    color: #1EC6D9;
+    background-color: #1EC6D9;
+    color: black;
     font-weight: 600;
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
-    border: 2px #1EC6D9 solid;
     margin: 25px 0;
 }
 
 #botao-index:hover{
-    background-color: #1EC6D9;
-    font-weight: 800;
-    color: #300759; 
+    background-color: #1b0333;
+    color: white;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
 }
 
 #avatar-index{
@@ -112,35 +118,69 @@ h2{
     top: 22%;
 }
 
+
 main section{
     margin-left: 5%;
 }
+#codigo{
+    position: fixed;
+    right: 20px;
+    /* margin-top: 50px; */
+    font-size: 18pt;
+    opacity: 0.1;
+}
+.cod-identado{
+    margin-left: 30px;
+}
 
-/* ==============
+/* ==================
 ===== SOBRE MIM  ====
-===============*/
-#section-sobre-mim{
+=====================*/
+#minha-foto, #topo-pag{
+    float: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#topo-pag{
+    background-color: #1EC6D9;
+    width: auto;
+    margin: auto;
+    margin-top: 70px;
+    height: 150px;
+    width: 70%;
+    background-image: linear-gradient(50deg, #1fe2f8, #300759);
+}
+
+#topo-pag p{
+    padding: 70px 50px;
+    font-weight: 300;
+    font-size: 38pt;
+    text-align: right;
+}
+img#minha-foto{
+    border-radius: 50px;
+    border: 5px #1fe2f8 solid;
+    height: 250px;
+}
+}
+/* #section-sobre-mim{
     display: block;
     margin: auto;
     width: 800px;
     margin-top: 15%;
-  
 }
 
 #minha-foto, #texto-sobre-mim{
     display: inline-block;
     float: left;
 }
-#minha-foto{
-    border-radius: 50px;
-    border: 5px #1EC6D9 solid;
-    width: 30%;
-}
+
 #texto-sobre-mim{
     text-align: justify;
     width: 48%;
     margin-left:10px; 
-}
+} */
 
 /* ==============
 ===== CONTATO ====
@@ -172,4 +212,4 @@ footer{
 
 footer p{
     opacity: 0;
-}
+} 

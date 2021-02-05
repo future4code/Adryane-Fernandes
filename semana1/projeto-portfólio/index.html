@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body id="body-principal">
     <header>
         <span>
             <a href="index.html">Home</a>
@@ -35,8 +35,39 @@
     </header>
 
     <main>
-        <p class="tags">&lt;body&gt;</p>
 
+        <div id="codigo">
+            <p>header{</p>
+            <p class="cod-identado"> background-color: #15011B;</p>
+            <p class="cod-identado">padding: 20px;
+            <p class="cod-identado">display: flex;</p>
+            <p class="cod-identado">align-items: center;</p>
+            <p class="cod-identado">justify-content: space-between;</p>
+            <p>}</p>
+            <p> header span a{</p>
+            <p class="cod-identado">color: white;</p>
+            <p class="cod-identado">text-decoration: none;</p>
+            <p class="cod-identado">padding: 15px;</p>
+            <p>}</p>
+
+            <p> header span a:hover{</p>
+            <p class="cod-identado">color: #1EC6D9;</p>
+            <p class="cod-identado">background-color: #ffffff11;</p>
+            <p class="cod-identado">border-radius: 8px;</p>
+            <p>}</p>
+            <p> header picture img:hover{</p>
+            <p class="cod-identado">width: 22px;</p>
+            <p class="cod-identado">height: 22px;</p>
+            <p>}</p>
+            <p> header img{</p>
+            <p class="cod-identado"> width: 20px;</p>
+            <p class="cod-identado">height: 20px;</p>
+            <p class="cod-identado">margin: 0 5px;</p>
+            <p class="cod-identado">justify-content: right;</p>
+            <p>}</p>
+        </div>
+
+        <p class="tags" id="tag1">&lt;body&gt;</p>
         <section>
             <p class="tags" id="tag-h1">&lt;h1&gt;</p>
 
@@ -59,13 +90,14 @@
 
 
 
-        <p class="tags">&lt;/body&gt;</p>
-        <p class="tags">&lt;/hmtl&gt;</p> 
+        <p class="tags" id="tag4">&lt;/body&gt;</p>
+        <p class="tags">&lt;/hmtl&gt;</p>
     </main>
 
     <footer>
         <p>rodapé</p>
     </footer>
+
 </body>
 
 </html>
