@@ -351,13 +351,28 @@ h2#subtitulo{
     margin: auto;
 }
 
-#conteudo-exp h2{
-    color: #300759;
+#conteudo-exp{
+    margin: auto;
+    margin-top: 60px;
 }
-#conteudo-exp h3{
-    color: #1b0333;
+#conteudo-exp table{
+    width: 40%;
+    margin: auto;
+    text-align: center;
     font-weight: 400;
-    margin-left: 50px;
+}
+#conteudo-exp th img{
+    width: 80px;
+    margin: 0 200px;
+}
+#conteudo-exp td{
+    padding: 10px;
+}
+
+#conteudo-exp tr:first-child{
+    font-size: 20pt;
+    font-weight: 700;
+    color: #300759;
 }
 /* ==============
 ===== CONTATO ====
