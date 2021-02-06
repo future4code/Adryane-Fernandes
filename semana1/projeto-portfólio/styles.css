@@ -162,7 +162,7 @@ main section{
 #sobre-mim{
     width: 50%;
 }
-#sobre-mim h2{
+#sobre-mim h1{
     color: #1EC6D9;
     font-size: 36pt;
     margin-top: 5%;
@@ -187,6 +187,54 @@ main section{
 
 }
 
+/* ==================
+===== PROJETOS  ====
+=====================*/
+
+.tags-proj{
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+}
+#titulo-proj p:first-child{
+    text-align: left;
+    margin: 50px 0 -10px 0;
+}
+#titulo-proj p:last-child{
+    text-align: right;
+    margin: -10px 0 0 0;
+}
+
+#titulo-proj {
+    width: 280px;
+    margin: auto;
+    text-align: center;
+    color: #169baa;
+    margin: auto;
+}
+#titulo-proj h1{
+    font-size: 36pt;
+    margin: auto;
+}
+#projetos{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+#projetos img{
+    width: 60vh;
+    height: 60vh;
+    padding: 10px;
+    margin-top: 2%;
+}
+#projetos img:hover{
+    width: 65vh;
+    height: 65vh;
+   
+}
+#projetos img:active{
+    box-shadow: 1px 1px 10px #169baa;
+    opacity: 0.8;
+}
 /* ==============
 ===== CONTATO ====
 ===============*/
