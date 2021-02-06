@@ -20,6 +20,10 @@ body {
 
 }
 
+#body-sobre-mim{
+    background-color: #300759;
+}
+
 main{
     padding: 0 5%;
 
@@ -75,22 +79,23 @@ h1 p:last-child{
     
 }
 
-#tag1{
-    margin-top: 20px;
-}
-#tag4{
-    margin-top: 30px;
-}
 .tags{
     color: rgba(255, 255, 255, 0.2);
 }
 
-.tags:last-child{
+#tagbody{
+    margin-top: 20px;
+}
+#tagfbody{
+    margin-top: 20px;
+}
+
+#tagfhtml{
     margin-left: -25px;
     padding-bottom: 25px;
 }
 
-h2{
+h2#subtitulo{
     font-weight: 100;
     font-size: 12pt;
     margin: 6px 0;
@@ -137,57 +142,49 @@ main section{
 /* ==================
 ===== SOBRE MIM  ====
 =====================*/
-#minha-foto, #topo-pag{
-    display: inline-block;
-    margin-top: 20px;
-} 
+#tagimg{
+    position: fixed;
+    right: 320px;
+    top: 68px;
 
-#topo-pag{
-    background-color: #1EC6D9;
-    height: 150px;
-    margin-top: 70px;
-    width: 70%;
-    background-image: linear-gradient(50deg, #1fe2f8, #300759);
-    float: right;
 }
-
-#topo-pag p{
-    padding: 70px 50px;
-    font-weight: 300;
-    font-size: 38pt;
-    text-align: right;
-    color: white;
+#tagfimg{
+    position: fixed;
+    bottom: 70px;
+    right: 7px;
 }
-img#minha-foto{
-    border-radius: 50px;
-    border: 5px #1fe2f8 solid;
-    height: 250px;
-    
-}
-#section-sobre-mim img{
-    width: 100px;
-    
-}
-
-#section-sobre-mim{
-    padding-top: 200px;
-    background-color: red;
-    display: block;
-    width: 80%;
-    margin: auto;
-}
-
-table{
+ img#minha-foto{
+    position: fixed;
+    right: 0;
+    top: 64px;
+    height: 88vh;
+ }
+#sobre-mim{
     width: 50%;
-    text-align: center; 
-    margin: auto;
 }
-table th{
+#sobre-mim h2{
+    color: #1EC6D9;
+    font-size: 36pt;
+    margin-top: 5%;
+    display: inline-block;
+}
+#sobre-mim p{
     padding: 10px;
+    font-size: 14pt;
+    color: white;
+    font-weight: 300;
 }
-li{
-    padding: 4px;
-    list-style: square ;
+
+#sobre-mim .tags{
+    color: rgba(255, 255, 255, 0.2);
+}
+#tagsh2{
+    margin-left: -50px;
+    margin-bottom: -20px;
+}
+#tagsfh2{
+    display: inline-block;
+
 }
 
 /* ==============
