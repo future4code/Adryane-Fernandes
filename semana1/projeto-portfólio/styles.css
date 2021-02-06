@@ -288,23 +288,77 @@ h2#subtitulo{
     }
 
 
-    /* ==================
-    ===== dev finances  ====
-    =====================*/
-
-
-
-    
+    /* =========================
+    ===== bordados de amor  ====
+    ============================*/
     #logo-bordado{
         background-color: #ddbea4;
-         padding: 30px;
+        padding: 30px;
         text-align: center;
     }
 
+    #conteudo-bordado{
+        margin-top: 50px;
+        text-align: center;
+    }
+    #conteudo-bordado > img{
+        width: 80%;
+    }
+    #conteudo-bordado figure{
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
+    #conteudo-bordado figure img{
+        width: 40%;
+        padding: 4px;
+    }
+    #conteudo-bordado figure img:hover{
+        width: 45%;
+    }
+
+    #logo-bordado img{
+        width: 200px;
+    }
     #conteudo-bordado div{
         text-align: right;
     }
 
+/* ==================
+===== EXPERÊNCIA ====
+=====================*/
+.tags-proj{
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+}
+#titulo-exp p:first-child{
+    text-align: left;
+    margin: 50px 0 -10px 0;
+}
+#titulo-exp p:last-child{
+    text-align: right;
+    margin: -10px 0 0 0;
+}
+#titulo-exp {
+    width: 380px;
+    margin: auto;
+    text-align: center;
+    color: #169baa;
+    margin: auto;
+}
+#titulo-exp h1{
+    font-size: 36pt;
+    margin: auto;
+}
+
+#conteudo-exp h2{
+    color: #300759;
+}
+#conteudo-exp h3{
+    color: #1b0333;
+    font-weight: 400;
+    margin-left: 50px;
+}
 /* ==============
 ===== CONTATO ====
 ===============*/
