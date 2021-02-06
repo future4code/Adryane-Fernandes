@@ -270,7 +270,7 @@ h2#subtitulo{
     #conteudo-dev div{
         text-align: right;
     }
-    #botao-voltar{
+    .botao-azul{
         border: none;
         font-weight: 400;
         font-size: 18pt;
@@ -280,10 +280,10 @@ h2#subtitulo{
         margin-bottom: 30px;
         border-radius: 5px;
     }
-    #botao-voltar:hover{
+    .botao-azul:hover{
         background-color: #17a1b1;
     }
-    #botao-voltar:active{
+    .botao-azul:active{
         box-shadow: 1px 1px 5px black;
     }
 
@@ -361,7 +361,8 @@ h2#subtitulo{
     text-align: center;
     font-weight: 400;
 }
-#conteudo-exp th img{
+#conteudo-exp th im
+g{
     width: 80px;
     margin: 0 200px;
 }
@@ -377,17 +378,85 @@ h2#subtitulo{
 /* ==============
 ===== CONTATO ====
 ===============*/
-#area-formulario{
-    margin: auto;
-    display: block;
-    width: 60%;
-    margin-top: 20%;
+
+
+form input, textarea{
+    width: 400px;
+    font-size: 15pt;
 }
-form p{
-    margin: auto;
-    display: block;
-    width: 50%;
+form input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #300759;
 }
+form textarea{
+    border: #300759 1px solid;
+}
+legend{
+    color: #1EC6D9;
+    font-weight: 700;
+    font-size: 36pt;
+}
+
+label{
+    text-align: left;
+    color: #1b0333;
+    font-size: 16pt;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+input:focus{
+    color: #333333;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 1px solid #6e6e6e;
+}
+input:hover{
+    outline: 1px solid #afaeae;
+}
+textarea:focus{
+    color: #333333;
+    box-shadow:0 0 0 0;
+    border: 0 none;
+    outline: 1px solid #6e6e6e;
+}
+table td{
+    padding: 10px 0;
+}
+#tabela{
+    display: block;
+    margin: auto;
+    width: 600px;
+}
+table{
+    margin: auto;
+}
+
+#area-formulario p:first-child{
+    margin-right: 500px;
+    margin-bottom: -10px;
+}
+
+#area-formulario p:last-child{
+    margin-left: 500px;
+    margin-top: -10px;
+}
+
+#titulo-contato{
+    padding: 30px 0;
+    text-align: center;
+}
+
+#area-formulario p{
+    margin: 20px 0;
+}
+
+#label-msg{
+    display: block;
+    margin-top: -120px;
+} */
 
 
 /* ==============

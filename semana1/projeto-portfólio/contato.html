@@ -34,32 +34,54 @@
     </header>
 
     <main>
-
-        <div id="area-formulario">
+        <section id="area-formulario">
             <form action="">
-                <fieldset>
-                    <legend>Entre em contato: </legend>
-                    <p>
-                        <label for="nome">Nome: </label>
-                        <input type="text" name="nome">
-                    </p>
-                    <p>
-                        <label for="email">Email: </label>
-                        <input type="email" name="email">
-                    </p>
-                    <p>
-                        <label for="msg">Mensagem: </label>
-                        <p>
-                            <textarea name="msg" id="mensagem" cols="30" rows="10"></textarea>
-                        </p>
-                    </p>
-                    <input type="submit" value="Enviar">
-                </fieldset>
+
+                <div id="titulo-contato">
+                    <p class="tags tags-proj">&lt;legend&gt;</p>
+                    <legend> Entre em contato: </legend>
+                    <p class="tags tags-proj"">&lt;/legend&gt;</p>
+                </div>
+                <div>
+                <table>
+                    <tr>
+                        <td>
+                            <label for=" nome">Nome: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="nome">
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="email">Email: </label>
+                            </td>
+                            <td>
+                                <input type="email" name="email">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="msg" id="label-msg">Mensagem: </label>
+                            </td>
+                            <td>
+                                <textarea name="msg" id="mensagem" cols="30" rows="10"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Enviar" class="botao-azul"></td>
+                        </tr>
+
+                    </table>
+                </div>
             </form>
-        </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="fixo">
         <p>rodapé</p>
     </footer>
 </body>
