@@ -9,7 +9,6 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    color: white;
     
 }
 
@@ -17,6 +16,8 @@ body {
     background-image: linear-gradient(100deg, #300759, #169baa); 
     background-repeat: no-repeat; 
     height: 100vh;
+    color: white;
+
 }
 
 main{
@@ -61,7 +62,7 @@ header img{
 ===============*/
 
 #tag-h1{
-    margin-top: 8%;
+    margin-top: 7%;
 }
 
 h1{
@@ -78,7 +79,7 @@ h1 p:last-child{
     margin-top: 20px;
 }
 #tag4{
-    margin-top: 60px;
+    margin-top: 30px;
 }
 .tags{
     color: rgba(255, 255, 255, 0.2);
@@ -137,19 +138,17 @@ main section{
 ===== SOBRE MIM  ====
 =====================*/
 #minha-foto, #topo-pag{
-    float: left;
     display: inline-block;
     margin-top: 20px;
-}
+} 
 
 #topo-pag{
     background-color: #1EC6D9;
-    width: auto;
-    margin: auto;
-    margin-top: 70px;
     height: 150px;
+    margin-top: 70px;
     width: 70%;
     background-image: linear-gradient(50deg, #1fe2f8, #300759);
+    float: right;
 }
 
 #topo-pag p{
@@ -157,30 +156,39 @@ main section{
     font-weight: 300;
     font-size: 38pt;
     text-align: right;
+    color: white;
 }
 img#minha-foto{
     border-radius: 50px;
     border: 5px #1fe2f8 solid;
     height: 250px;
+    
 }
+#section-sobre-mim img{
+    width: 100px;
+    
 }
-/* #section-sobre-mim{
+
+#section-sobre-mim{
+    padding-top: 200px;
+    background-color: red;
     display: block;
+    width: 80%;
     margin: auto;
-    width: 800px;
-    margin-top: 15%;
 }
 
-#minha-foto, #texto-sobre-mim{
-    display: inline-block;
-    float: left;
+table{
+    width: 50%;
+    text-align: center; 
+    margin: auto;
 }
-
-#texto-sobre-mim{
-    text-align: justify;
-    width: 48%;
-    margin-left:10px; 
-} */
+table th{
+    padding: 10px;
+}
+li{
+    padding: 4px;
+    list-style: square ;
+}
 
 /* ==============
 ===== CONTATO ====
