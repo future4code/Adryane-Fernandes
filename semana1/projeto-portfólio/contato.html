@@ -10,14 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="sortcut icon" href="./imagens/boneca-home.png" type="image/png" />
+
 </head>
 
 <body>
     <header>
         <span>
-            <a href="index.html">Home</a>
+            <a href="index.html">Início</a>
             <a href="sobre-mim.html">Sobre</a>
-            <a href="experiencias.html">Experiências</a>
+            <a href="experiencias.html">Experiência</a>
             <a href="projetos.html">Projetos</a>
         </span>
         <picture>
@@ -34,51 +36,32 @@
     </header>
 
     <main>
-        <section id="area-formulario">
+        <div id="area-formulario">
             <form action="">
-
-                <div id="titulo-contato">
-                    <p class="tags tags-proj">&lt;legend&gt;</p>
-                    <legend> Entre em contato: </legend>
+                <p class="tags tags-proj">&lt;legend&gt;</p>
+                <section id="titulo-contato">
+                    <legend> Entre em contato </legend>
                     <p class="tags tags-proj"">&lt;/legend&gt;</p>
-                </div>
-                <div>
-                <table>
-                    <tr>
-                        <td>
-                            <label for=" nome">Nome: </label>
-                        </td>
-                        <td>
-                            <input type="text" name="nome">
-                        </td>
-                        </tr>
+                </section>
+                <section id="section-conteudo">
+                    <div>
+                        <label for=" nome">Nome: </label></td>
+                        <input type="text" name="nome"></td>
+                    </div>
+                    <div>
+                        <label for="email">Email: </label>
+                        <input type="email" name="email">
+                    </div>
+                    <div>
+                        <label for="msg" id="label-msg">Mensagem: </label>
+                        <textarea name="msg" id="mensagem" cols="30" rows="10"></textarea>
+                    </div>
 
-                        <tr>
-                            <td>
-                                <label for="email">Email: </label>
-                            </td>
-                            <td>
-                                <input type="email" name="email">
-                            </td>
-                        </tr>
+                    <input type="submit" value="Enviar" class="botao-azul"></td>
 
-                        <tr>
-                            <td>
-                                <label for="msg" id="label-msg">Mensagem: </label>
-                            </td>
-                            <td>
-                                <textarea name="msg" id="mensagem" cols="30" rows="10"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" value="Enviar" class="botao-azul"></td>
-                        </tr>
-
-                    </table>
-                </div>
+                </section>
             </form>
-        </section>
+        </div>
     </main>
 
     <footer class="fixo">
