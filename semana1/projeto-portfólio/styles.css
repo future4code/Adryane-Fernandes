@@ -87,7 +87,7 @@ h1 p:last-child{
     margin-top: 20px;
 }
 #tagfbody{
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 #tagfhtml{
@@ -179,12 +179,44 @@ h2#subtitulo{
     color: rgba(255, 255, 255, 0.2);
 }
 #tagsh2{
-    margin-left: -50px;
-    margin-bottom: -20px;
+    margin: 20px 0 -20px -50px;
 }
 #tagsfh2{
     display: inline-block;
 
+}
+
+#sobre-mim div{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+#sobre-mim table{
+    color: white;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    font-weight: 200;
+}
+#sobre-mim th img{
+    width: 60px;
+    margin: 10px 10px 0 10px;
+}
+#sobre-mim td{
+    padding: 5px 10px;
+}
+#sobre-mim ul{
+    list-style: none;
+}
+#sobre-mim li{
+    padding: 2px;
+}
+#sobre-mim #titulo td{
+    color: #1EC6D9;
+    margin-top: -5px;
+    font-size: 18pt;
+    font-weight: 400;
 }
 
 /* ==================
@@ -361,8 +393,7 @@ h2#subtitulo{
     text-align: center;
     font-weight: 400;
 }
-#conteudo-exp th im
-g{
+#conteudo-exp th img{
     width: 80px;
     margin: 0 200px;
 }
@@ -422,7 +453,7 @@ textarea:focus{
     border: 0 none;
     outline: 1px solid #6e6e6e;
 }
-table td{
+#area-formulario td{
     padding: 10px 0;
 }
 #tabela{
@@ -430,7 +461,7 @@ table td{
     margin: auto;
     width: 600px;
 }
-table{
+#area-formulario table{
     margin: auto;
 }
 
@@ -456,7 +487,7 @@ table{
 #label-msg{
     display: block;
     margin-top: -120px;
-} */
+} 
 
 
 /* ==============
