@@ -73,7 +73,13 @@ h1{
     font-size: 72pt;
     display: inline-block;
 }
-
+#section-index span:hover{
+    color: #5eefff;
+    font-size: 75pt;
+}
+#section-index p:last-child span:hover{
+    color: #240642;
+}
 h1 p:last-child{
     color: #1EC6D9;
     
@@ -121,21 +127,7 @@ h2#subtitulo{
     font-size: 14pt;
     margin-top: 16px;
 }
-/* #botao-index{
-    background-color: #1EC6D9;
-    color: black;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    margin: 25px 0;
-}
 
-#botao-index:hover{
-    background-color: #1b0333;
-    color: white;
-    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
-} */
 
 #avatar-index{
     width: 35%;
