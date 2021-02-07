@@ -73,7 +73,7 @@ h1{
     font-size: 72pt;
     display: inline-block;
 }
-#section-index span:hover{
+h1 span:hover{
     color: #5eefff;
     font-size: 75pt;
 }
