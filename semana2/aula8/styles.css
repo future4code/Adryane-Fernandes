@@ -1,0 +1,143 @@
+/* ================
+===== geral =======
+================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    background-color: #13293D;
+}
+
+/* ================
+===== cabeçalho ===
+================ */
+
+header {
+    background-color: #001324;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26pt;
+    padding: 20px;
+}
+
+header img {
+    width: 30px;
+    padding-left: 5px;
+}
+
+header p {
+    font-weight: 200;
+}
+
+p, form {
+    display: flex;
+}
+
+input {
+    color: black;
+}
+
+/* ================
+===== index =======
+================ */
+
+body {
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    height: 100vh;
+}
+
+.card {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.card video {
+    width: 95%;
+    display: flex;
+    box-shadow: 1px 1px 2px black;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card-video {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.card-video p {
+    font-size: 16pt;
+}
+
+.card-video:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+/* ================
+===== videos ======
+================ */
+
+h1 {
+    font-weight: 300;
+}
+
+.main-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-video div {
+    background-color: #234b7080;
+    padding: 2%;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    margin: 1%;
+}
+
+.main-video video {
+    width: 100%;
+    padding-top: 10px;
+    outline: none;
+}
+
+button{
+    background-color: #013B70;
+    border: none;
+    padding: 5px 40px;
+    font-size: 15pt;
+    margin: 0 10px 10px 0;
+
+    /* margin-top: 5%; */
+}
+/* ================
+===== rodapé ======
+================ */
+
+footer {
+    background-color: #001324;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+}
+
