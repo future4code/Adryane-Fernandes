@@ -2,6 +2,7 @@
 ===== geral =======
 ================ */
 
+
 * {
     margin: 0;
     padding: 0;
@@ -41,6 +42,7 @@ p, form {
 input {
     color: black;
     outline: none;
+    width: 220px; 
 }
 
 header img {
@@ -92,8 +94,6 @@ body {
 .card-video {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
