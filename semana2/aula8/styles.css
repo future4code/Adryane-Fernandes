@@ -97,7 +97,9 @@ body {
 }
 
 .card-video p {
-    font-size: 16pt;
+    font-size: 15pt;
+    text-align: center;
+    padding-top: 3px;
 }
 
 .card-video:hover {
@@ -141,6 +143,10 @@ h1 {
     padding: 5px 40px;
     font-size: 15pt;
     margin: 0 10px 10px 0;
+}
+.main-video button:hover {
+    background-color: #033869;
+    color: rgb(218, 214, 214);
 }
 
 /* ================
