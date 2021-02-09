@@ -28,7 +28,10 @@ header {
 }
 
 header p {
-    font-weight: 200;
+    font-weight: 600;
+}
+p span{
+    color: #046cce;
 }
 
 p, form {
