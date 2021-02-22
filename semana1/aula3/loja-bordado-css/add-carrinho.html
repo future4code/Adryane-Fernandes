@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;0,700;1,300;1,600;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Bordados de amor</h1>
+    </header>
+    <div class="links">
+        <a class="mudanca-de-pag" href="./index.html">Página Inicial</a>
+        <a class="mudanca-de-pag" href="./ctrl-estoque.html">Controle de Estoque</a>
+        <a class="mudanca-de-pag" href="./add-produto.html">Adicionar Produto</a>
+        <a class="mudanca-de-pag" href="./funcionarios.html">Funcionários</a>
+    </div>
+    <main>
+        <div class="div-carrinho">
+            <form action="">
+
+                <table class="tabela-carrinho">
+                    <thead>
+                        <tr>
+                            <th>Produto: </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="desc">Descrição do produto: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="desc" name="descrição">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="preco">Preço:</label>
+                            </td>
+                            <td>
+                                R$<input type="number" id="preco" name="preço">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="pag">Tipo de Pagamento: </label>
+                            </td>
+                            <td>
+                                <input type="radio" id="din" name="Pagamento" value="dinheiro"> Dinheiro
+                                <input type="radio" id="cart" name="Pagamento" value="cartão"> Cartão
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button type="submit"> ENVIAR </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <section>
+                        <a id="ver-lista" href="carrinho.html">Ver carrinho</a>
+                    </section>
+                </table>
+
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="fixo">
+        <p class="logo-rodape">Bordados de amor</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionar Produto</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;0,700;1,300;1,600;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Bordados de Amor!</h1>
+    </header>
+
+    <div class="links">
+        <a class="mudanca-de-pag" href="./index.html">Página Inicial</a>
+        <a class="mudanca-de-pag" href="./ctrl-estoque.html">Controle de Estoque</a>
+        <a class="mudanca-de-pag" href="./funcionarios.html">Funcionários</a>
+        <a class="mudanca-de-pag" href="./add-carrinho.html">Adicionar ao carrinho</a>
+        <a class="mudanca-de-pag" href="./carrinho.html">Carrinho</a>
+    </div>
+
+    <main>
+        <form action="">
+            <div id="tabela-add">
+                <table id="add-prod">
+                    <thead>
+                        <tr>
+                            <th>
+                                Adicionar Produto
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tr class="formulario">
+                        <td> <label for="link-foto">Link para foto: </label></td>
+                        <td><input type="url" id="link-foto" name="link-foto"></td>
+                    </tr>
+
+                    <tr class="formulario">
+                        <td><label for="descricao">Descrição do produto: </label></td>
+                        <td><input type="text" id="descricao" name="descrição"></td>
+                    </tr>
+
+                    <tr class="formulario">
+                        <td><label for="preco">Preço (em R$): </label></td>
+                        <td><input type="number" id="preco" name="preço"></td>
+                    </tr>
+
+                    <tr class="formulario">
+                        <td><label for="quantidade_prod">Quantidade disponível: </label></td>
+                        <td><input type="number" id="quantidade_prod" name="quantidade"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button type="submit">Adicionar</button></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p class="logo-rodape">Bordados de amor</p>
+    </footer>
+</body>
+
+</html>
