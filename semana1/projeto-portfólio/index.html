@@ -9,52 +9,100 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="sortcut icon" href="./imagens/boneca-home.png" type="image/png" />
 </head>
 
-<body>
+<body id="body-principal">
     <header>
-        <a href="index.html">Home</a>
-        <a href="sobre-mim.html">Sobre</a>
-        <a href="experiencias.html">Experiências</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="contato.html/">Contato</a>
-<p></p>
-        <img src="" alt="Linkedin">
-        <img src="" alt="Facebook">
-        <img src="" alt="GitHub">
+        <span>
+            <a href="index.html">Início</a>
+            <a href="experiencias.html">Experiência</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="contato.html">Contato</a>
+        </span>
+        <picture>
+            <a href="http://www.linkedin.com/in/adryane-fernandes-146ba01bb/" target="_blank" rel="noopener noreferrer">
+                <img src="./imagens/linkedin.png" alt="Linkedin">
+            </a>
+            <a href="https://github.com/adryanefernandes" target="_blank" rel="noopener noreferrer">
+                <img src="./imagens/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.facebook.com/adryane.cristine" target="_blank" rel="noopener noreferrer">
+                <img src="./imagens/github.png" alt="GitHub">
+            </a>
+        </picture>
     </header>
 
     <main>
-        <p>&lt;body&gt;</p>
 
-        <div>
-            &lt;div&gt;
-            &lt;/div&gt;
-        </div>
+        <div id="codigo">
+            <p>header{</p>
+            <p class="cod-identado"> background-color: #15011B;</p>
+            <p class="cod-identado">padding: 20px;
+            <p class="cod-identado">display: flex;</p>
+            <p class="cod-identado">align-items: center;</p>
+            <p class="cod-identado">justify-content: space-between;</p>
+            <p>}</p>
+            <p> header span a{</p>
+            <p class="cod-identado">color: white;</p>
+            <p class="cod-identado">text-decoration: none;</p>
+            <p class="cod-identado">padding: 15px;</p>
+            <p>}</p>
 
-        <p>&lt;h1&gt;</p>
-
-        <h1>Olá, Sou a Adryane</h1>
-        <h2>DESENVOLVEDORA FRONT-END</h2>
-
-        <p>&lt;/h1&gt;</p>
-
-        <button>SOBRE MIM</button>
-
-        <div>
-            <p>h1{</p>
-            <p>  color: with</p>
-            <p>  font-family: arial;</p>
+            <p> header span a:hover{</p>
+            <p class="cod-identado">color: #1EC6D9;</p>
+            <p class="cod-identado">background-color: #ffffff11;</p>
+            <p class="cod-identado">border-radius: 8px;</p>
+            <p>}</p>
+            <p> header picture img:hover{</p>
+            <p class="cod-identado">width: 22px;</p>
+            <p class="cod-identado">height: 22px;</p>
+            <p>}</p>
+            <p> header img{</p>
+            <p class="cod-identado"> width: 20px;</p>
+            <p class="cod-identado">height: 20px;</p>
+            <p class="cod-identado">margin: 0 5px;</p>
+            <p class="cod-identado">justify-content: right;</p>
             <p>}</p>
         </div>
 
+        <p class="tags" id="tagbody">&lt;body&gt;</p>
+        <section id="section-index">
+            <p class="tags" id="tag-h1">&lt;h1&gt;</p>
 
-        <p>&lt;/body&gt;</p>
-        <p>&lt;/hmtl&gt;</p>
+            <h1>
+                </p>
+                <p>
+                    <span>O</span><span>l</span><span>á</span><span>,</span>
+                </p>
+                <p>
+                <span>S</span><span>o</span><span>u</span> <span>a</span>
+                </p>
+                <p>
+                    <span>A</span><span>d</span><span>r</span><span>y</span><span>a</span><span>n</span><span>e</span>
+                </p>
+            </h1>
+            <span class="tags">&lt;/h1&gt;</span>
+            <h2 id="subtitulo">DESENVOLVEDORA FRONT-END</h2>
+            <div>
+                <a href="sobre-mim.html"><button class="botao-azul" id="botao-index">SOBRE MIM</button></a>
+            </div>
+        </section>
+
+        <picture>
+            <img id="avatar-index" src="./imagens/boneca-home.png" alt="Avatar de sorrido e com a mão levantada">
+        </picture>
+
+
+
+
+        <p class="tags" id="tagfbody">&lt;/body&gt;</p>
+        <p class="tags" id="tagfhtml">&lt;/hmtl&gt;</p>
     </main>
 
-    <footer>
-
+    <footer class="fixo">
+        <p>rodapé</p>
     </footer>
 </body>
 

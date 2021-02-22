@@ -1,0 +1,513 @@
+/* ==============
+===== GLOBAl ====
+===============*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+#body-principal{
+    background-image: linear-gradient(100deg, #300759, #169baa); 
+    background-repeat: no-repeat; 
+    height: 100vh;
+    color: white;
+
+}
+
+#body-sobre-mim{
+    background-color: #300759;
+}
+
+main{
+    padding: 0 5%;
+
+}
+
+/* ==============
+===== MENU  ====
+===============*/
+header{
+    background-color: #15011B;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header span a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+header span a:hover{
+    color: #1EC6D9;
+    background-color: #ffffff11;
+    border-radius: 8px;
+}
+header picture img:hover{
+    width: 22px;
+    height: 22px;
+}
+header img{
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    justify-content: right;
+}
+
+/* ==============
+===== INDEX  ====
+===============*/
+
+#tag-h1{
+    margin-top: 7%;
+}
+
+h1{
+    font-size: 72pt;
+    display: inline-block;
+}
+h1 span:hover{
+    color: #5eefff;
+    font-size: 75pt;
+}
+#section-index p:last-child span:hover{
+    color: #240642;
+}
+h1 p:last-child{
+    color: #1EC6D9;
+    
+}
+
+.tags{
+    color: rgba(255, 255, 255, 0.2);
+}
+
+#tagbody{
+    margin-top: 20px;
+}
+#tagfbody{
+    margin-top: 70px;
+}
+
+#tagfhtml{
+    margin-left: -25px;
+    padding-bottom: 25px;
+}
+
+h2#subtitulo{
+    font-weight: 100;
+    font-size: 12pt;
+    margin: 6px 0;
+}
+.botao-azul{
+    border: none;
+    font-weight: 400;
+    font-size: 18pt;
+    background-color: #1bc0d3;
+    color: white;
+    padding: 8px 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.botao-azul:hover{
+    background-color: #17a1b1;
+}
+.botao-azul:active{
+    box-shadow: 1px 1px 5px black;
+}
+
+#botao-index{
+    font-size: 14pt;
+    margin-top: 16px;
+}
+
+
+#avatar-index{
+    width: 35%;
+    position: fixed;
+    right: 10%;
+    top: 22%;
+}
+
+
+#section-index{
+    margin-left: 5%;
+}
+#codigo{
+    position: fixed;
+    right: 20px;
+    /* margin-top: 50px; */
+    font-size: 18pt;
+    opacity: 0.1;
+}
+.cod-identado{
+    margin-left: 30px;
+}
+
+/* ==================
+===== SOBRE MIM  ====
+=====================*/
+#tagimg{
+    position: fixed;
+    right: 320px;
+    top: 68px;
+
+}
+#tagfimg{
+    position: fixed;
+    bottom: 70px;
+    right: 7px;
+}
+ img#minha-foto{
+    position: fixed;
+    right: 0;
+    top: 64px;
+    height: 88vh;
+ }
+#sobre-mim{
+    width: 50%;
+}
+#sobre-mim h1{
+    color: #1EC6D9;
+    font-size: 36pt;
+    margin-top: 5%;
+    display: inline-block;
+}
+#sobre-mim p{
+    padding: 10px;
+    font-size: 14pt;
+    color: white;
+    font-weight: 300;
+}
+
+#sobre-mim .tags{
+    color: rgba(255, 255, 255, 0.2);
+}
+#tagsh2{
+    margin: 0 0 -20px -50px;
+}
+#tagsfh2{
+    display: inline-block;
+}
+
+#sobre-mim div{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+#sobre-mim table{
+    color: white;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    font-weight: 200;
+}
+#sobre-mim th img{
+    width: 60px;
+    margin: 10px 10px 0 10px;
+}
+#sobre-mim td{
+    padding: 5px 10px;
+}
+#sobre-mim ul{
+    list-style: none;
+}
+#sobre-mim li{
+    padding: 2px;
+}
+#sobre-mim #titulo td{
+    color: #1EC6D9;
+    margin-top: -5px;
+    font-size: 18pt;
+    font-weight: 400;
+}
+#botao-sobre-mim{
+    text-align: center;
+}
+#botao-sobre-mim{
+    padding-top: 15px;
+}
+/* ==================
+===== PROJETOS  ====
+=====================*/
+
+.tags-proj{
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+}
+#titulo-proj p:first-child{
+    text-align: left;
+    margin: 50px 0 -10px 0;
+}
+#titulo-proj p:last-child{
+    text-align: right;
+    margin: -10px 0 0 0;
+}
+
+#titulo-proj {
+    width: 280px;
+    margin: auto;
+    text-align: center;
+    color: #169baa;
+    margin: auto;
+}
+#titulo-proj h1{
+    font-size: 36pt;
+    margin: auto;
+}
+#projetos{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+#projetos img{
+    width: 60vh;
+    height: 60vh;
+    padding: 10px;
+    margin-top: 2%;
+}
+#projetos img:hover{
+    width: 65vh;
+    height: 65vh;
+   
+}
+#projetos img:active{
+    box-shadow: 1px 1px 10px #169baa;
+    opacity: 0.8;
+}
+
+    /* ==================
+    ===== dev finances  ====
+    =====================*/
+
+    #logo-dev{
+        background-color: #2d4a22;
+        padding: 30px;
+        text-align: center;
+    }
+
+    #conteudo-dev{
+        margin-top: 50px;
+        text-align: center;
+    }
+    #conteudo-dev > img{
+        width: 80%;
+        
+    }
+    #conteudo-dev figure{
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
+    #conteudo-dev figure img{
+        width: 40%;
+        padding: 4px;
+    }
+    #conteudo-dev figure img:hover{
+        width: 45%;
+    }
+
+    #conteudo-dev div{
+        text-align: right;
+    }
+    
+
+
+    /* =========================
+    ===== bordados de amor  ====
+    ============================*/
+    #logo-bordado{
+        background-color: #ddbea4;
+        padding: 30px;
+        text-align: center;
+    }
+
+    #conteudo-bordado{
+        margin-top: 50px;
+        text-align: center;
+    }
+    #conteudo-bordado > img{
+        width: 80%;
+    }
+    #conteudo-bordado figure{
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
+    #conteudo-bordado figure img{
+        width: 40%;
+        padding: 4px;
+    }
+    #conteudo-bordado figure img:hover{
+        width: 45%;
+    }
+
+    #logo-bordado img{
+        width: 200px;
+    }
+    #conteudo-bordado div{
+        text-align: right;
+    }
+
+/* ==================
+===== EXPERÊNCIA ====
+=====================*/
+.tags-proj{
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+}
+#titulo-exp p:first-child{
+    text-align: left;
+    margin: 90px 0 -10px 0;
+}
+#titulo-exp p:last-child{
+    text-align: right;
+    margin: -10px 0 0 0;
+}
+#titulo-exp {
+    width: 380px;
+    margin: auto;
+    text-align: center;
+    color: #169baa;
+    margin: auto;
+}
+#titulo-exp h1{
+    font-size: 36pt;
+    margin: auto;
+}
+
+#conteudo-exp{
+    margin: auto;
+    margin-top: 70px;
+}
+#conteudo-exp table{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    font-weight: 400;
+}
+#conteudo-exp th img{
+    width: 80px;
+    margin: 0 200px;
+}
+#conteudo-exp td{
+    padding: 10px;
+}
+
+#conteudo-exp tr:first-child{
+    font-size: 20pt;
+    font-weight: 700;
+    color: #300759;
+}
+/* ==============
+===== CONTATO ====
+===============*/
+#area-formulario{
+    width: 500px;
+    margin: auto;
+}
+#section-conteudo{
+    margin-top: 30px;
+}
+#section-conteudo div{
+    margin: 10px 0;
+
+}
+form input, textarea{  
+    font-size: 15pt;
+}
+form input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #300759;
+    width: 100%;
+}
+form input:last-child{
+    width: 500px;
+}
+form {
+    display: block;
+    margin: auto;
+}
+form textarea{
+    border: #300759 1px solid;
+    width: 100%;
+}
+legend{
+    color: #1EC6D9;
+    font-weight: 700;
+    font-size: 36pt;
+    margin-top: -38px;
+}
+
+label{
+    text-align: left;
+    color: #1b0333;
+    font-size: 16pt;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+input:focus{
+    color: #333333;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 1px solid #6e6e6e;
+}
+input:hover{
+    outline: 1px solid #afaeae;
+}
+textarea:focus{
+    color: #333333;
+    box-shadow:0 0 0 0;
+    border: 0 none;
+    outline: 1px solid #6e6e6e;
+}
+
+
+#area-formulario p:first-child{
+    margin-top: 50px;
+}
+
+#area-formulario p:last-child{
+    margin-left: 420px;
+    margin-top: -10px;
+}
+
+#titulo-contato{
+    padding: 30px 0;
+    text-align: center;
+}
+
+#label-msg{
+    display: block;
+} 
+
+
+/* ==============
+===== RODAPÉ  ====
+===============*/
+
+footer{
+    background-color: #15011B;
+    padding: 20px;
+    width: 100%;
+}
+
+.fixo{
+    position: fixed;
+    bottom: 0;
+}
+
+footer p{
+    opacity: 0;
+} 
