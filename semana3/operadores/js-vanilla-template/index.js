@@ -86,4 +86,48 @@ console.log('O e-mail ' + emailDoUsuario + ' foi cadastrado com sucesso. Seja be
 
 
 
+//DESAFIOS
+//1
+let conversaoFparaK = (77 - 32)*5 / 9 + 273.15
+let conversaoCparaF = 80 * 9 / 5 + 32
+let conversaoCparaK = 30 + 273.15
+let conversaoCparaF2 = 30 * 9 / 5 + 32
+
+
+console.log('77°F em Kelvin fica ' +  conversaoFparaK + 'K')
+console.log('80°C em fahrenheit fica ' +  conversaoCparaF + '°F')
+console.log('30°C em fahrenheit fica ' +  conversaoCparaF2 + '°F e em Kelvin fica ' + conversaoCparaK + 'K')
+
+
+//2
+const quilowattExemplo = 280*0.05 
+console.log('Uma casa que consumiur 280 quilowatt-hora pagará: R$' + quilowattExemplo)
+let quilowattConsumido = prompt('Digite quantos quilowatt-hora foram consumidos: ')
+let valorTotal = quilowattConsumido*0.05 - (quilowattConsumido*0.05 )*15/100
+console.log('O total a ser pago é R$' + valorTotal)
+
+
+//3
+let libra = 20
+let onca = 10
+let milha = 100
+let pes = 50
+let galao = 103.56
+
+let xicara = prompt('Digite quantas xícaras para converter para litro: ')
+
+let libraKilo = libra/2.2046
+let oncaKilo = onca/35.274
+let milhaMetro = milha/0.00062137
+let pesMetro = pes/3.28084
+let galaoLitro = galao/0.264172
+let xicaraLitro = xicara/4.227
+
+console.log(libra + 'lb equivalem a ' + libraKilo + 'Kg')
+console.log(onca + 'oz equivalem a ' + oncaKilo + 'Kg')
+console.log(milha + 'mi equivalem a ' + milhaMetro + 'm')
+console.log(pes + 'ft equivalem a ' + pesMetro + 'm')
+console.log(galao + 'gal equivalem a ' + galaoLitro + 'l')
+console.log(xicara + 'xic equivalem a ' + xicaraLitro + 'l')
+
 
