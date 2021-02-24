@@ -129,29 +129,112 @@ console.log(mensagem)
 // DESAFIO 2
 const nomeCompleto = prompt('Digite seu nome completo: ')
 const tipoDeJogo = Number(prompt('Digite o número do tipo de jogo: (1- internacional / 2 - doméstico)'))
-const etapaDeJogo = Number(prompt('Digite o número correspondente a etapa do jogo: (1- semi-final / 2- final)'))
-const categoria = Number(prompt('Digite a categoria: (1, 2, 3 ou 4)'))
-const quantIngressos = Number(prompt('Digite a quantidade de ingressos:'))
 
 let semiFinal = [1320, 880, 550, 220]
 let decisao3Lugar = [660, 440, 330, 170]
 let final = [1980, 1320, 880, 330]
 
-if (tipoDeJogo === 1) {
-    
-} else if (tipoDeJogo === 2){
+let localJogo, jogo, precoIngresso, titulo
 
-}else{
-    console.log('Digite uma opção válida.')
+if (tipoDeJogo === 1 || tipoDeJogo === 2) {
+    const etapaDeJogo = Number(prompt('Digite o número correspondente a etapa do jogo: (1- semi-final / 2- Decisão do 3° lugar / 3- Final)'))
+
+
+    if (etapaDeJogo >= 1 && etapaDeJogo <= 3) {
+
+        const categoria = Number(prompt('Digite a categoria: (1, 2, 3 ou 4)'))
+        if (categoria >= 1 && categoria <= 4) {
+            const quantIngressos = Number(prompt('Digite a quantidade de ingressos:'))
+            switch (etapaDeJogo) {
+                case 1:
+                    jogo = 'Semifinal'
+                    switch (categoria) {
+                        case 1:
+                            precoIngresso = semiFinal[0]
+                            break
+                        case 2:
+                            precoIngresso = semiFinal[1]
+                            break
+                        case 3:
+                            precoIngresso = semiFinal[2]
+                            break
+                        case 4:
+                            precoIngresso = semiFinal[3]
+                            break
+                    }
+                    break
+
+                case 2:
+                    jogo = 'Decisão do 3° lugar'
+
+                    switch (categoria) {
+                        case 1:
+                            precoIngresso = decisao3Lugar[0]
+                            break
+                        case 2:
+                            precoIngresso = decisao3Lugar[1]
+                            break
+                        case 3:
+                            precoIngresso = decisao3Lugar[2]
+                            break
+                        case 4:
+                            precoIngresso = decisao3Lugar[3]
+                            break
+                    }
+                    break
+
+                case 3:
+                    jogo = 'Final'
+
+                    switch (categoria) {
+                        case 1:
+                            precoIngresso = final[0]
+                            break
+                        case 2:
+                            precoIngresso = final[1]
+                            break
+                        case 3:
+                            precoIngresso = final[2]
+                            break
+                        case 4:
+                            precoIngresso = final[3]
+                            break
+                    }
+                    break
+            }
+
+            if (tipoDeJogo === 1) {
+                localJogo = 'Nacional'
+                titulo = 'Jogo internacional'
+                precoIngresso = precoIngresso * 4.10
+            } else {
+                localJogo = 'Internacional'
+                titulo = 'Jogo internacional'
+            }
+
+            let total = precoIngresso * quantIngressos
+
+            console.log(titulo)
+            console.log('')
+            console.log('----------Dados da compra----------')
+            console.log('Nome do cliente:', nomeCompleto)
+            console.log('Tipo do jogo:', localJogo)
+            console.log('Etapa do jogo', jogo)
+            console.log('Categoria:', categoria)
+            console.log('Quantidade de ingressos:', quantIngressos)
+            console.log('')
+            console.log('---------------Valores-------------')
+            console.log('Valor do ingresso:', precoIngresso)
+            console.log('Valor total:', total)  
+        } else {
+            console.log('Categoria digitada não condiz com as opções.')
+            console.log('Compra encerrada')
+        }
+    } else {
+        console.log('Etapa do jogo digitada não condiz com as opções.')
+        console.log('Compra encerrada')
+    }
+} else {
+    console.log('Tipo de jogo digitado não condiz com as opções.')
+    console.log('Compra encerrada')
 }
-
-
-// let precoIngresso, total
-// if (tipoDeJogo === 'DO' || tipoDeJogo === 'do'){
-//     if (etapaDeJogo === 'SF' || etapaDeJogo === 'sf'){
-//         switch (categoria){
-
-//         }
-//     }
-
-// }
