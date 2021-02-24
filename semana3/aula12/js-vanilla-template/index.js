@@ -61,70 +61,70 @@ console.log(mensagem)
 
 //Escrita de código
 // EXERCÍCIO 4
-// const idade = Number(prompt('Digite a sua idade: '))
+const idade = Number(prompt('Digite a sua idade: '))
 
-// if (idaide>=18) {
-//     console.log('Parabéns! Você pode dirigir.')
-// } else {
-//     console.log('Você é muito novo, não pode dirigir.')
-// }
+if (idaide>=18) {
+    console.log('Parabéns! Você pode dirigir.')
+} else {
+    console.log('Você é muito novo, não pode dirigir.')
+}
 
 
 // EXERCÍCIO 5
-// const turno = prompt('Digite a letra do turno em que você estuda: [M: matutino / V:Vespertino / N:Noturno]')
+const turno = prompt('Digite a letra do turno em que você estuda: [M: matutino / V:Vespertino / N:Noturno]')
 
-// if(turno === 'M' || turno === 'm'){
-//     console.log('Bom dia!')
-// } else if(turno === 'v' || turno === 'V'){
-//     console.log('Boa tarde!')
-// } else if (turno === 'N' || turno === 'n'){
-//     console.log('Boa noite!')
-// } else {
-//     console.log('Comando inválido. Digite uma das letras acima. ')
+if(turno === 'M' || turno === 'm'){
+    console.log('Bom dia!')
+} else if(turno === 'v' || turno === 'V'){
+    console.log('Boa tarde!')
+} else if (turno === 'N' || turno === 'n'){
+    console.log('Boa noite!')
+} else {
+    console.log('Comando inválido. Digite uma das letras acima. ')
 // }
 
 // EXERCÍCIO 6
-// const turno = prompt('Digite a letra do turno em que você estuda: [M: matutino / V:Vespertino / N:Noturno]')
+const turno = prompt('Digite a letra do turno em que você estuda: [M: matutino / V:Vespertino / N:Noturno]')
 
-// switch (turno) {
-//     case 'M':
-//         console.log('Bom dia!')
-//         break
-//     case 'V':
-//         console.log('Boa tarde!')
-//         break
-//     case 'N':
-//         console.log('Boa noite!')
-//         break
-//     default:
-//         console.log('Comando inválido.')
-//         console.log('Digite uma das letras acima.')
-//         console.log('(tente pôr a letra maiúscula)')
-//  }
+switch (turno) {
+    case 'M':
+        console.log('Bom dia!')
+        break
+    case 'V':
+        console.log('Boa tarde!')
+        break
+    case 'N':
+        console.log('Boa noite!')
+        break
+    default:
+        console.log('Comando inválido.')
+        console.log('Digite uma das letras acima.')
+        console.log('(tente pôr a letra maiúscula)')
+ }
 
 // EXERCÍCIO 7
-// const generoFilme = prompt('Digite o gênero do filme: ')
-// const precoFilme = Number(prompt('Digite o preço do ingresso: R$'))
+const generoFilme = prompt('Digite o gênero do filme: ')
+const precoFilme = Number(prompt('Digite o preço do ingresso: R$'))
 
-// if(generoFilme === 'fantasia' || generoFilme === 'Fantasia' && precoFilme < 15){
-//     console.log('Bom filme!')
-// } else {
-//     console.log('Escolha outro filme :(')
-// }
+if(generoFilme === 'fantasia' || generoFilme === 'Fantasia' && precoFilme < 15){
+    console.log('Bom filme!')
+} else {
+    console.log('Escolha outro filme :(')
+}
 
 
 //Desafios
 // DESAFIO 1
-// const generoFilme = prompt('Digite o gênero do filme: ')
-// const precoFilme = Number(prompt('Digite o preço do ingresso: R$'))
-// const snack = prompt('Qual snack você levará? (Pipoca, doces, chocolate...)')
+const generoFilme = prompt('Digite o gênero do filme: ')
+const precoFilme = Number(prompt('Digite o preço do ingresso: R$'))
+const snack = prompt('Qual snack você levará? (Pipoca, doces, chocolate...)')
 
-// if(generoFilme === 'fantasia' || generoFilme === 'Fantasia' && precoFilme < 15){
-//     console.log('Bom filme!')
-//     console.log('... com ' + snack)
-// } else {
-//     console.log('Escolha outro filme :(')
-// }
+if(generoFilme === 'fantasia' || generoFilme === 'Fantasia' && precoFilme < 15){
+    console.log('Bom filme!')
+    console.log('... com ' + snack)
+} else {
+    console.log('Escolha outro filme :(')
+}
 
 // DESAFIO 2
 const nomeCompleto = prompt('Digite seu nome completo: ')
