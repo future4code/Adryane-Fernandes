@@ -7,8 +7,8 @@ for(let i = 0; i < 5; i++) {
 }
 console.log(valor)
 */
-    //O código está somando o contador à variável valor a cada loop
-    // será impresso: 15
+//O código está somando o contador à variável valor a cada loop
+// será impresso: 15
 
 //EXERCÍCIO 2
 /*
@@ -19,8 +19,8 @@ for (let numero of lista) {
     }
 }
 */
-    //a. 19 21 23 25 27 30
-    //b. Sim, só precisaria criar uma variavel i 
+//a. 19 21 23 25 27 30
+//b. Sim, só precisaria criar uma variavel i 
 
 //DeESAFIO 
 /*
@@ -35,11 +35,13 @@ while(quantidadeAtual < quantidadeTotal){
   quantidadeAtual++
 }
 */
-    //resposta:
-    // 0
-    // 00
-    // 000
-    // 0000
+//resposta:
+// 0
+// 00
+// 000
+// 0000
+
+
 
 //Escrita de código
 //EXERCÍCIO 3
@@ -64,12 +66,11 @@ console.log(' ') //separar as respostas no console
 
 //c.
 let arrayPar = []
-let i = 0
-for (const contador of arrayOriginal) {
+for (let i = 0; i < arrayOriginal.length; i++) {
+    const numero = arrayOriginal[i];
     if (arrayOriginal[i] % 2 === 0) {
-        arrayPar.push(arrayOriginal[i])
+        arrayPar.push(numero)
     }
-    i++
 }
 console.log(arrayPar)
 
@@ -96,3 +97,65 @@ for (const numero of arrayOriginal) {
     }
 }
 console.log('O maior número é ' + maior)
+
+console.log(' ') //separar as respostas no console
+
+
+
+//DESAFIO 1
+const numeroADescobrir = prompt('Digite o número que está pensando: ')
+console.log('Que comecem os jogos!')
+let numeroJogado = 0
+let tentativas = 0
+
+while (numeroADescobrir !== numeroJogado) {
+    numeroJogado = prompt('Digite o número pensado:')
+    console.log('O número chutado foi: ', numeroJogado)
+    if (numeroJogado > numeroADescobrir) {
+        console.log('Errrrou, é menor.')
+    } else if (numeroJogado < numeroADescobrir) {
+        console.log('Errrrou, é maior.')
+    } else {
+        console.log('Acertou!')
+    }
+    tentativas++
+    
+    if (tentativas === 10) {
+        console.log('Ta dificil de ler essa mente em, deixa eu te ajudar.')
+        console.log('A resposta está entre', numeroADescobrir-8, 'e', Number(numeroADescobrir)+9)
+    }
+}
+
+
+console.log('Houveram ' + contador + ' tentativas')
+
+
+//DESAFIO 2
+const numeroComputador = Math.floor(Math.random() * (100+1))
+console.log(numeroComputador)
+console.log('O computador já fez sua escolha.')
+console.log('Que comecem os jogos!')
+let numeroJogador = 0
+let tentativas = 0
+
+while (numeroComputador !== numeroJogador) {
+    numeroJogador = Number(prompt('Digite o número jogado pelo computador: '))
+    console.log('O número chutado foi: ', numeroJogador)
+
+    if (numeroJogador > numeroComputador) {
+        console.log('Errrrou, é menor.')
+    } else if (numeroJogador < numeroComputador) {
+        console.log('Errrrou, é maior.')
+    } else {
+        console.log('Acertou!')
+    }
+    tentativas++
+    
+    if (tentativas === 3) {
+        console.log('Ta dificil? deixa eu te ajudar.')
+        console.log('A resposta está entre', (numeroComputador-8), 'e',(numeroComputador+9))
+    }
+}
+
+
+console.log('Houveram ' + tentativas + ' tentativas')
