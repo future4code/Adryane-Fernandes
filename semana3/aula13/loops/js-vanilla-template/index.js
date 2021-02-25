@@ -7,8 +7,8 @@ for(let i = 0; i < 5; i++) {
 }
 console.log(valor)
 */
-//O código está somando o contador à variável valor a cada loop
-// será impresso: 15
+    //O código está somando o contador à variável valor a cada loop
+    // será impresso: 15
 
 //EXERCÍCIO 2
 /*
@@ -19,9 +19,27 @@ for (let numero of lista) {
     }
 }
 */
-//a. 19 21 23 25 27 30
-//b. Sim, só precisaria criar uma variavel i 
+    //a. 19 21 23 25 27 30
+    //b. Sim, só precisaria criar uma variavel i 
 
+//DeESAFIO 
+/*
+const quantidadeTotal = Number(prompt("Digite a quantidade de linhas: "))
+let quantidadeAtual = 0
+while(quantidadeAtual < quantidadeTotal){
+  let linha = ""
+  for(let asteriscos = 0; asteriscos < quantidadeAtual + 1; asteriscos++){
+    linha += "0"
+  }
+  console.log(linha)
+  quantidadeAtual++
+}
+*/
+    //resposta:
+    // 0
+    // 00
+    // 000
+    // 0000
 
 //Escrita de código
 //EXERCÍCIO 3
