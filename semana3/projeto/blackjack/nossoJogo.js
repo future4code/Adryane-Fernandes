@@ -12,21 +12,24 @@ let resultadoUsuario, resultadoPc
 let cartasUsuario = []
 let cartasPc = []
 
+
 // Jogo
 const vamosJogar = confirm('Vamos jogar?')
+
 if (vamosJogar) {
-   while (valorPC < 21 || valorUsuario < 21) {
+   let contador = 0
+   while (contador < 2) {
       //sorteando cartas
       resultadoUsuario = comprarCarta()
       resultadoPc = comprarCarta()
 
-      //atribuindo valores e naipes
       valorUsuario += resultadoUsuario.valor
       cartasUsuario.push(resultadoUsuario.texto)
       valorPC += resultadoPc.valor
       cartasPc.push(resultadoPc.texto)
+      contador++
    }
-  
+
    // mostrando resultado
    console.log('Resultado: ')
    console.log('Usuário -  cartas:', cartasUsuario, '- pontuação', valorUsuario)
