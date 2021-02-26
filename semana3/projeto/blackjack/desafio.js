@@ -44,28 +44,55 @@ if (vamosJogar) {
       if (contador === 0 && valorPC === 11 && valorUsuario === 11) {
          cartasUsuario.splice(0, 1)
          cartasPc.splice(0, 1)
-         
+
          contador--
       }
-
       contador++
    }
 
-   // mostrando resultado
-   console.log('Resultado: ')
-   console.log('Usuário -  cartas:', cartasUsuario, '- pontuação', valorUsuario)
-   console.log('Computador -  cartas:', cartasPc, '- pontuação', valorPC)
+   //Mostrando carta revelada do pc e mostrando pergunta
+   let comprar1Carta = confirm('Suas cartas são: ' + cartasUsuario + '\nA carta revelada do computador é: ' + cartasPc[0] + '\nDeseja comprar mais uma carta?')
 
-   //verificando ganhador
-   console.log('+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-')
-   if (valorUsuario > valorPC) {
-      console.log('Parabéns! Você ganhou 😄🎉')
-   } else if (valorPC > valorUsuario) {
-      console.log('Não foi dessa vez, o computador ganhou. 😔')
-   } else {
-      console.log('Deu empate! 😳')
+   //Comprar mais uma carta Usuário
+   do {
+      resultadoUsuario = comprarCarta()
+      valorUsuario += resultadoUsuario.valor
+      cartasUsuario.push(resultadoUsuario.texto)
+
+      comprar1Carta = confirm('Suas cartas agora são: ' + cartasUsuario + '\nDeseja comprar outra carta?')
+      if (valorUsuario === 21) {
+         comprar1Carta = confirm('Você chegou a pontuação de: ' + valorUsuario + '\nDeseja continuar?')
+      } else if (valorUsuario > 21) {
+         alert('Você ultrapassou 21 pontos, e chegou a ' + valorUsuario + ' pontos')
+         comprar1Carta = false
+      }
+   } while (comprar1Carta);
+
+   //Se o usuário não chegou a 21, comprar mais uma carta PC
+   if (valorUsuario <= 21) {
+      do {
+         resultadoUsuario = comprarCarta()
+         valorUsuario += resultadoUsuario.valor
+         cartasUsuario.push(resultadoUsuario.texto)
+      } while (valorPC >= valorUsuario);
    }
-   console.log('+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-')
+
+
+   // // mostrando resultado
+   // console.log('Resultado: ')
+   // console.log('Usuário -  cartas:', cartasUsuario, '- pontuação', valorUsuario)
+   // console.log('Computador -  cartas:', cartasPc, '- pontuação', valorPC)
+
+   // //verificando ganhador
+   // console.log('+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-')
+   // if (valorUsuario > valorPC) {
+   //    console.log('Parabéns! Você ganhou 😄🎉')
+   // } else if (valorPC > valorUsuario) {
+   //    console.log('Não foi dessa vez, o computador ganhou. 😔')
+   // } else {
+   //    console.log('Deu empate! 😳')
+   // }
+   // console.log('+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-')
 
 
 } else {
