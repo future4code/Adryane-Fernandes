@@ -91,8 +91,7 @@ let repetirFrase10 = (frase) => {
 
     }
 }
-
-repetirFrase10('oi')
+repetirFrase10('Eu sou Daenerys Targaryen, filha da Tormenta, a não queimada, mãe de Dragões, rainha de Mereen, rainha dos andalos e dos primeiros homens, Senhora dos sete reinos, Khaleesi dos dothraki, a primeira de seu nome')
 
 //EXERCÍCIO 6
 //a.
