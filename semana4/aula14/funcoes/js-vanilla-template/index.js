@@ -69,7 +69,7 @@ let apresentacaoUsuario = (nome, idade, cidade, estaEstudando) => {
 
 //EXERCÍCIO 5
 //a.
-let somar = (num1, num2) => {
+let somar = function (num1, num2) {
     let soma = num1 + num2
     return soma
 }
@@ -77,7 +77,7 @@ let resultado = somar(5, 6)
 console.log(resultado)
 
 //b.
-let verificandoMaior = (numero1, numero2) => {
+let verificandoMaior = function (numero1, numero2) {
     let primeiroMaiorIgual = false
     if (numero1 >= numero2) {
         primeiroMaiorIgual = true
@@ -85,7 +85,7 @@ let verificandoMaior = (numero1, numero2) => {
 }
 
 //c.
-let repetirFrase10 = (frase) => {
+let repetirFrase10 = function (frase) {
     for (let i = 0; i < 10; i++) {
         console.log(frase)
 
