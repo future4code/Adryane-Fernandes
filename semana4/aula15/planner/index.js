@@ -52,15 +52,15 @@ function adicionarTarefa() {
 }
 
 // Riscando o nome ao clicar
-// function tarefaConcluida() {
-//     document.querySelector('.div-item').classList.add('concluida')
-// }
+function tarefaConcluida() {
+    document.querySelector('.div-item').classList.add('concluida')
+}
 
-// // Limpando a lista
-// function limparLista() {
-//     const lista = document.getElementsByClassName('div-itens')
+// Limpando a lista
+function limparLista() {
+    const lista = document.getElementsByClassName('div-itens')
 
-//     for (const item of lista) {
-//         item.innerHTML = ''
-//     }
-// }
+    for (const item of lista) {
+        item.innerHTML = ''
+    }
+}
