@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <script defer src="index.js"></script>
     <title>Planner</title>
 </head>
+
 <body>
     <header>
         <form action="">
-            <label for="tarefa">Nova tarefa:</label>
+            <label for="tarefa" id="titulo">Nova tarefa:</label>
             <input type="text" id="tarefa" value="">
             <select name="dias-semana" id="dias-semana">
                 <option value="domingo">Domingo</option>
@@ -22,47 +24,78 @@
                 <option value="sexta">Sexta-feira</option>
                 <option value="sabado">Sábado</option>
             </select>
+            <select name="horas" id="horas">
+                <option value="00">00h</option>
+                <option value="01">1h</option>
+                <option value="02">2h</option>
+                <option value="03">3h</option>
+                <option value="05">5h</option>
+                <option value="04">4h</option>
+                <option value="06">6h</option>
+                <option value="07">7h</option>
+                <option value="08">8h</option>
+                <option value="09">9h</option>
+                <option value="10">10h</option>
+                <option value="11">11h</option>
+                <option value="12">12h</option>
+                <option value="13">13h</option>
+                <option value="14">14h</option>
+                <option value="15">15h</option>
+                <option value="16">16h</option>
+                <option value="17">17h</option>
+                <option value="18">18h</option>
+                <option value="19">19h</option>
+                <option value="20">20h</option>
+                <option value="21">21h</option>
+                <option value="22">22h</option>
+                <option value="23">23h</option>
+                <option value="24">24h</option>
+            </select>
+            <button onclick="adicionarTarefa()">Criar tarefa</button>
+
         </form>
 
-        <button onclick="adicionarTarefa()">Criar tarefa</button>
-        
+
     </header>
-    <section>
+    <section id="card-dias">
         <div class="semana">
             <h3>Domingo</h3>
-            <div id="domingo"></div>
+            <div id="domingo" class="div-itens"></div>
         </div>
 
         <div class="semana">
             <h3>Segunda-feira</h3>
-            <div id="segunda"></div>
+            <div id="segunda" class="div-itens"></div>
         </div>
 
         <div class="semana">
             <h3>Terça-feira</h3>
-            <div id="terca"></div>
-        </div>
-    
-        <div class="semana">
-            <h3>Quarta-feira</h3>
-            <div id="quarta"></div>
-        </div>
-    
-        <div class="semana">
-            <h3>Quinta-feira</h3>
-            <div id="quinta"></div>
+            <div id="terca" class="div-itens"></div>
         </div>
 
-        <div class="semana">                    
-            <h3>Sexta-feira</h3>               
-            <div id="sexta"></div>
+        <div class="semana">
+            <h3>Quarta-feira</h3>
+            <div id="quarta" class="div-itens"></div>
+        </div>
+
+        <div class="semana">
+            <h3>Quinta-feira</h3>
+            <div id="quinta" class="div-itens"></div>
+        </div>
+
+        <div class="semana">
+            <h3>Sexta-feira</h3>
+            <div id="sexta" class="div-itens"></div>
         </div>
 
         <div class="semana">
             <h3>Sábado</h3>
-            <div id="sabado"></div>
+            <div id="sabado" class="div-itens"></div>
         </div>
     </section>
-    
+
+    <button onclick="limparLista()">Limpar lista</button>
+
 </body>
+
 </html>

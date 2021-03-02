@@ -22,3 +22,29 @@ section {
     width: 14%;
     padding: 5px;
 }
+
+.concluida{
+    text-decoration: line-through;
+    
+    /* cursor: pointer; */
+}
+
+/* ==================== responsividade ================== */
+@media screen and (max-device-width: 420px) {
+    header{
+        height: 20vh;
+        padding: 1rem;
+    }
+    form,
+    section#card-dias{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    div.semana{
+        height: 100%;
+        width: 100%;
+        margin: 0.5rem;
+    }
+}
