@@ -17,31 +17,31 @@ function adicionarTarefa() {
     if (tarefa.value !== '') {
         switch (opcaoDias.value) {
             case 'domingo':
-                domingo.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                domingo.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'segunda':
-                segunda.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                segunda.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'terca':
-                terca.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                terca.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'quarta':
-                quarta.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                quarta.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'quinta':
-                quinta.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                quinta.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'sexta':
-                sexta.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                sexta.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
 
             case 'sabado':
-                sabado.innerHTML += `<p>${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
+                sabado.innerHTML += `<p class="p-hora">${horaEscolhida}h</p> <p class='itemTarefa' onclick='tarefaConcluida()'>${tarefa.value}</p>`
                 break;
         }
 
@@ -52,15 +52,15 @@ function adicionarTarefa() {
 }
 
 // Riscando o nome ao clicar
-function tarefaConcluida() {
-    document.querySelector('.div-item').classList.add('concluida')
-}
+// function tarefaConcluida() {
+//     document.querySelector('.div-item').classList.add('concluida')
+// }
 
-// Limpando a lista
-function limparLista() {
-    const lista = document.getElementsByClassName('div-itens')
+// // Limpando a lista
+// function limparLista() {
+//     const lista = document.getElementsByClassName('div-itens')
 
-    for (const item of lista) {
-        item.innerHTML = ''
-    }
-}
+//     for (const item of lista) {
+//         item.innerHTML = ''
+//     }
+// }

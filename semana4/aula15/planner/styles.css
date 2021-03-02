@@ -1,48 +1,173 @@
+/* ==================== global ================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
+body {
+    background-image: url("imagens/fundo.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+#container {
+    margin: 1rem;
+    height: 100vh;
+}
+
+/* ==================== formulario ================== */
+
 header {
-    height: 10vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-section {
+form {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#div-formulario {
     display: flex;
-    justify-content: space-evenly;
-    height: 90vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#nova-tarefa {
+    display: inline;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nova-tarefa, select {
+    padding: 0.2rem;
+    margin: 0.5rem;
+}
+
+label#titulo {
+    text-align: center;
+    font-weight: 500;
+}
+
+input, select {
+    border: none;
+    border-bottom: 2px black solid;
+    padding: 0.4rem;
+}
+
+input:focus, select:focus {
+    color: #010326;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 1px solid #0c8e9c;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* ==================== botões ================== */
+
+.btn {
+    padding: 0.6rem 1.5rem;
+    background-color: #0c8e9c;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.btn:hover {
+    background-color: #08636d;
+    cursor: pointer;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+
+    margin-top: 0.5rem;
+}
+
+/* ==================== cards ================== */
+
+section {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 80%;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .semana {
-    border: 1px dotted rgb(53, 53, 53);
-    width: 14%;
-    padding: 5px;
+    border-radius: 10px;
+    background: white;
+    padding: 1rem;
 }
 
-.concluida{
+.semana h3 {
+    text-align: center;
+    font-size: 80%;
+    margin-bottom: 1rem;
+}
+
+.concluida {
     text-decoration: line-through;
-    
-    /* cursor: pointer; */
+}
+
+/* ==================== itens da lista ================== */
+
+p {
+    background: #0badbfb7;
+    padding: 0.2rem 0;
+    font-size: 1.2rem;
+}
+
+.p-hora {
+    background: #0994a3b7;
+    text-align: center;
+    margin: 0.5rem 0 0 0;
+    font-weight: 600;
+}
+
+.itemTarefa {
+    font-weight: 500;
+    text-align: center;
+    padding: 0.2rem;
 }
 
 /* ==================== responsividade ================== */
+
 @media screen and (max-device-width: 420px) {
-    header{
+    header {
         height: 20vh;
         padding: 1rem;
     }
-    form,
-    section#card-dias{
+    form, section#card-dias {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
     }
-    div.semana{
+    div.semana {
         height: 100%;
         width: 100%;
         margin: 0.5rem;
