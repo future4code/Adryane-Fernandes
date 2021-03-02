@@ -17,20 +17,20 @@ body {
 #container {
     margin: 1rem;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* ==================== formulario ================== */
 
 header {
-    height: 15vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-form {
     background: white;
-    padding: 1rem;
+    padding: 1rem 3rem;
     border-radius: 10px;
 }
 
@@ -103,7 +103,6 @@ select {
     justify-content: space-around;
     width: 70%;
     margin: auto;
-
     margin-top: 0.5rem;
 }
 
@@ -112,9 +111,10 @@ select {
 section {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    height: 80%;
     gap: 0.5rem;
     margin-top: 1rem;
+    height: 78%;
+    width: 98%;
 }
 
 .semana {
@@ -157,19 +157,35 @@ p {
 /* ==================== responsividade ================== */
 
 @media screen and (max-device-width: 420px) {
+    body {
+        height: 105vh;
+    }
+
+    /* formulario */
     header {
-        height: 20vh;
         padding: 1rem;
     }
-    form, section#card-dias {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    #div-formulario {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(1fr);
+    }
+
+    /* botões */
+    .container-btn {
+        width: 100%;
         justify-content: space-around;
     }
-    div.semana {
-        height: 100%;
-        width: 100%;
-        margin: 0.5rem;
+    .btn {
+        padding: 0.6rem 1rem;
+    }
+
+    /* card */
+    section#card-dias {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    #div-sabado {
+        grid-column: 1 / -1;
     }
 }
