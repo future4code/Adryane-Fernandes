@@ -24,7 +24,7 @@ function postar() {
     if ((arrayObjetos[3].includes('.png') || arrayObjetos[3].includes('.jpg')) && arrayObjetos[3].includes('http')) {
         campoPosts.innerHTML += `<img src="${arrayObjetos[3]}">`
     } else if (arrayObjetos[3] === "") {
-        return
+        return vazio = 0
     } else {
         alert('Link inválido de imagem inválido.')
     }
