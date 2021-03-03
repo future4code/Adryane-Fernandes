@@ -131,6 +131,7 @@ section {
 
 .concluida {
     text-decoration: line-through;
+    color: #333;
 }
 
 /* ==================== itens da lista ================== */

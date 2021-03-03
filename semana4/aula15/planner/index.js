@@ -53,7 +53,7 @@ function adicionarTarefa() {
 
 // Riscando o nome ao clicar
 function tarefaConcluida() {
-    document.querySelector('.div-item').classList.add('concluida')
+    document.querySelector('.itemTarefa').classList.add('concluida')
 }
 
 // Limpando a lista
