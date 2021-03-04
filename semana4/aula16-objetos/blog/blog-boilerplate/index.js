@@ -34,6 +34,7 @@ function apagarCampos() {
     post.titulo.value = ''
     post.autor.value = ''
     post.conteudo.value = ''
+    post.imagem.value = ''
 }
 
 
