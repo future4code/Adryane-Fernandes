@@ -1,3 +1,5 @@
+
+let arrayTeste = [0, 15, 13, 19, 28, 4, 8, 27]
 //Exercício 1
 
 function inverteArray(array) {
@@ -80,11 +82,11 @@ function checaTriangulo(a, b, c) {
 }
 
 // Exercício 9
-
 function comparaDoisNumeros(num1, num2) {
    let comparandoNumeros = {
       maiorNumero: 0,
       maiorDivisivelporMenor: false,
+      visivelporMenor: false,
       diferenca: 0
    } 
    let menorNumero = 0 
@@ -112,24 +114,32 @@ function comparaDoisNumeros(num1, num2) {
 
 function segundoMaiorEMenor(array) {
    // implemente sua lógica aqui
+
 }
 
 //Exercício 11
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
+
 }
 
 // Exercício 12
-
 function filmeFavorito() {
-   // implemente sua lógica aqui
+   const filmeFavorito = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+   }
+   return filmeFavorito
 }
 
 // Exercício 13
 
-function imprimeChamada() {
-   // implemente sua lógica aqui
+function imprimeChamada(...filmeFavorito) {
+   
+
 }
 
 // Exercício 14
