@@ -56,8 +56,15 @@ function retornaExpressoesBooleanas() {
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
+   let numerosPares = []
+   for (let numero = 0; numero <= n+3; numero++) {
+      if (numero % 2 === 0) {
+         numerosPares.push(numero)
+      }
+   }
+   return numerosPares
 }
+
 
 // Exercício 8
 
