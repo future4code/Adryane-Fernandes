@@ -105,7 +105,7 @@ function comparaDoisNumeros(num1, num2) {
 function segundoMaiorEMenor(array) {
    let maior = Math.max.apply(Math, array)
    let menor = Math.min.apply(Math, array)
-   
+
    //pegando segundo maior
    let segMaior = 0
 
@@ -131,7 +131,11 @@ function segundoMaiorEMenor(array) {
 
 //Exercício 11
 function ordenaArray(array) {
-   return array.sort()
+   function ordenando(a, b) {
+      return (a - b)
+   }
+
+   return array.sort(ordenando)
 }
 
 // Exercício 12
@@ -151,9 +155,12 @@ function imprimeChamada() {
    const imprimindoFilmeFav = {
       ...filmeFavorito()
    }
-   return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
+   let frase = `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores}.`
+
+   return frase
 }
 
+// console.log(imprimeChamada()) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 // Exercício 14
 function criaRetangulo(lado1, lado2) {
@@ -252,7 +259,7 @@ const pessoas = [
 //Exercício 18, letra A
 function retornaPessoasAutorizadas() {
    const autorizados = pessoas.filter((pessoa) => {
-      if (pessoa.altura >= 1.50 && pessoa.idade > 14 && pessoa.idade < 60) {
+      if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
          return true
       }
    })
@@ -262,13 +269,14 @@ function retornaPessoasAutorizadas() {
 
 // Exercício 18, letra B
 function retornaPessoasNaoAutorizadas() {
-   // const naoAutorizados = pessoas.filter((pessoa) => {
-   //    if (pessoa.altura < 1.50 && pessoa.idade <= 14 && pessoa.idade >= 60) {
-   //       return true
-   //    } 
-   // })
-   // return naoAutorizados
+   const naoAutorizados = pessoas.filter((pessoa) => {
+      if (pessoa.altura < 1.5 || pessoa.idade >= 60 || pessoa.idade <= 14) {
+         return true
+      }
+   })
+   return naoAutorizados
 }
+
 
 // console.log(retornaPessoasNaoAutorizadas())
 
@@ -289,23 +297,21 @@ function retornaEmailConsulta() {
    //       tratamento[1] = 'lembrá-lo'
    //    } else {
    //       tratamento[0] = 'Sra.'
-   //       tratamento[1] = 'lembra-la'
+   //       tratamento[1] = 'lembrá-la'
    //    }
 
-   //    if (paciente.cancelada = false) {
-   //       return `Olá, ${tratamento[0]} ${paciente.nome}.. Estamos enviando esta mensagem para
-   //       ${tratamento[1]} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse
-   //       o recebimento deste e-mail.` 
-   //    } else if (paciente.cancelada = true){
-   //      return `Olá, ${tratamento[0]} ${paciente.nome}. Infelizmente, sua consulta marcada
-   //      para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em 
-   //      contato conosco para remarcá-la`
+   //    if (paciente.cancelada === false) {
+   //       return `Olá, ${tratamento[0]} ${paciente.nome}. Estamos enviando esta mensagem para ${tratamento[1]} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`
+
+   //    } else{
+   //       return `Olá, ${tratamento[0]} ${paciente.nome}. Infelizmente, sua consulta marcada para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+
    //    }
    // })
    // return respostaEmail
 }
 
-// console.log(retornaEmailConsulta())
+console.log(retornaEmailConsulta())
 
 //Exercício 20
 
