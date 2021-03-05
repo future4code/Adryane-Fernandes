@@ -155,12 +155,10 @@ function imprimeChamada() {
    const imprimindoFilmeFav = {
       ...filmeFavorito()
    }
-   let frase = `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores}.`
+   let frase = `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}.`
 
    return frase
 }
-
-// console.log(imprimeChamada()) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 // Exercício 14
 function criaRetangulo(lado1, lado2) {
@@ -214,9 +212,10 @@ function menoresDe18(arrayDePessoas) {
 
 // Exercício 17, letra A
 function multiplicaArrayPor2(array) {
-   const arrayX2 = array.map((numero) => {
-      return numero * 2
-   })
+   const arrayX2 = []
+   for (const numero of array) {
+      arrayX2.push(numero * 2)
+   }
    return arrayX2
 }
 
@@ -231,18 +230,14 @@ function multiplicaArrayPor2S(array) {
 
 // Exercício 17, letra C
 function verificaParidade(array) {
-   // let numeros = multiplicaArrayPor2()
-   // let numerosString = multiplicaArrayPor2S()
-   // let parOuImpar = []
-
-   // for (let i = 0; i < numeros.length; i++) {
-   //    if (numeros[i] % 2 === 0) {
-   //       parOuImpar = `${numerosString[i]} é par`
-   //    } else {
-   //       parOuImpar = `${numerosString[i]} é ímpar`
-   //    }
-
-   // }
+   const arrayString = array.map((numero) => {
+      if (numero % 2 === 0) {
+         return `${numero} é par`
+      } else {
+         return `${numero} é ímpar`
+      }
+   })
+   return arrayString
 }
 
 // Exercício 18
@@ -278,8 +273,6 @@ function retornaPessoasNaoAutorizadas() {
 }
 
 
-// console.log(retornaPessoasNaoAutorizadas())
-
 //Exercício 19
 
 const consultas = [
@@ -287,31 +280,30 @@ const consultas = [
    { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
    { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
    { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
-]
+ ]
 
 function retornaEmailConsulta() {
-   // const respostaEmail = consultas.map((paciente) => {
-   //    let tratamento = []
-   //    if (paciente.genero === 'masculino') {
-   //       tratamento[0] = 'Sr.'
-   //       tratamento[1] = 'lembrá-lo'
-   //    } else {
-   //       tratamento[0] = 'Sra.'
-   //       tratamento[1] = 'lembrá-la'
-   //    }
+   const respostaEmail = consultas.map((paciente) => {
+      let tratamento = []
+      if (paciente.genero === 'masculino') {
+         tratamento[0] = 'Sr.'
+         tratamento[1] = 'lembrá-lo'
+      } else {
+         tratamento[0] = 'Sra.'
+         tratamento[1] = 'lembrá-la'
+      }
 
-   //    if (paciente.cancelada === false) {
-   //       return `Olá, ${tratamento[0]} ${paciente.nome}. Estamos enviando esta mensagem para ${tratamento[1]} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`
+      if (paciente.cancelada === false) {
+         return `Olá, ${tratamento[0]} ${paciente.nome}. Estamos enviando esta mensagem para ${tratamento[1]} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse o recebimento deste-email.`
 
-   //    } else{
-   //       return `Olá, ${tratamento[0]} ${paciente.nome}. Infelizmente, sua consulta marcada para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+      } else {
+         return `Olá, ${tratamento[0]} ${paciente.nome}. Infelizmente sua consulta marcada para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
 
-   //    }
-   // })
-   // return respostaEmail
+      }
+   })
+   return respostaEmail
 }
 
-console.log(retornaEmailConsulta())
 
 //Exercício 20
 
