@@ -60,6 +60,7 @@ function retornaNNumerosPares(n) {
    for (let numero = 0; numero <= n+3; numero++) {
       if (numero % 2 === 0) {
          numerosPares.push(numero)
+   
       }
    }
    return numerosPares
@@ -81,7 +82,30 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   let comparandoNumeros = {
+      maiorNumero: 0,
+      maiorDivisivelporMenor: false,
+      diferenca: 0
+   } 
+   let menorNumero = 0 
+
+   //Verificando Maior num
+   if (num1 > num2) {
+      comparandoNumeros.maiorNumero = num1
+      menorNumero = num2
+   } else {
+      comparandoNumeros.maiorNumero = num2
+      menorNumero = num1
+   }
+   
+   //Verificando se são divisiveis
+   if (comparandoNumeros.maiorNumero % menorNumero === 0) {
+      comparandoNumeros.maiorDivisivelporMenor = true
+   }
+
+   //diferença
+   comparandoNumeros.diferenca = comparandoNumeros.maiorNumero - menorNumero
+   return comparandoNumeros
 }
 
 // Exercício 10
