@@ -49,7 +49,8 @@ function retornaQuantidadeElementos(array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // const resposta = [false, false, true, false, false]
+   const resposta = [false, false, true, true, true]
+   return resposta
 }
 
 //Exercício 7
