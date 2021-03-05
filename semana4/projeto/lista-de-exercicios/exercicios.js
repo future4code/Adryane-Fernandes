@@ -137,25 +137,37 @@ function filmeFavorito() {
 
 // Exercício 13
 
-function imprimeChamada(...filmeFavorito) {
-   
-
+function imprimeChamada() {
+   const imprimindoFilmeFav = {
+      ...filmeFavorito()
+   }
+   return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
 }
 
-// Exercício 14
 
+// Exercício 14
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
+   const propriedadeTriangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2*(lado1+lado2),
+      area: lado1 * lado2
+   }
+
+   return propriedadeTriangulo
 }
 
 // Exercício 15
-
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
+   const nomeAnonimo = {
+      ...pessoa,
+      nome: 'ANÔNIMO'
+   }
+
+   return nomeAnonimo
 }
 
 // Exercício 16
-
 const arrayDePessoas = [
    { nome: "Pedro", idade: 20 },
    { nome: "João", idade: 10 },
@@ -164,9 +176,13 @@ const arrayDePessoas = [
 ]
 
 // Exercício 16, letra A
-
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const adultos = arrayDePessoas.filter((pessoa) => {
+      if (pessoa.idade >= 20) {
+         return true
+      }
+   })
+   return adultos
 }
 
 // Exercício 16, letra B
