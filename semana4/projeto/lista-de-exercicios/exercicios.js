@@ -5,20 +5,21 @@ function inverteArray(array) {
 }
 
 //Exercício 2
-let arrayTeste = [1, 2, 3, 4, 5, 6] //X
-
 function retornaNumerosParesElevadosADois(array) {
+   let novaArray = []
+   for (const num of array) {
+      if (num % 2 === 0) {
+         novaArray.push(Math.pow(num, 2))
+      }
+   }
+   return novaArray
+}
+
+//Exercício 3
+function retornaNumerosPares(array) {
    
 }
 
-// console.log(retornaNumerosParesElevadosADois(arrayTeste))
-
-
-//Exercício 3
-
-function retornaNumerosPares(array) {
-
-}
 // console.log(retornaNumerosPares(arrayTeste))
 
 //Exercício 4
@@ -42,7 +43,7 @@ function retornaQuantidadeElementos(array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   const resposta = [false, false, true, false, false]
+   // const resposta = [false, false, true, false, false]
 }
 
 //Exercício 7
