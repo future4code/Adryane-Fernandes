@@ -1,7 +1,5 @@
 
-let arrayTeste = [0, 15, 13, 19, 28, 4, 8, 27]
 //Exercício 1
-
 function inverteArray(array) {
    return array.reverse()
 }
@@ -28,10 +26,7 @@ function retornaNumerosPares(array) {
    return arrayPar
 }
 
-// console.log(retornaNumerosPares(arrayTeste))
-
 //Exercício 4
-
 function retornaMaiorNumero(array) {
    let maiorNumero = 0
    for (const numero of array) {
@@ -43,20 +38,17 @@ function retornaMaiorNumero(array) {
 }
 
 //Exercício 5
-
 function retornaQuantidadeElementos(array) {
    return array.length
 }
 
 //Exercício 6
-
 function retornaExpressoesBooleanas() {
    const resposta = [false, false, true, true, true]
    return resposta
 }
 
 //Exercício 7
-
 function retornaNNumerosPares(n) {
    let numerosPares = []
    for (let numero = 0; numero <= n + 3; numero++) {
@@ -70,7 +62,6 @@ function retornaNNumerosPares(n) {
 
 
 // Exercício 8
-
 function checaTriangulo(a, b, c) {
    if (a === b && b === c) {
       return 'Equilátero'
@@ -86,7 +77,6 @@ function comparaDoisNumeros(num1, num2) {
    let comparandoNumeros = {
       maiorNumero: 0,
       maiorDivisivelporMenor: false,
-      visivelporMenor: false,
       diferenca: 0
    }
    let menorNumero = 0
@@ -107,21 +97,41 @@ function comparaDoisNumeros(num1, num2) {
 
    //diferença
    comparandoNumeros.diferenca = comparandoNumeros.maiorNumero - menorNumero
+
    return comparandoNumeros
 }
 
 // Exercício 10
-
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+   let maior = Math.max.apply(Math, array)
+   let menor = Math.min.apply(Math, array)
+   
+   //pegando segundo maior
+   let segMaior = 0
 
+   for (const numero of array) {
+      if (numero > segMaior && numero !== maior) {
+         segMaior = numero
+      }
+   }
+
+   //pegando segundo menor
+   let segMenor = maior
+
+   for (const numero of array) {
+
+      if (numero < segMenor && numero > menor) {
+         segMenor = numero
+      }
+   }
+
+   resultado = [segMaior, segMenor]
+   return resultado
 }
 
 //Exercício 11
-
 function ordenaArray(array) {
-   // implemente sua lógica aqui
-
+   return array.sort()
 }
 
 // Exercício 12
@@ -138,10 +148,10 @@ function filmeFavorito() {
 // Exercício 13
 
 function imprimeChamada() {
-   // const imprimindoFilmeFav = {
-   //    ...filmeFavorito()
-   // }
-   // return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
+   const imprimindoFilmeFav = {
+      ...filmeFavorito()
+   }
+   return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
 }
 
 
@@ -316,7 +326,7 @@ function atualizaSaldo() {
       }
 
       let novoSaldo = cliente.saldoTotal - gastoTotal
-      
+
       return cliente.saldoTotal = novoSaldo
    });
    return contas
