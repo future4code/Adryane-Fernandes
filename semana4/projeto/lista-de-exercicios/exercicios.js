@@ -138,10 +138,10 @@ function filmeFavorito() {
 // Exercício 13
 
 function imprimeChamada() {
-   const imprimindoFilmeFav = {
-      ...filmeFavorito()
-   }
-   return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
+   // const imprimindoFilmeFav = {
+   //    ...filmeFavorito()
+   // }
+   // return `Venha assistir ao filme ${imprimindoFilmeFav.nome}, de ${imprimindoFilmeFav.ano}, dirigido por ${imprimindoFilmeFav.diretor} e estrelado por ${imprimindoFilmeFav.atores[0]}, ${imprimindoFilmeFav.atores[1]}, ${imprimindoFilmeFav.atores[2]}, ${imprimindoFilmeFav.atores[3]}`
 }
 
 
@@ -186,27 +186,46 @@ function maioresDe18(arrayDePessoas) {
 }
 
 // Exercício 16, letra B
-
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const criancaAdolescente = arrayDePessoas.filter((pessoa) => {
+      if (pessoa.idade < 20) {
+         return true
+      }
+   })
+   return criancaAdolescente
 }
 
 // Exercício 17, letra A
-
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
+   const arrayX2 = array.map((numero) => {
+      return numero*2
+   })
+   return arrayX2
 }
 
 // Exercício 17, letra B
-
 function multiplicaArrayPor2S(array) {
-   // implemente sua lógica aqui
+   const arrayX2String = array.map((numero) => {
+      let numeroMultiplicado = numero * 2
+      return String(numeroMultiplicado)
+   })
+   return arrayX2String
 }
 
 // Exercício 17, letra C
-
 function verificaParidade(array) {
-   // implemente sua lógica aqui
+   // let numeros = multiplicaArrayPor2()
+   // let numerosString = multiplicaArrayPor2S()
+   // let parOuImpar = []
+
+   // for (let i = 0; i < numeros.length; i++) {
+   //    if (numeros[i] % 2 === 0) {
+   //       parOuImpar = `${numerosString[i]} é par`
+   //    } else {
+   //       parOuImpar = `${numerosString[i]} é ímpar`
+   //    }
+      
+   // }
 }
 
 // Exercício 18
@@ -222,25 +241,25 @@ const pessoas = [
 
 //Exercício 18, letra A
 
-function retornaPessoasAutorizadas(pessoas) {
+function retornaPessoasAutorizadas() {
    // implemente sua lógica aqui
 }
 
 
 // Exercício 18, letra B
 
-function retornaPessoasNaoAutorizadas(pessoas) {
+function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
 }
 
 //Exercício 19
 
 const consultas = [
-   { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-   { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-   { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-   { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
-]
+   { nome: "João", genero: "masculino", cancelada: false, dataDaConsulta: "01/10/2019" },
+   { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
+   { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
+   { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
+ ]
 
 function retornaEmailConsulta(consultas) {
    // implemente sua lógica aqui
