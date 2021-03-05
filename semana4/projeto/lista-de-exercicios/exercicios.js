@@ -59,10 +59,10 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    let numerosPares = []
-   for (let numero = 0; numero <= n+3; numero++) {
+   for (let numero = 0; numero <= n + 3; numero++) {
       if (numero % 2 === 0) {
          numerosPares.push(numero)
-   
+
       }
    }
    return numerosPares
@@ -74,7 +74,7 @@ function retornaNNumerosPares(n) {
 function checaTriangulo(a, b, c) {
    if (a === b && b === c) {
       return 'Equilátero'
-   } else if (a !== b && b !== c && a !== c){
+   } else if (a !== b && b !== c && a !== c) {
       return 'Escaleno'
    } else {
       return 'Isósceles'
@@ -88,8 +88,8 @@ function comparaDoisNumeros(num1, num2) {
       maiorDivisivelporMenor: false,
       visivelporMenor: false,
       diferenca: 0
-   } 
-   let menorNumero = 0 
+   }
+   let menorNumero = 0
 
    //Verificando Maior num
    if (num1 > num2) {
@@ -99,7 +99,7 @@ function comparaDoisNumeros(num1, num2) {
       comparandoNumeros.maiorNumero = num2
       menorNumero = num1
    }
-   
+
    //Verificando se são divisiveis
    if (comparandoNumeros.maiorNumero % menorNumero === 0) {
       comparandoNumeros.maiorDivisivelporMenor = true
@@ -150,7 +150,7 @@ function criaRetangulo(lado1, lado2) {
    const propriedadeTriangulo = {
       largura: lado1,
       altura: lado2,
-      perimetro: 2*(lado1+lado2),
+      perimetro: 2 * (lado1 + lado2),
       area: lado1 * lado2
    }
 
@@ -198,7 +198,7 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 function multiplicaArrayPor2(array) {
    const arrayX2 = array.map((numero) => {
-      return numero*2
+      return numero * 2
    })
    return arrayX2
 }
@@ -224,7 +224,7 @@ function verificaParidade(array) {
    //    } else {
    //       parOuImpar = `${numerosString[i]} é ímpar`
    //    }
-      
+
    // }
 }
 
@@ -240,17 +240,27 @@ const pessoas = [
 ]
 
 //Exercício 18, letra A
-
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
+   const autorizados = pessoas.filter((pessoa) => {
+      if (pessoa.altura >= 1.50 && pessoa.idade > 14 && pessoa.idade < 60) {
+         return true
+      }
+   })
+   return autorizados
 }
 
 
 // Exercício 18, letra B
-
 function retornaPessoasNaoAutorizadas() {
-   // implemente sua lógica aqui
+   // const naoAutorizados = pessoas.filter((pessoa) => {
+   //    if (pessoa.altura < 1.50 && pessoa.idade <= 14 && pessoa.idade >= 60) {
+   //       return true
+   //    } 
+   // })
+   // return naoAutorizados
 }
+
+// console.log(retornaPessoasNaoAutorizadas())
 
 //Exercício 19
 
@@ -259,11 +269,33 @@ const consultas = [
    { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
    { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
    { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
- ]
+]
 
-function retornaEmailConsulta(consultas) {
-   // implemente sua lógica aqui
+function retornaEmailConsulta() {
+   // const respostaEmail = consultas.map((paciente) => {
+   //    let tratamento = []
+   //    if (paciente.genero === 'masculino') {
+   //       tratamento[0] = 'Sr.'
+   //       tratamento[1] = 'lembrá-lo'
+   //    } else {
+   //       tratamento[0] = 'Sra.'
+   //       tratamento[1] = 'lembra-la'
+   //    }
+
+   //    if (paciente.cancelada = false) {
+   //       return `Olá, ${tratamento[0]} ${paciente.nome}.. Estamos enviando esta mensagem para
+   //       ${tratamento[1]} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse
+   //       o recebimento deste e-mail.` 
+   //    } else if (paciente.cancelada = true){
+   //      return `Olá, ${tratamento[0]} ${paciente.nome}. Infelizmente, sua consulta marcada
+   //      para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em 
+   //      contato conosco para remarcá-la`
+   //    }
+   // })
+   // return respostaEmail
 }
+
+// console.log(retornaEmailConsulta())
 
 //Exercício 20
 
@@ -277,5 +309,15 @@ const contas = [
 ]
 
 function atualizaSaldo() {
-   // implemente sua lógica aqui
+   contas.forEach((cliente) => {
+      let gastoTotal = 0
+      for (const gasto of cliente.compras) {
+         gastoTotal += gasto
+      }
+
+      let novoSaldo = cliente.saldoTotal - gastoTotal
+      
+      return cliente.saldoTotal = novoSaldo
+   });
+   return contas
 }
