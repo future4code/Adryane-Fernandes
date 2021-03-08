@@ -22,6 +22,15 @@ function App() {
     alert("Em desenvolvimento.")
   }
 
+  const abrirMenu = {
+    abrir(){
+      document.querySelector('.menu-aberto').classList.add('ativado')
+    },
+    fechar(){
+      document.querySelector('.menu-aberto').classList.remove('ativado')
+    }
+  }
+
   return (
     <div className="App">
       <div className="tela-inteira">
@@ -42,10 +51,10 @@ function App() {
           <a onClick={abrirLink}><img src={perfilUsuario} id='imagem-perfil' /></a>
         </header>
 
+        {/* Menu fechado */}
         <nav className="menu-vertical">
-
           <div className='divs-menu'>
-            <a>
+            <a onClick={abrirMenu.abrir}>
               <img src={iconeMenu} alt='ícone menu' className='icones-menu' id='img-abrir-menu' />
             </a>
           </div>
@@ -86,53 +95,107 @@ function App() {
               <span>Histórico</span>
             </a>
           </div>
+
+          
         </nav>
 
+        {/* Menu aberto */}
+        <nav className='menu-aberto'>
+          <div className='menu'>
+          <div className='divs-menu-aberto' id='div-icone-fechar'>
+            <a onClick={abrirMenu.fechar}>
+              <img src={iconeMenu} alt='ícone menu' className='icones-menu' id='img-abrir-menu' />
+            </a>
+            <div id='logo-menu-aberto'>
+            <img src={logoLabenu} />
+            <h1> LabTube</h1>
+            </div>
+          </div>
+
+          <div className='divs-menu-aberto'>
+            <a onClick={abrirLink}>
+              <img src={iconeInicio} alt='ícone inicio' className='icones-menu' />
+              <span>Início</span>
+            </a>
+          </div>
+
+          <div className='divs-menu-aberto'>
+            <a onClick={abrirLink}>
+              <img src={iconeFogo} alt='ícone fogo' className='icones-menu' />
+              <span>Em alta</span>
+            </a>
+          </div>
+
+          <div className='divs-menu-aberto'>
+            <a onClick={abrirLink}>
+              <img src={iconePlay} alt='ícone play' className='icones-menu' />
+              <span>Inscrições</span>
+            </a>
+          </div>
+
+          <hr />
+
+          <div className='divs-menu-aberto'>
+            <a onClick={abrirLink}>
+              <img src={logo} alt='ícone inicio' className='icones-menu' />
+              <span>Originais</span>
+            </a>
+          </div>
+
+          <div className='divs-menu-aberto'>
+            <a onClick={abrirLink}>
+              <img src={iconeHistorico} alt='ícone historico' className='icones-menu' />
+              <span>Histórico</span>
+            </a>
+          </div>
+          </div> 
+        </nav>
+       
         <main>
           <section className="painel-de-videos">
-            <div className="box-pagina-principal media1" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=1 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media2" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=2 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media3" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=3 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media4" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=4 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media5" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=5 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media6" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=6 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media7" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=7 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
             </div>
 
-            <div className="box-pagina-principal media8" onClick={reproduzVideo}>
+            <div className="box-pagina-principal" onClick={reproduzVideo}>
               <img src="https://picsum.photos/400/400?a=8 " alt="" />
               <h4>{titulo}</h4>
               <p>{subtitulo}</p>
