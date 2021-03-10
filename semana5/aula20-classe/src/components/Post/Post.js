@@ -1,20 +1,23 @@
 import React from 'react'
 import './Post.css'
 
-import { IconeComContador } from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import iconeSalvoCinza from '../../img/nao-salvo.png'
+import iconeSalvoPreto from '../../img/salvo.png'
+
+import { IconeComContador } from '../IconeComContador/IconeComContador'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
-import iconeSalvo from '../../img/nao-salvo.png'
+import { IconeSemContador } from '../IconeSemContador/IconeSemContador'
 
 class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    salvo: false
   }
 
   onClickCurtida = () => {
@@ -29,8 +32,18 @@ class Post extends React.Component {
         numeroCurtidas: this.state.numeroCurtidas - 1
       })
     }
+  }
 
-
+  onClickSalvo = () => {
+    if (!this.state.salvo) {
+      this.setState({
+        salvo: true
+      })
+    } else {
+      this.setState({
+        salvo: false
+      })
+    }
   }
 
   onClickComentario = () => {
@@ -46,6 +59,7 @@ class Post extends React.Component {
     })
   }
 
+
   render() {
     let iconeCurtida
 
@@ -53,6 +67,13 @@ class Post extends React.Component {
       iconeCurtida = iconeCoracaoPreto
     } else {
       iconeCurtida = iconeCoracaoBranco
+    }
+
+    let iconeSalvo
+    if (!this.state.salvo) {
+      iconeSalvo = iconeSalvoCinza
+    } else {
+      iconeSalvo = iconeSalvoPreto
     }
 
     let componenteComentario
@@ -63,8 +84,14 @@ class Post extends React.Component {
 
     return <div className={'post-container'}>
       <div className={'post-header'}>
+        <div className={'infos-usuario'}>
           <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
           <p>{this.props.nomeUsuario}</p>
+        </div>
+        <IconeSemContador
+          imagem={iconeSalvo}
+          onClickSalvo={this.onClickSalvo}
+        />
       </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'} />
