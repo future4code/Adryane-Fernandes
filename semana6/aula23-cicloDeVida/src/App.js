@@ -18,6 +18,11 @@ const InputsContainer = styled.div`
   gap: 10px;
 `
 
+const Botao = styled.button`
+
+`
+
+
 class App extends React.Component {
   state = {
     tarefas: [{
@@ -44,7 +49,7 @@ class App extends React.Component {
     const listaSalva = localStorage.getItem('Tarefas')
     const listaAntiga = JSON.parse(listaSalva)
 
-    this.setState({tarefas: listaAntiga})
+    this.setState({ tarefas: listaAntiga })
   };
 
   onChangeInput = (event) => {
@@ -59,12 +64,12 @@ class App extends React.Component {
     }
 
     const novaLista = [novaTarefa, ...this.state.tarefas]
-    this.setState({tarefas: novaLista, inputValue: ''})
+    this.setState({ tarefas: novaLista, inputValue: '' })
   }
 
   selectTarefa = (id) => {
     const novaListaTarefas = this.state.tarefas.map((item) => {
-      if (item.id === id){
+      if (item.id === id) {
         const novaTarefa = {
           ...item,
           completa: !item.completa
@@ -72,7 +77,7 @@ class App extends React.Component {
         return novaTarefa
       } else {
         return item
-      }      
+      }
     })
 
     this.setState({ tarefas: novaListaTarefas })
@@ -81,7 +86,6 @@ class App extends React.Component {
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value })
   }
-
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
@@ -118,14 +122,14 @@ class App extends React.Component {
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
-                
               >
                 {tarefa.texto}
+                
               </Tarefa>
             )
           })}
         </TarefaList>
-      </div>
+      </div >
     )
   }
 }
