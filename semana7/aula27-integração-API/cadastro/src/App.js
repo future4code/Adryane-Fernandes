@@ -1,8 +1,52 @@
 import React from 'react'
 import axios from 'axios'
+import styled from "styled-components"
 import Register from "./components/Register"
 import Users from './components/Users'
 
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://image.freepik.com/vetores-gratis/cartao-floral_53876-91231.jpg');
+  background-size: cover;
+  background-position: center;
+  
+`
+
+const ContainerUsers = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-radius: 2px;
+
+  border-bottom: 2px solid #9D7982;
+  margin: 2rem 0;
+  width: 15rem;
+`
+
+const User = styled.div`
+  font-weight: 500;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+`
+
+const ButtonDel = styled.button`
+    margin: .2rem;
+    font-size: 1rem;
+    border: none;
+    color: gray;
+
+    cursor: pointer;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:focus{
+        outline: none;
+        border: 0 none;
+        box-shadow: 0 0 0 0;
+    }
+`
 
 export default class App extends React.Component {
   state = {
@@ -27,6 +71,11 @@ export default class App extends React.Component {
   //Funções
   backScreen = () => {
     this.setState({ page: 'home' })
+    console.log(this.state.page)
+  }
+  listScreen = () => {
+    this.setState({ page: 'list' })
+    console.log(this.state.page)
   }
 
   //API
@@ -37,9 +86,6 @@ export default class App extends React.Component {
       }
     }).then((res) => {
       this.setState({ users: res.data })
-      console.log(res.data)
-      console.log(this.state.users)
-
     }).catch((err) => {
       console.log(err.response.data)
     })
@@ -57,14 +103,18 @@ export default class App extends React.Component {
       }
     }).then((res) => {
       alert('Usuário criado com sucesso!')
-      this.setState({ inputEmail: '', inputName: '' })
       this.getUsers()
+      this.setState({ inputEmail: '', inputName: '' })
+      this.setState({ page: 'list' })
     }).catch((err) => {
-      console.log(err.response.data)
-      alert('Erro ao criar usuário!')
-    })
+      if (!this.state.inputName || !this.state.inputEmail) {
+        alert('Por favor, preencha todos os campos corretamente.')
+      } else {
+        console.log(err.response.data)
+        alert('Erro ao criar usuário!')
+      }
 
-    this.setState({ page: 'list' })
+    })
   }
 
   deleteUser = (id) => {
@@ -84,54 +134,42 @@ export default class App extends React.Component {
   render() {
     const usersList = this.state.users.map((user) => {
       return (
-        <div>
-          <li key={user.id}> {user.name} </li>
-          <button onClick={() => this.deleteUser(user.id)}>Apagar usuário</button>
-        </div>
+        <ContainerUsers key={user.id}>
+          <User> {user.name} </User>
+          <ButtonDel onClick={() => this.deleteUser(user.id)}>X</ButtonDel>
+        </ContainerUsers>
       )
     })
 
-    //Rendezição da tela
-    // const renderScreen = () => {
-    //   if (this.state.page === 'home') {
-    //     return (
-    //       <Register
-    //         valueName={this.state.inputName}
-    //         onChangeName={this.onChangeName}
+    // Rendezição da tela
+    const renderScreen = () => {
+      if (this.state.page === 'home') {
+        return (
+          <Register
+            valueName={this.state.inputName}
+            onChangeName={this.onChangeName}
 
-    //         valueEmail={this.state.inputEmail}
-    //         onChangeEmail={this.onChangeEmail}
+            valueEmail={this.state.inputEmail}
+            onChangeEmail={this.onChangeEmail}
 
-    //         onClickAdd={this.createUser}
-    //       />
-    //     )
-    //   } else if (this.state.page === 'list') {
-    //     return (
-    //       <Users
-    //         list={usersList}
-    //         onClick={this.backScreen}
-    //       />
-    //     )
-    //   }
-    // }
+            onClickAdd={this.createUser}
+            onClickNext={this.listScreen}
+          />
+        )
+      } else if (this.state.page === 'list') {
+        return (
+          <Users
+            list={usersList}
+            onClick={this.backScreen}
+          />
+        )
+      }
+    }
 
     return (
-      <div>
-        <Register
-          valueName={this.state.inputName}
-          onChangeName={this.onChangeName}
-
-          valueEmail={this.state.inputEmail}
-          onChangeEmail={this.onChangeEmail}
-
-          onClickAdd={this.createUser}
-        />
-
-        <Users
-          list={usersList}
-          onClick={this.backScreen}
-        />
-      </div >
+      <Container>
+        {renderScreen()}
+      </Container>
     );
   }
 }
