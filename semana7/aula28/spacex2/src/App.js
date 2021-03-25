@@ -4,7 +4,7 @@ import InfosCards from './components/InfosCards'
 
 export default class App extends React.Component {
   state = {
-    missions: []
+    missions: [],
   }
 
   componentDidMount = () => {
@@ -23,11 +23,15 @@ export default class App extends React.Component {
     }
   }
 
+  getOneMission = async () => {
+    
+  }
+
   render() {
     const missionsList = this.state.missions.map((mission) => {
-      return <option>{mission.mission_name}</option>
+      return <option onClick={}>{mission.mission_name}</option>
     })
-    
+
     return (
       <div className="App">
         <select>
