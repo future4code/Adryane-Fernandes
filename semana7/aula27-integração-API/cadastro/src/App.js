@@ -79,56 +79,67 @@ export default class App extends React.Component {
   }
 
   //API
-  getUsers = () => {
-    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
-      this.setState({ users: res.data })
-    }).catch((err) => {
-      console.log(err.response.data)
-    })
+  getUsers = async () => {
+    try {
+      const response = await axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', {
+        headers: {
+          Authorization: 'adryane-fernandes-cruz'
+        }
+      })
+
+      this.setState({ users: response.data })
+    } catch (err) {
+      console.log(err.response)
+    }
   }
 
-  createUser = () => {
+  createUser = async () => {
     const body = {
       name: this.state.inputName,
       email: this.state.inputEmail
     }
 
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', body, {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
+    try {
+      const response = await axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', body, {
+        headers: {
+          Authorization: 'adryane-fernandes-cruz'
+        }
+      })
+
+
       alert('Usuário criado com sucesso!')
       this.getUsers()
       this.setState({ inputEmail: '', inputName: '' })
       this.setState({ page: 'list' })
-    }).catch((err) => {
+
+    } catch (err) {
       if (!this.state.inputName || !this.state.inputEmail) {
         alert('Por favor, preencha todos os campos corretamente.')
       } else {
-        console.log(err.response.data)
+        console.log(err.response)
         alert('Erro ao criar usuário!')
       }
 
-    })
+    }
   }
 
-  deleteUser = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
-      this.getUsers()
+  deleteUser = async (id) => {
+    try {
+      const response = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+        headers: {
+          Authorization: 'adryane-fernandes-cruz'
+        }
+      })
+
+      const deletedUser = window.confirm('Tem certeza que deseja deletar usuário?')
+      if (deletedUser){
+        this.getUsers()
       alert('Usuário apagado!')
-    }).catch((err) => {
-      console.log(err.response.data)
+      }
+    } catch (err) {
+      console.log(err.response)
       alert('Erro ao apagar usuário!')
-    })
+    }
   }
 
   render() {
