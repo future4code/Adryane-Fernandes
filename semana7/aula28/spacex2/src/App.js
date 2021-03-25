@@ -2,11 +2,27 @@ import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-// const Container = styled.div `
-//   display:flex;
-//   align-items: center;
-//   justify-content: center;
-// `
+const Container = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+  height: 100vh;
+  border: 1px solid black;
+  padding: 1rem;
+`
+
+const ContainerLinks = styled.div`
+margin-top: 1rem;
+`
+
+const Link = styled.a`
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0 1rem;
+`
 
 export default class App extends React.Component {
   state = {
@@ -28,7 +44,6 @@ export default class App extends React.Component {
       const response = await axios.get('https://api.spacexdata.com/v3/missions')
 
       this.setState({ missions: response.data })
-
     } catch (err) {
       console.log(err.response)
     }
@@ -45,6 +60,7 @@ export default class App extends React.Component {
         urlSite: response.data.website,
         urlWikipedia: response.data.wikipedia
       })
+      // console.log(response.data)
 
     } catch (err) {
       console.log(err.response)
@@ -59,17 +75,23 @@ export default class App extends React.Component {
     })
 
     return (
-      <div>
+      <Container>
         <select onChange={this.getOneMission}>
           <option >-</option>
           {missionsList}
         </select>
+
         <p>{this.state.description}</p>
 
-        {(this.state.urlTwitter) && <a href={this.state.urlTwitter}>link TT</a>}
-        {(this.state.urlTwitter) && <a href={this.state.urlSite}>Link site</a>}
-        {(this.state.urlTwitter) && <a href={this.state.urlWikipedia}>Link site</a>}
-      </div>
+        <ContainerLinks>
+          {(this.state.urlTwitter) &&
+            <Link href={this.state.urlTwitter}>link TT</Link>}
+          {(this.state.urlTwitter) &&
+            <Link href={this.state.urlSite}>Link site</Link>}
+          {(this.state.urlTwitter) &&
+            <Link href={this.state.urlWikipedia}>Link site</Link>}
+        </ContainerLinks>
+      </Container>
     );
   }
 }
