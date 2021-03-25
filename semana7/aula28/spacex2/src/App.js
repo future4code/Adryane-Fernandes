@@ -76,8 +76,9 @@ export default class App extends React.Component {
 
     return (
       <Container>
+      <h1>About SpaceX missions</h1>
         <select onChange={this.getOneMission}>
-          <option >-</option>
+          <option>Choose a mission</option>
           {missionsList}
         </select>
 
@@ -85,11 +86,11 @@ export default class App extends React.Component {
 
         <ContainerLinks>
           {(this.state.urlTwitter) &&
-            <Link href={this.state.urlTwitter}>link TT</Link>}
+            <Link href={this.state.urlTwitter}>Twitter</Link>}
           {(this.state.urlTwitter) &&
-            <Link href={this.state.urlSite}>Link site</Link>}
+            <Link href={this.state.urlSite}>Site</Link>}
           {(this.state.urlTwitter) &&
-            <Link href={this.state.urlWikipedia}>Link site</Link>}
+            <Link href={this.state.urlWikipedia}>Wikipedia</Link>}
         </ContainerLinks>
       </Container>
     );
