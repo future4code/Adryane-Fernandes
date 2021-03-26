@@ -8,7 +8,7 @@ const ContainerPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  background-color: #333;
   height: 90vh;
 `
 
