@@ -1,7 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import { baseUrl, headers } from '../parameters'
 import axios from 'axios'
 
+const Container = styled.div `
+  display: flex;
+  flex-direction: column;
+`
 export default class CreatePlaylistPage extends React.Component {
   state = {
     inputNamePl: ''
@@ -27,7 +32,7 @@ export default class CreatePlaylistPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h2>Crie sua playlist</h2>
         <input
           placeholder='Nome da playlist'
@@ -36,7 +41,7 @@ export default class CreatePlaylistPage extends React.Component {
         />
 
         <button onClick={this.createPlaylist}>Criar Playlist</button>
-      </div>
+      </Container>
     )
   }
 }
