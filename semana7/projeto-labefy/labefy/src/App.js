@@ -4,11 +4,12 @@ import Header from './components/Header'
 import CreatePlaylistPage from './pages/CreatePlaylistPage'
 import PlaylistsAndTracksPage from './pages/PlaylistsAndTracksPage'
 
+
 const ContainerPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #333;
+  background-color: #2e3d51;
   height: 90vh;
 `
 
