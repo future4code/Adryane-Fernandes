@@ -2,7 +2,7 @@ import React from 'react'
 import { baseUrl, headers } from '../parameters'
 import axios from 'axios'
 
-export default class CreatePlaylist extends React.Component {
+export default class CreatePlaylistPage extends React.Component {
   state = {
     inputNamePl: ''
   }

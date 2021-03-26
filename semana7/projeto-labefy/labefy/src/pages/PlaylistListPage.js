@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { baseUrl, headers } from '../parameters'
 
-export default class Playlist extends React.Component {
+export default class PlaylistListPage extends React.Component {
     state = {
         playlists: []
     }
@@ -32,7 +32,7 @@ export default class Playlist extends React.Component {
 
     render() {
         const playlistList = this.state.playlists.map((playlist) => {
-            return <div>
+            return <div key={playlist.id}>
                 <p>{playlist.name}</p>
                 <button onClick={() => this.deletePlaylist(playlist.id)}>X</button>
             </div>
