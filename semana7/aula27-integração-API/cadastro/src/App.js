@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import styled from "styled-components"
-import Register from "./components/Register"
-import Users from './components/Users'
+import Register from "./pages/Register"
+import Users from './pages/Users'
 
 const Container = styled.div`
   height: 100vh;
@@ -50,22 +49,7 @@ const ButtonDel = styled.button`
 
 export default class App extends React.Component {
   state = {
-    users: [],
-    inputName: '',
-    inputEmail: '',
     page: 'home'
-  }
-
-  componentDidMount = () => {
-    this.getUsers()
-  }
-
-  // Inputs
-  onChangeName = (e) => {
-    this.setState({ inputName: e.target.value })
-  }
-  onChangeEmail = (e) => {
-    this.setState({ inputEmail: e.target.value })
   }
 
   //Funções
@@ -79,57 +63,7 @@ export default class App extends React.Component {
   }
 
   //API
-  getUsers = () => {
-    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
-      this.setState({ users: res.data })
-    }).catch((err) => {
-      console.log(err.response.data)
-    })
-  }
-
-  createUser = () => {
-    const body = {
-      name: this.state.inputName,
-      email: this.state.inputEmail
-    }
-
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', body, {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
-      alert('Usuário criado com sucesso!')
-      this.getUsers()
-      this.setState({ inputEmail: '', inputName: '' })
-      this.setState({ page: 'list' })
-    }).catch((err) => {
-      if (!this.state.inputName || !this.state.inputEmail) {
-        alert('Por favor, preencha todos os campos corretamente.')
-      } else {
-        console.log(err.response.data)
-        alert('Erro ao criar usuário!')
-      }
-
-    })
-  }
-
-  deleteUser = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
-      headers: {
-        Authorization: 'adryane-fernandes-cruz'
-      }
-    }).then((res) => {
-      this.getUsers()
-      alert('Usuário apagado!')
-    }).catch((err) => {
-      console.log(err.response.data)
-      alert('Erro ao apagar usuário!')
-    })
-  }
+  
 
   render() {
     const usersList = this.state.users.map((user) => {
@@ -141,7 +75,6 @@ export default class App extends React.Component {
       )
     })
 
-    // Rendezição da tela
     const renderScreen = () => {
       if (this.state.page === 'home') {
         return (
