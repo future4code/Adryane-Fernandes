@@ -9,40 +9,67 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 
 const Post = (props) => {
-
+  const [curtido, setCurtido] = useState(false)
+  const [numeroCurtidas, setNumeroCurtida] = useState(0)
+  const [comentando, setComentando] = useState(false)
+  const [numeroComentarios, setNumeroComentarios] = useState(0)
+  const [comentarios, setComentarios] = useState([])
 
   const onClickCurtida = () => {
+    if (curtido) {
+      setCurtido(!curtido)
+      setNumeroCurtida(numeroCurtidas - 1)
+    } else {
+      setCurtido(!curtido)
+      setNumeroCurtida(numeroCurtidas + 1)
+    }
   };
+
+  const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
 
   const onClickComentario = () => {
+    setComentando(!comentando)
   };
 
-  const enviarComentario = (comentario) => {
+  const enviarComentario = (novoComentario) => {
+    const listaComentarios = [...comentarios, novoComentario]
+
+    setNumeroComentarios(numeroComentarios + 1)
+    setComentarios(listaComentarios)
+    setComentando(false)
   }
+
+  const caixaDeComentario = comentando ? (
+    <SecaoComentario enviarComentario={enviarComentario} />
+  ) : (
+    comentarios.map((item) => {
+      return <CommentContainer><p>{item}</p></CommentContainer> 
+    })
+  )
 
   return (
     <PostContainer>
       <PostHeader>
-        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={props.fotoPost} alt={'Imagem do post'} />
 
       <PostFooter>
         <IconeComContador
-          // icone={iconeCurtida}
+          icone={iconeCurtida}
           onClickIcone={onClickCurtida}
-          // valorContador={numeroCurtidas}
+          valorContador={numeroCurtidas}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          // valorContador={numeroComentarios}
+          valorContador={numeroComentarios}
         />
       </PostFooter>
-      {/* {caixaDeComentario} */}
+      {caixaDeComentario}
     </PostContainer>
   )
 }
