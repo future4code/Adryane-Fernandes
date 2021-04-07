@@ -11,6 +11,15 @@ export const Profile = styled.div`
     flex-direction: column;
     justify-content: flex-end;
 `
+
+export const Menu = styled.button`
+    position: absolute;
+    margin: 0 0 38rem 21rem;
+
+    &:hover{
+        background-color: rgba(200, 200, 200, 0.6);
+    }
+`
 export const BackgroundBlack = styled.div`
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), black);
     border-radius: 10px;
@@ -35,10 +44,18 @@ export const Description = styled.p`
     margin-top: .5rem;
     text-align: justify;
     color: white;
-
 `
 
 export const ContainerButton = styled.div `
     display: flex;
     justify-content: space-between;
+`
+
+export const ContainerButtonClean = styled.div `
+  position: fixed;
+  bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+  width: 61%;
 `

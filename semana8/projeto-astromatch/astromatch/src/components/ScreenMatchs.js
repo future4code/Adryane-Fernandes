@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button, Collapse, Icon } from "@chakra-ui/react"
-import { ChevronDownIcon, ChevronUpIcon, SmallCloseIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, ChevronUpIcon, SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton } from '../styles/ScreenMatchsStyles'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, Menu, ContainerButtonClean } from '../styles/ScreenMatchsStyles'
+
 
 function ScreenMatchs(props) {
   const [show, setShow] = React.useState(false)
@@ -10,6 +12,9 @@ function ScreenMatchs(props) {
 
   return (
     <Profile>
+      <Menu>
+        <Icon w={6} h={6} as={GiHamburgerMenu} color="brand.wine" />
+      </Menu>
       <BackgroundBlack>
         <Infos>
           <Name>Fulaninha de tal <Age>26</Age></Name>
@@ -44,7 +49,7 @@ function ScreenMatchs(props) {
           <Button
             borderRadius="100%"
             width='2rem'
-            
+
             _hover={{ transform: "scale(1.2)", }}
             _active={{
               transform: "scale(1.1)",
@@ -58,8 +63,7 @@ function ScreenMatchs(props) {
           <Button
             borderRadius="100%"
             width='2rem'
-            color="brand.red"
-            
+
             _hover={{ transform: "scale(1.2)" }}
             _active={{
               transform: "scale(1.1)",
@@ -68,10 +72,32 @@ function ScreenMatchs(props) {
               boxShadow:
                 "0 0 1px 2px rgba(218, 14, 51, 0.5), 0 1px 1px rgba(0, 0, 0, .15)",
             }}>
-            <Icon w={5} h={5} as={AiFillHeart} />
+            <Icon w={5} h={5} as={AiFillHeart} color="brand.red" />
           </Button>
         </ContainerButton>
       </BackgroundBlack>
+
+      
+      <ContainerButtonClean>
+        <Button
+          bg='white'
+          color='brand.red'
+
+          _hover={{
+            border: '1px',
+            borderColor: 'brand.red'
+          }}
+
+          _active={{
+            bg: "rgba(255, 255, 255, 0.25)",
+            transform: "scale(0.98)",
+          }}
+
+          _focus={{
+            boxShadow: "0 0 1px 2px rgba(255, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, .15)"
+          }}
+        >Limpar matchs</Button>
+      </ContainerButtonClean>
     </Profile>
   )
 }
