@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Collapse } from "@chakra-ui/react"
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack } from '../styles/ScreenMatchsStyles'
+import { Button, Collapse, Icon } from "@chakra-ui/react"
+import { ChevronDownIcon, ChevronUpIcon, SmallCloseIcon } from '@chakra-ui/icons'
+import { AiFillHeart } from 'react-icons/ai'
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton } from '../styles/ScreenMatchsStyles'
 
 function ScreenMatchs(props) {
   const [show, setShow] = React.useState(false)
@@ -38,8 +39,38 @@ function ScreenMatchs(props) {
             </Button>
           </>
         </Infos>
-        <button>X</button>
-        <button>S3</button>
+
+        <ContainerButton>
+          <Button
+            borderRadius="100%"
+            width='2rem'
+            
+            _hover={{ transform: "scale(1.2)", }}
+            _active={{
+              transform: "scale(1.1)",
+            }}
+            _focus={{
+              boxShadow:
+                "0 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, .15)",
+            }}>
+            <SmallCloseIcon w={6} h={6} />
+          </Button>
+          <Button
+            borderRadius="100%"
+            width='2rem'
+            color="brand.red"
+            
+            _hover={{ transform: "scale(1.2)" }}
+            _active={{
+              transform: "scale(1.1)",
+            }}
+            _focus={{
+              boxShadow:
+                "0 0 1px 2px rgba(218, 14, 51, 0.5), 0 1px 1px rgba(0, 0, 0, .15)",
+            }}>
+            <Icon w={5} h={5} as={AiFillHeart} />
+          </Button>
+        </ContainerButton>
       </BackgroundBlack>
     </Profile>
   )

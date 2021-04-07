@@ -14,12 +14,11 @@ export const Profile = styled.div`
 export const BackgroundBlack = styled.div`
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), black);
     border-radius: 10px;
+    padding: 1rem;
 `
 
 export const Infos = styled.div`
-    padding: 1rem;
-
-    /* padding-bottom: 3rem; */
+    margin-bottom: .5rem;
 `
 
 export const Name = styled.p` 
@@ -36,4 +35,10 @@ export const Description = styled.p`
     margin-top: .5rem;
     text-align: justify;
     color: white;
+
+`
+
+export const ContainerButton = styled.div `
+    display: flex;
+    justify-content: space-between;
 `
