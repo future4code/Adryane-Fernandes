@@ -30,8 +30,3 @@ export const ColorRed = styled.span`
   font-size: 3rem;
   font-weight: bold;
 `
-
-export const ContainerButton = styled.div `
-  position: fixed;
-  bottom: 2rem;
-`
