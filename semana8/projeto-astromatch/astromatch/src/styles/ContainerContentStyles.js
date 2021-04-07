@@ -19,7 +19,7 @@ export const ContainerLogo = styled.div`
   padding: 1rem 0 0.2rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);  
 `
-export const Logo = styled.p`
+export const Logo = styled.h1`
   color: #400A14;
   font-size: 3rem;
   font-weight: bold;
