@@ -32,3 +32,12 @@ export const ColorRed = styled.span`
   font-size: 3rem;
   font-weight: bold;
 `
+
+export const ContainerButtonClean = styled.div`
+  position: fixed;
+  bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+  width: 61%;
+`

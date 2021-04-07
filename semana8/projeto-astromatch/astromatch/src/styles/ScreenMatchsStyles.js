@@ -54,12 +54,3 @@ export const ContainerButton = styled.div`
     display: flex;
     justify-content: space-between;
 `
-
-export const ContainerButtonClean = styled.div`
-  position: fixed;
-  bottom: 2rem;
-
-  display: flex;
-  justify-content: center;
-  width: 61%;
-`
