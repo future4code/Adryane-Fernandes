@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { CardContent, ContainerLogo, Logo, ColorRed} from '../styles/ContainerContentStyles'
 import ScreenMatchs from './ScreenMatchs'
+import ScreenList from './ScreenList'
 
 const colors = {
   brand: {
@@ -15,13 +16,13 @@ const colors = {
 const theme = extendTheme({ colors })
 
 function ContainerContent() {
-  const [screen, setPage] = useState('match')
+  const [screen, setPage] = useState('matchList')
 
   const render = () => {
     if (screen === 'match') {
       return <ScreenMatchs/>
     } else if (screen === 'matchList') {
-      return
+      return <ScreenList />
     }
   }
 
