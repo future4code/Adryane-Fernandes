@@ -7,7 +7,19 @@ export const Container = styled.div`
   align-items: center;
   height: 100%;
 `
+export const IconMatchs = styled.button`
+  position: absolute;
+  margin: -3.5rem 21rem 0 0;
 
+  &:hover{
+    opacity: 0.8;
+    transform: scale(1.2)
+  }
+  &:active{
+    background-color: #f9DBD1;
+    transform: scale(1)
+  }
+`
 export const ProfileList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

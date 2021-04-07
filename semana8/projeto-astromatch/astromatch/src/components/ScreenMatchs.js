@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Collapse, Icon } from "@chakra-ui/react"
 import { ChevronDownIcon, ChevronUpIcon, SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, Menu, ContainerButtonClean } from '../styles/ScreenMatchsStyles'
+import { FaFire } from 'react-icons/fa'
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List, ContainerButtonClean } from '../styles/ScreenMatchsStyles'
 
 
 function ScreenMatchs(props) {
@@ -12,9 +12,9 @@ function ScreenMatchs(props) {
 
   return (
     <Profile>
-      <Menu>
-        <Icon w={6} h={6} as={GiHamburgerMenu} color="brand.wine" />
-      </Menu>
+      <List>
+        <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
+      </List>
       <BackgroundBlack>
         <Infos>
           <Name>Fulaninha de tal <Age>26</Age></Name>

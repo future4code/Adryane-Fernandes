@@ -11,13 +11,17 @@ export const Profile = styled.div`
     flex-direction: column;
     justify-content: flex-end;
 `
-
-export const Menu = styled.button`
+export const List = styled.button`
     position: absolute;
     margin: 0 0 38rem 21rem;
 
     &:hover{
-        background-color: rgba(200, 200, 200, 0.6);
+        opacity: 0.8;
+        transform: scale(1.2)
+    }
+     &:active{
+       background-color: #f9DBD1;
+       transform: scale(1)
     }
 `
 export const BackgroundBlack = styled.div`
@@ -46,12 +50,12 @@ export const Description = styled.p`
     color: white;
 `
 
-export const ContainerButton = styled.div `
+export const ContainerButton = styled.div`
     display: flex;
     justify-content: space-between;
 `
 
-export const ContainerButtonClean = styled.div `
+export const ContainerButtonClean = styled.div`
   position: fixed;
   bottom: 2rem;
 

@@ -1,10 +1,14 @@
 import React from 'react'
-import { Avatar, Button } from "@chakra-ui/react"
-import { Container, ContainerProfile, Name, ProfileList, ContainerButton } from '../styles/ScreenListStyles'
+import { Avatar, Button, Icon } from "@chakra-ui/react"
+import { AiFillHeart } from 'react-icons/ai'
+import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs } from '../styles/ScreenListStyles'
 
 function ScreenList() {
   return (
     <Container>
+      <IconMatchs>
+        <Icon as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
+      </IconMatchs>
       <ProfileList>
         <ContainerProfile>
           <Avatar size="xl" src="https://bit.ly/code-beast" />
