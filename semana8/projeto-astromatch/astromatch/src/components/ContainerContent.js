@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ChakraProvider, extendTheme, Button } from "@chakra-ui/react"
-import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean} from '../styles/ContainerContentStyles'
+import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean } from '../styles/ContainerContentStyles'
 import ScreenMatchs from './ScreenMatchs'
 import ScreenList from './ScreenList'
 
@@ -20,22 +20,16 @@ function ContainerContent() {
 
   const render = () => {
     if (screen === 'match') {
-      return <ScreenMatchs/>
+      return <ScreenMatchs />
     } else if (screen === 'matchList') {
       return <ScreenList />
     }
   }
 
-  return (
-    <ChakraProvider theme={theme}>
-      <CardContent>
-        <ContainerLogo>
-          <Logo>Astro<ColorRed>Match</ColorRed></Logo>
-        </ContainerLogo>
-        {render()}
-      </CardContent >
-
-      <ContainerButtonClean>
+  const ButtonClean = () => {
+    if (screen === 'match'){
+      return(
+        <ContainerButtonClean>
         <Button
           bg='white'
           color='brand.red'
@@ -55,6 +49,20 @@ function ContainerContent() {
           }}
         >Limpar matchs</Button>
       </ContainerButtonClean>
+      )
+    }
+  }
+
+  return (
+    <ChakraProvider theme={theme}>
+      <CardContent>
+        <ContainerLogo>
+          <Logo>Astro<ColorRed>Match</ColorRed></Logo>
+        </ContainerLogo>
+        {render()}
+      </CardContent >
+      {ButtonClean()}
+      
     </ChakraProvider>
   )
 }
