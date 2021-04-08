@@ -1,48 +1,24 @@
-import React from 'react'
-import { Button, Collapse, Icon } from "@chakra-ui/react"
-import { ChevronDownIcon, ChevronUpIcon, SmallCloseIcon, } from '@chakra-ui/icons'
+import React  from 'react'
+import { Icon, Button } from "@chakra-ui/react"
+import { SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaFire } from 'react-icons/fa'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List } from '../styles/ScreenMatchsStyles'
-
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List, Photo, ContainerPhoto } from '../styles/ScreenMatchsStyles'
 
 function ScreenMatchs(props) {
-  const [show, setShow] = React.useState(false)
-  const handleToggle = () => setShow(!show)
-
   return (
     <Profile>
       <List onClick={props.onClick}>
         <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
       </List>
+      <ContainerPhoto>
+        <Photo src={props.photo} />
+      </ContainerPhoto>
       <BackgroundBlack>
-        <Infos>
-          <Name>Fulaninha de tal <Age>26</Age></Name>
-          <>
-            <Collapse startingHeight={25} in={show}>
-              <Description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae beatae iure consectetur quibusdam molestiae eum totam blanditiis vel facilis corrupti nobis nam ducimus deleniti quis, quisquam atque. Iusto, eius architecto?</Description>
-            </Collapse>
-            <Button
-              size="xs"
-              onClick={handleToggle}
-              mt=".2rem"
-              variant="ghost"
-              color="gray"
 
-              _hover={{ transform: "scale(1.1)" }}
-              _active={{
-                bg: "",
-                borderColor: "",
-              }}
-              _focus={{
-                boxShadow:
-                  "",
-              }}
-            >
-              Ver {show ? "menos" : "mais"}
-              {show ? <ChevronDownIcon /> : <ChevronUpIcon />}
-            </Button>
-          </>
+        <Infos>
+          <Name>{props.name} <Age>{props.age}</Age></Name>
+          <Description>{props.bio}</Description>
         </Infos>
 
         <ContainerButton>
@@ -76,9 +52,6 @@ function ScreenMatchs(props) {
           </Button>
         </ContainerButton>
       </BackgroundBlack>
-
-      
-      
     </Profile>
   )
 }

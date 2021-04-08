@@ -1,19 +1,29 @@
 import styled from 'styled-components'
 
+export const Photo = styled.img `
+`
+
+export const ContainerPhoto = styled.div `
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    border-radius: 10px;
+`
+
 export const Profile = styled.div`
-    background: gray;
     width: 85%;
     height: 100%;
-    border-radius: 10px;
     margin: 1rem 0 1.5rem 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
 `
 export const List = styled.button`
     position: absolute;
-    margin: 0 0 38rem 21rem;
+    margin: -4.5rem 0 0  21rem;
 
     &:hover{
         opacity: 0.8;
@@ -25,9 +35,11 @@ export const List = styled.button`
     }
 `
 export const BackgroundBlack = styled.div`
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), black);
-    border-radius: 10px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.9), black);
+    border-radius: 0 0 10px 10px;
     padding: 1rem;
+    z-index: 999;
+    margin-top: -10rem;
 `
 
 export const Infos = styled.div`
