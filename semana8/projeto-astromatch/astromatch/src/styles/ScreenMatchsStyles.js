@@ -1,18 +1,25 @@
 import styled from 'styled-components'
 
-export const Photo = styled.img `
-`
 
-export const ContainerPhoto = styled.div `
+
+export const Photo = styled.div `
     display:flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     width: 100%;
     height: 100%;
     background-color: gray;
     border-radius: 10px;
+
+    background-image: url(${(props) => props.image});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 `
 
+export const PhotoBlur = styled.img `
+
+`
 export const Profile = styled.div`
     width: 85%;
     height: 100%;
@@ -37,9 +44,10 @@ export const List = styled.button`
 export const BackgroundBlack = styled.div`
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.9), black);
     border-radius: 0 0 10px 10px;
+    width: 100%;
     padding: 1rem;
     z-index: 999;
-    margin-top: -8rem;
+    /* margin-top: -8rem; */
 `
 
 export const Infos = styled.div`

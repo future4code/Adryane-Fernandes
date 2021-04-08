@@ -68,6 +68,7 @@ function ContainerContent() {
       .then((res) => {
         console.log(res.data.message)
         setListMatch([])
+        getProfile()
       }).catch((err) => {
         console.log(err.data)
       })
@@ -83,7 +84,7 @@ function ContainerContent() {
   }
   const render = () => {
     if (screen === 'match') {
-      return <ScreenMatchs
+        return <ScreenMatchs
         onClickRecuse={() => choosePerson(profile.id, false)}
         onClickMatch={() => choosePerson(profile.id, true)}
         onClick={changeScreen}
@@ -91,7 +92,7 @@ function ContainerContent() {
         name={profile.name}
         age={profile.age}
         bio={profile.bio}
-      />
+      />      
     } else if (screen === 'matchList') {
       return <ScreenList
         onClick={changeScreen}
@@ -127,6 +128,7 @@ function ContainerContent() {
       )
     }
   }
+
   return (
     <ChakraProvider theme={theme}>
       <CardContent>

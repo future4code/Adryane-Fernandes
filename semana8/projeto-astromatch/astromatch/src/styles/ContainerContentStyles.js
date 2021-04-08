@@ -11,7 +11,7 @@ export const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  overflow-y: auto;
+  /* overflow-y: auto; */
 `
 export const ContainerLogo = styled.div`
   display: flex;
