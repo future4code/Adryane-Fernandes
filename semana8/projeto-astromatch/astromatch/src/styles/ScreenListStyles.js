@@ -53,3 +53,19 @@ export const Name = styled.p`
 export const ContainerButton = styled.div`
   margin: 1rem;
 `
+
+export const ContainerMessage = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: .25;
+  width: 60%;
+  text-align: center;
+  margin-top: 8rem;
+
+`
+export const PhraseMessage = styled.p `
+  font-size: 1.5rem;
+  font-weight: 600;
+
+`

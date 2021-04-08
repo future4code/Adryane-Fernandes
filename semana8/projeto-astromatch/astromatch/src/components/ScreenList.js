@@ -1,7 +1,8 @@
 import React from 'react'
 import { Avatar, Button, Icon } from "@chakra-ui/react"
 import { AiFillHeart } from 'react-icons/ai'
-import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs } from '../styles/ScreenListStyles'
+import { HiOutlineEmojiSad } from 'react-icons/hi'
+import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs, ContainerMessage, PhraseMessage } from '../styles/ScreenListStyles'
 
 function ScreenList(props) {
 
@@ -13,6 +14,38 @@ function ScreenList(props) {
 
   })
 
+  const renderButton = () => {
+    if (listMatches.length === 0) {
+      return (
+        <ContainerMessage>
+          <Icon as={HiOutlineEmojiSad} w={20} h={20} color='brand.red' />
+          <PhraseMessage>Nenhum match no momento</PhraseMessage>
+        </ContainerMessage>
+      )
+    } else {
+      return (
+        <ContainerButton>
+          <Button
+            onClick={props.onClickLimpar}
+            bg="brand.red"
+            color='white'
+            width='10rem'
+
+            _hover={{ bg: 'brand.darkRed' }}
+            _active={{
+              bg: 'brand.darkRed',
+              transform: "scale(0.98)",
+            }}
+            _focus={{
+              boxShadow: "0 0 1px 2px rgba(255, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, .15)"
+            }}
+          >
+            Limpar matchs
+      </Button>
+        </ContainerButton>
+      )
+    }
+  }
   return (
     <Container>
       <IconMatchs onClick={props.onClick}>
@@ -21,25 +54,7 @@ function ScreenList(props) {
       <ProfileList>
         {listMatches}
       </ProfileList>
-      <ContainerButton>
-        <Button
-          onClick={props.onClickLimpar}
-          bg="brand.red"
-          color='white'
-          width='10rem'
-
-          _hover={{ bg: 'brand.darkRed' }}
-          _active={{
-            bg: 'brand.darkRed',
-            transform: "scale(0.98)",
-          }}
-          _focus={{
-            boxShadow: "0 0 1px 2px rgba(255, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, .15)"
-          }}
-        >
-          Limpar matchs
-      </Button>
-      </ContainerButton>
+      {renderButton()}
     </Container >
   )
 }

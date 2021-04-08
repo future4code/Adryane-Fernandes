@@ -16,7 +16,7 @@ export const ContainerPhoto = styled.div `
 export const Profile = styled.div`
     width: 85%;
     height: 100%;
-    margin: 1rem 0 1.5rem 0;
+    margin: 1rem 0 2rem 0;
 
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ export const BackgroundBlack = styled.div`
     border-radius: 0 0 10px 10px;
     padding: 1rem;
     z-index: 999;
-    margin-top: -10rem;
+    margin-top: -8rem;
 `
 
 export const Infos = styled.div`
