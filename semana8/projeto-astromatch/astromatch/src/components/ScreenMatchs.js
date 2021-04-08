@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import { Icon, Button } from "@chakra-ui/react"
 import { SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
@@ -23,6 +23,7 @@ function ScreenMatchs(props) {
 
         <ContainerButton>
           <Button
+          onClick={props.onClickRecuse}
             borderRadius="100%"
             width='2rem'
 
@@ -37,6 +38,7 @@ function ScreenMatchs(props) {
             <SmallCloseIcon w={6} h={6} />
           </Button>
           <Button
+            onClick={props.onClickMatch}
             borderRadius="100%"
             width='2rem'
 

@@ -34,6 +34,12 @@ export const ProfileList = styled.div`
 export const ContainerProfile = styled.div`
   margin: auto;
   padding: 0.5rem;
+
+  &:hover{
+    background: rgba(0, 0, 0, .18);
+    cursor: pointer;
+    border-radius: 2px;
+  }
 `
 
 export const Name = styled.p`
@@ -45,5 +51,5 @@ export const Name = styled.p`
 `
 
 export const ContainerButton = styled.div`
-  margin: 3rem;
+  margin: 1rem;
 `

@@ -4,32 +4,26 @@ import { AiFillHeart } from 'react-icons/ai'
 import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs } from '../styles/ScreenListStyles'
 
 function ScreenList(props) {
+
+  const listMatches = props.list.map((person) => {
+    return <ContainerProfile>
+      <Avatar size="xl" src={person.photo} />
+      <Name>{person.name}</Name>
+    </ContainerProfile>
+
+  })
+
   return (
     <Container>
       <IconMatchs onClick={props.onClick}>
         <Icon as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
       </IconMatchs>
       <ProfileList>
-        <ContainerProfile>
-          <Avatar size="xl" src="https://bit.ly/code-beast" />
-          <Name>Marco Hugo</Name>
-        </ContainerProfile>
-        <ContainerProfile>
-          <Avatar size="xl" src="https://bit.ly/code-beast" />
-          <Name>Marco Hugo</Name>
-        </ContainerProfile>
-        <ContainerProfile>
-          <Avatar size="xl" src="https://bit.ly/code-beast" />
-          <Name>Marco Hugo</Name>
-        </ContainerProfile>
-        <ContainerProfile>
-          <Avatar size="xl" src="https://bit.ly/code-beast" />
-          <Name>Marco Hugo</Name>
-        </ContainerProfile>
+        {listMatches}
       </ProfileList>
-
       <ContainerButton>
         <Button
+          onClick={props.onClickLimpar}
           bg="brand.red"
           color='white'
           width='10rem'
@@ -46,7 +40,7 @@ function ScreenList(props) {
           Limpar matchs
       </Button>
       </ContainerButton>
-    </Container>
+    </Container >
   )
 }
 
