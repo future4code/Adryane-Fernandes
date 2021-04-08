@@ -12,7 +12,7 @@ function ScreenMatchs(props) {
 
   return (
     <Profile>
-      <List>
+      <List onClick={props.onClick}>
         <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
       </List>
       <BackgroundBlack>

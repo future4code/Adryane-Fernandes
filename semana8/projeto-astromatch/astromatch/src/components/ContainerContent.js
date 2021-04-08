@@ -16,13 +16,21 @@ const colors = {
 const theme = extendTheme({ colors })
 
 function ContainerContent() {
-  const [screen, setPage] = useState('matchList')
+  const [screen, setScreen] = useState('match')
+
+  const changeScreen = () => {
+    if (screen === 'match'){
+      setScreen('matchList')
+    } else if (screen === 'matchList'){
+      setScreen('match')
+    }
+  }
 
   const render = () => {
     if (screen === 'match') {
-      return <ScreenMatchs />
+      return <ScreenMatchs onClick={changeScreen} />
     } else if (screen === 'matchList') {
-      return <ScreenList />
+      return <ScreenList onClick={changeScreen} />
     }
   }
 

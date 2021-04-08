@@ -3,10 +3,10 @@ import { Avatar, Button, Icon } from "@chakra-ui/react"
 import { AiFillHeart } from 'react-icons/ai'
 import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs } from '../styles/ScreenListStyles'
 
-function ScreenList() {
+function ScreenList(props) {
   return (
     <Container>
-      <IconMatchs>
+      <IconMatchs onClick={props.onClick}>
         <Icon as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
       </IconMatchs>
       <ProfileList>
