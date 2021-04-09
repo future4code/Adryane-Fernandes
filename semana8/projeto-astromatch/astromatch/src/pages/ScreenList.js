@@ -1,13 +1,12 @@
 import React from 'react'
 import { Avatar, Button, Icon } from "@chakra-ui/react"
-import { AiFillHeart } from 'react-icons/ai'
 import { HiOutlineEmojiSad } from 'react-icons/hi'
-import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs, ContainerMessage, PhraseMessage } from '../styles/pages/ScreenListStyles'
+import { Container, ContainerProfile, Name, ProfileList, ContainerButton, ContainerMessage, PhraseMessage } from '../styles/pages/ScreenListStyles'
 
 function ScreenList(props) {
 
   const listMatches = props.list.map((person) => {
-    return <ContainerProfile>
+    return <ContainerProfile key={person.id}>
       <Avatar size="xl" src={person.photo} />
       <Name>{person.name}</Name>
     </ContainerProfile>
@@ -48,9 +47,6 @@ function ScreenList(props) {
   }
   return (
     <Container>
-      <IconMatchs title="Perfis" onClick={props.onClick}>
-        <Icon  as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
-      </IconMatchs>
       <ProfileList>
         {listMatches}
       </ProfileList>

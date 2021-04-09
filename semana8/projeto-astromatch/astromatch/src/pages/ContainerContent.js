@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ChakraProvider, extendTheme, Button } from "@chakra-ui/react"
-import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean } from '../styles/pages/ContainerContentStyles'
+import { CardContent, ContainerButtonClean } from '../styles/pages/ContainerContentStyles'
 import { urlApi } from '../axiosConfig/apiConfig'
 import ScreenProfiles from './ScreenProfiles'
 import ScreenList from './ScreenList'
 import IsMatch from '../components/IsMatch'
 import NoProfileWarning from '../components/NoProfileWarning'
+import Header from '../components/Header'
 
 const colors = {
   brand: {
@@ -166,9 +167,11 @@ function ContainerContent() {
   return (
     <ChakraProvider theme={theme}>
       <CardContent>
-        <ContainerLogo>
-          <Logo>Astro<ColorRed>Match</ColorRed></Logo>
-        </ContainerLogo>
+        <Header 
+          page={screen}
+          onClickFire={changeScreen}
+          onClickHeart={changeScreen}
+        />
         {isMatch && alertMatch(profile.photo)}
         {renderScreen()}
       </CardContent >

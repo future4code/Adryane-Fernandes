@@ -25,19 +25,6 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
 `
-export const List = styled.button`
-    position: absolute;
-    margin: -4.5rem 0 0  21rem;
-
-    &:hover{
-        opacity: 0.8;
-        transform: scale(1.2)
-    }
-     &:active{
-       background-color: #f9DBD1;
-       transform: scale(1)
-    }
-`
 export const BackgroundBlack = styled.div`
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.9), black);
     border-radius: 0 0 10px 10px;

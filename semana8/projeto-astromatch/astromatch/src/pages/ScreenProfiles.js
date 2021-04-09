@@ -2,15 +2,14 @@ import React from 'react'
 import { Icon, Button } from "@chakra-ui/react"
 import { SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
-import { FaFire } from 'react-icons/fa'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List, Photo } from '../styles/pages/ScreenProfilesStyles'
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, Photo } from '../styles/pages/ScreenProfilesStyles'
 
 function ScreenProfiles(props) {
   return (
     <Profile>
-      <List onClick={props.onClick} title="Lista de Matches">
+      {/* <List onClick={props.onClick} title="Lista de Matches">
         <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
-      </List>
+      </List> */}
       <Photo image={props.photo}>
         <BackgroundBlack>
           <Infos>

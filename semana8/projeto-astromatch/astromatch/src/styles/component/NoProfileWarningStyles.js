@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   text-align: center;
   width: 32%;
-  margin-top: 10rem;
+  margin-top: 12rem;
 `
 
 export const Text = styled.p `
