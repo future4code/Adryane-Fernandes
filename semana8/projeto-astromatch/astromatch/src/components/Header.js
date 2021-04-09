@@ -1,7 +1,6 @@
 import { ContainerLogo, Logo, ColorRed, ListMacthes, ListProfiles } from '../styles/component/HeaderStyles'
 import { Icon } from "@chakra-ui/react"
-import { AiFillHeart } from 'react-icons/ai'
-import { FaFire } from 'react-icons/fa'
+import { AiFillHeart, AiFillFire } from 'react-icons/ai'
 
 
 
@@ -10,7 +9,7 @@ function Header(props) {
         if (props.page === 'match') {
             return (
                 <ListMacthes onClick={props.onClickFire} title="Lista de Matches">
-                    <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
+                    <Icon w={6} h={6} as={AiFillFire} color="brand.darkRed" />
                 </ListMacthes>
             )
         } else if (props.page === 'matchList') {
