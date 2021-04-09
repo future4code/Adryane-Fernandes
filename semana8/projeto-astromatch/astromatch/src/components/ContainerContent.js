@@ -5,6 +5,7 @@ import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean } from
 import ScreenMatchs from './ScreenMatchs'
 import ScreenList from './ScreenList'
 import { urlApi } from '../axiosConfig/apiConfig'
+import IsMatch from './IsMatch'
 
 const colors = {
   brand: {
@@ -21,6 +22,7 @@ function ContainerContent() {
   const [screen, setScreen] = useState('match')
   const [profile, setProfile] = useState([])
   const [listMatch, setListMatch] = useState([])
+  const [isMatch, setIsMatch] = useState(false)
 
   useEffect(() => {
     getProfile()
@@ -35,6 +37,7 @@ function ContainerContent() {
       })
   }
 
+  
   const choosePerson = (key, choiseUser) => {
     const body = {
       id: key,
@@ -44,7 +47,8 @@ function ContainerContent() {
     axios.post(`${urlApi}/choose-person`, body)
       .then((res) => {
         if (res.data.isMatch === true) {
-          window.alert('Deu match!')
+          // alertMatch(profile.photo)
+
           const person = {
             id: profile.id,
             name: profile.name,
@@ -54,17 +58,20 @@ function ContainerContent() {
           const newList = [...listMatch]
           newList.push(person)
 
+          setIsMatch(true)
           setListMatch(newList)
+        } else {
+          getProfile()
         }
-        getProfile()
+        
       })
       .catch((err) => {
         console.log(err.data)
       })
-  }
-
-  const clear = () => {
-    axios.put(`${urlApi}/clear`)
+    }
+    
+    const clear = () => {
+      axios.put(`${urlApi}/clear`)
       .then((res) => {
         console.log(res.data.message)
         setListMatch([])
@@ -72,10 +79,25 @@ function ContainerContent() {
       }).catch((err) => {
         console.log(err.data)
       })
-  }
-
-  //////////
-  const changeScreen = () => {
+    }
+    
+    //////////
+    const alertMatch = (photo) => {
+      return <IsMatch
+        photoMatch={photo}
+        onClickClose={() => {
+          setIsMatch(false)
+          getProfile()
+          
+        }}
+        onClickList={() => {
+          setScreen('matchList')
+          setIsMatch(false)
+        }}
+      />
+    }
+    
+    const changeScreen = () => {
     if (screen === 'match') {
       setScreen('matchList')
     } else if (screen === 'matchList') {
@@ -84,7 +106,7 @@ function ContainerContent() {
   }
   const render = () => {
     if (screen === 'match') {
-        return <ScreenMatchs
+      return <ScreenMatchs
         onClickRecuse={() => choosePerson(profile.id, false)}
         onClickMatch={() => choosePerson(profile.id, true)}
         onClick={changeScreen}
@@ -92,7 +114,7 @@ function ContainerContent() {
         name={profile.name}
         age={profile.age}
         bio={profile.bio}
-      />      
+      />
     } else if (screen === 'matchList') {
       return <ScreenList
         onClick={changeScreen}
@@ -135,6 +157,7 @@ function ContainerContent() {
         <ContainerLogo>
           <Logo>Astro<ColorRed>Match</ColorRed></Logo>
         </ContainerLogo>
+        {isMatch && alertMatch(profile.photo)}
         {render()}
       </CardContent >
       {ButtonClean()}

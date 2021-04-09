@@ -46,8 +46,6 @@ export const BackgroundBlack = styled.div`
     border-radius: 0 0 10px 10px;
     width: 100%;
     padding: 1rem;
-    z-index: 999;
-    /* margin-top: -8rem; */
 `
 
 export const Infos = styled.div`
