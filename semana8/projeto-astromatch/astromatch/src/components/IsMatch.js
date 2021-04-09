@@ -1,8 +1,7 @@
 import React from 'react'
-import { Container, Tittle, Close, ConteinerIconHeart, ContainerImage} from '../styles/IsMatchStyles'
-import { Icon, Button } from "@chakra-ui/react"
+import { Container, Tittle, Close, ConteinerIconHeart, ContainerImage} from '../styles/component/IsMatchStyles'
+import { Icon, Button, CloseButton } from "@chakra-ui/react"
 import { BsHeartFill } from 'react-icons/bs'
-import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { Avatar } from "@chakra-ui/react"
 
 
@@ -11,7 +10,7 @@ function IsMatch(props) {
     return (
         <Container>
             <Close onClick={props.onClickClose}>
-                <Icon as={AiOutlineCloseCircle} w={10} h={10} />
+                <CloseButton size="lg"/>
             </Close>
             <ContainerImage>
                 <Avatar src={props.photoMatch} size="xl" />

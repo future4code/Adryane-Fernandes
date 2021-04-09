@@ -1,6 +1,6 @@
 import * as React from "react"
 import GlobalStyle from './styles/GlobalStyles'
-import ContainerContent from './components/ContainerContent';
+import ContainerContent from './pages/ContainerContent';
 import { Container } from './styles/AppStyles'
 
 

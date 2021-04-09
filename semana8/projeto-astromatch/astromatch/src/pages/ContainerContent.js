@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ChakraProvider, extendTheme, Button } from "@chakra-ui/react"
-import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean } from '../styles/ContainerContentStyles'
-import ScreenMatchs from './ScreenMatchs'
-import ScreenList from './ScreenList'
+import { CardContent, ContainerLogo, Logo, ColorRed, ContainerButtonClean } from '../styles/pages/ContainerContentStyles'
 import { urlApi } from '../axiosConfig/apiConfig'
-import IsMatch from './IsMatch'
+import ScreenProfiles from './ScreenProfiles'
+import ScreenList from './ScreenList'
+import IsMatch from '../components/IsMatch'
+import NoProfileWarning from '../components/NoProfileWarning'
 
 const colors = {
   brand: {
@@ -28,6 +29,8 @@ function ContainerContent() {
     getProfile()
   }, [])
 
+
+  //Controllers
   const getProfile = () => {
     axios.get(`${urlApi}/person`)
       .then((res) => {
@@ -37,7 +40,6 @@ function ContainerContent() {
       })
   }
 
-  
   const choosePerson = (key, choiseUser) => {
     const body = {
       id: key,
@@ -47,7 +49,6 @@ function ContainerContent() {
     axios.post(`${urlApi}/choose-person`, body)
       .then((res) => {
         if (res.data.isMatch === true) {
-          // alertMatch(profile.photo)
 
           const person = {
             id: profile.id,
@@ -60,18 +61,20 @@ function ContainerContent() {
 
           setIsMatch(true)
           setListMatch(newList)
+
+
         } else {
           getProfile()
         }
-        
+
       })
       .catch((err) => {
         console.log(err.data)
       })
-    }
-    
-    const clear = () => {
-      axios.put(`${urlApi}/clear`)
+  }
+
+  const clear = () => {
+    axios.put(`${urlApi}/clear`)
       .then((res) => {
         console.log(res.data.message)
         setListMatch([])
@@ -79,43 +82,33 @@ function ContainerContent() {
       }).catch((err) => {
         console.log(err.data)
       })
-    }
-    
-    //////////
-    const alertMatch = (photo) => {
-      return <IsMatch
-        photoMatch={photo}
-        onClickClose={() => {
-          setIsMatch(false)
-          getProfile()
-          
-        }}
-        onClickList={() => {
-          setScreen('matchList')
-          setIsMatch(false)
-          getProfile()
-        }}
-      />
-    }
-    
-    const changeScreen = () => {
+  }
+
+  // Functions
+  const changeScreen = () => {
     if (screen === 'match') {
       setScreen('matchList')
     } else if (screen === 'matchList') {
       setScreen('match')
     }
   }
-  const render = () => {
+
+  const renderScreen = () => {
     if (screen === 'match') {
-      return <ScreenMatchs
-        onClickRecuse={() => choosePerson(profile.id, false)}
-        onClickMatch={() => choosePerson(profile.id, true)}
-        onClick={changeScreen}
-        photo={profile.photo}
-        name={profile.name}
-        age={profile.age}
-        bio={profile.bio}
-      />
+      if (profile) {
+        return <ScreenProfiles
+          onClickRecuse={() => choosePerson(profile.id, false)}
+          onClickMatch={() => choosePerson(profile.id, true)}
+          onClick={changeScreen}
+          photo={profile.photo}
+          name={profile.name}
+          age={profile.age}
+          bio={profile.bio}
+        />
+      } else {
+        return <NoProfileWarning />
+      }
+
     } else if (screen === 'matchList') {
       return <ScreenList
         onClick={changeScreen}
@@ -124,6 +117,7 @@ function ContainerContent() {
       />
     }
   }
+
   const ButtonClean = () => {
     if (screen === 'match') {
       return (
@@ -152,6 +146,23 @@ function ContainerContent() {
     }
   }
 
+  const alertMatch = (photo) => {
+    return <IsMatch
+      photoMatch={photo}
+      onClickClose={() => {
+        setIsMatch(false)
+        getProfile()
+
+      }}
+      onClickList={() => {
+        setScreen('matchList')
+        setIsMatch(false)
+        getProfile()
+      }}
+    />
+  }
+
+
   return (
     <ChakraProvider theme={theme}>
       <CardContent>
@@ -159,10 +170,9 @@ function ContainerContent() {
           <Logo>Astro<ColorRed>Match</ColorRed></Logo>
         </ContainerLogo>
         {isMatch && alertMatch(profile.photo)}
-        {render()}
+        {renderScreen()}
       </CardContent >
       {ButtonClean()}
-
     </ChakraProvider>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Avatar, Button, Icon } from "@chakra-ui/react"
 import { AiFillHeart } from 'react-icons/ai'
 import { HiOutlineEmojiSad } from 'react-icons/hi'
-import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs, ContainerMessage, PhraseMessage } from '../styles/ScreenListStyles'
+import { Container, ContainerProfile, Name, ProfileList, ContainerButton, IconMatchs, ContainerMessage, PhraseMessage } from '../styles/pages/ScreenListStyles'
 
 function ScreenList(props) {
 

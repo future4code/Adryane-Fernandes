@@ -17,9 +17,6 @@ export const Photo = styled.div `
     background-size: cover;
 `
 
-export const PhotoBlur = styled.img `
-
-`
 export const Profile = styled.div`
     width: 85%;
     height: 100%;

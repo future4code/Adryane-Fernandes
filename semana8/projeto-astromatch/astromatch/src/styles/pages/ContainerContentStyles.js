@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const CardTest = styled.div `
+  background: red;
+  padding: 1rem;
+`
 export const CardContent = styled.div`
   background: white;
   height: 42rem;

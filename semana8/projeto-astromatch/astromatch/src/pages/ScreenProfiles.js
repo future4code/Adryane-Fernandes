@@ -3,10 +3,9 @@ import { Icon, Button } from "@chakra-ui/react"
 import { SmallCloseIcon, } from '@chakra-ui/icons'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaFire } from 'react-icons/fa'
-import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List, Photo } from '../styles/ScreenMatchsStyles'
+import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButton, List, Photo } from '../styles/pages/ScreenProfilesStyles'
 
-
-function ScreenMatchs(props) {
+function ScreenProfiles(props) {
   return (
     <Profile>
       <List onClick={props.onClick} title="Lista de Matches">
@@ -53,10 +52,8 @@ function ScreenMatchs(props) {
           </ContainerButton>
         </BackgroundBlack>
       </Photo>
-
-
     </Profile>
   )
 }
 
-export default ScreenMatchs
+export default ScreenProfiles
