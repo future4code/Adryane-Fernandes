@@ -93,6 +93,7 @@ function ContainerContent() {
         onClickList={() => {
           setScreen('matchList')
           setIsMatch(false)
+          getProfile()
         }}
       />
     }
