@@ -48,8 +48,8 @@ function ScreenList(props) {
   }
   return (
     <Container>
-      <IconMatchs onClick={props.onClick}>
-        <Icon as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
+      <IconMatchs title="Perfis" onClick={props.onClick}>
+        <Icon  as={AiFillHeart} w={7} h={7} color='brand.darkRed' />
       </IconMatchs>
       <ProfileList>
         {listMatches}

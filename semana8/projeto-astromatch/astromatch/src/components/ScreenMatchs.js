@@ -9,7 +9,7 @@ import { Profile, Infos, Name, Age, Description, BackgroundBlack, ContainerButto
 function ScreenMatchs(props) {
   return (
     <Profile>
-      <List onClick={props.onClick}>
+      <List onClick={props.onClick} title="Lista de Matches">
         <Icon w={6} h={6} as={FaFire} color="brand.darkRed" />
       </List>
       <Photo image={props.photo}>
