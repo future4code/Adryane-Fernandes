@@ -1,0 +1,167 @@
+
+/* GLOBAL =====================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFE8D6;
+}
+
+/* CABEÇALHO GERAL ===============*/
+.title{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 16px;
+    color: #333333;
+}
+
+h1{
+    font-weight: 400; 
+    text-align: center;
+    color: #333333;
+}
+
+header{
+    background-color:#DDBEA9;
+    padding: 32px 16px;
+}
+
+/* RODAPÉ GERAL ===============*/
+footer{
+    background: #DDBEA9;
+    padding: 32px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+
+/*=============== INDEX */
+/* CABEÇALHO LOCAL ===============*/
+.subtitulo{
+    text-align: center;
+    font-weight: 300;
+    color: #503e34;
+}
+
+
+/* CORPO ===============*/
+main{
+    margin: 2% 5%;
+}
+#apresentacao{
+    text-align: justify;
+    margin: 15% 0;
+}
+
+/* LINKS ===============*/
+.links{
+    text-align: center;
+    background-color: #3F4238;
+    padding: 8px;
+}
+.mudanca-de-pag{
+    padding: 5px;
+}
+.mudanca-de-pag:visited{
+    color:#faf0e9;
+}
+.mudanca-de-pag:link{
+    color: #FFE8D6;
+}
+
+/* RODAPÉ ===============*/
+h4#fr-seguir{
+    margin-top: -10px;
+}
+
+table#principal{
+    border-radius: 20px;
+    margin: 1% ;
+    padding: 1% 20%;
+}
+
+a.link-redesSociais{
+    padding: 10px;
+}
+
+table#principal td{
+    text-align: center;
+    padding: 2px;
+} 
+
+img.imagemrs{
+    width: 50px;
+}
+
+
+/*===============  CONTROLE DE ESTOQUE */
+/* TABELA ===============*/
+table#estoque{
+    background-color: #A5A58D;
+    border-radius: 5px;
+}
+
+
+table#estoque thead th{
+    text-align: center;
+    padding: 2px;
+    color: white;
+    background-color: #3F4238;
+    border-radius: 5px 5px 0 0;
+}
+
+table#estoque tbody td{
+    background-color: #b7b7a4;
+    text-align: center;
+    padding: 2px;
+} 
+
+/* RODAPÉ ===============*/
+p.logo-rodape{
+    font-weight: 200;
+}
+
+
+/*=============== ADICIONAR PRODUTO */
+/* FORMULÁRIO ===============*/
+form{
+    margin: 8% 0;
+}
+table#add-prod{
+    margin: 0 29%;
+    height: 40%;
+    background-color: #A5A58D;
+    border-radius: 5px;
+    
+}
+table#add-prod tbody td{
+    background-color: #b7b7a4;
+    padding: 10px;
+} 
+
+table#add-prod thead th{
+    text-align: left;
+    padding: 2px;
+    color: white;
+    background-color: #3F4238;
+}
+button{
+    margin-left: 60%;
+    background-color: #DDBEA9;
+    border: none;
+    padding: 5px;
+    color: #3F4238;
+}
+
+/*===============  Funcionários */
+/* lista ===============*/
+ul{
+    margin: 2% 0 5% 43%;
+}
+
+
+

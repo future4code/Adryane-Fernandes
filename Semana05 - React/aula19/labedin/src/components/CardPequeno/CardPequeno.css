@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid black;
+    padding: 0.5rem 4rem;
+    margin: 0.5rem;
+}
+
+.container span, 
+.container b{
+    margin-left: 1%;
+}
+
+.container > img {
+    width: 2rem;
+}
+
