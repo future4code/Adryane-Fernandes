@@ -6,6 +6,8 @@ import {Button} from '@chakra-ui/react'
 import {Candidate} from '../../styles/page/TripDetailsPageStyles'
 import decideCandidate from '../../functions/decideCandidate'
 
+//teste 
+
 function TripDetailsPage() {
   useProtectedPage()
 
