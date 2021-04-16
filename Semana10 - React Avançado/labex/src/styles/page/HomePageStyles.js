@@ -6,8 +6,6 @@ export const Container = styled.div `
   background-image: url(${background});
   background-size: cover;
   background-position: center;
-
-
 `
 export const Main = styled.main`
   display: flex;
