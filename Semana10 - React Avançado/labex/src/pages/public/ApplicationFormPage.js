@@ -4,15 +4,19 @@ import useInput from '../../hooks/useInput'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import applyToTrip from '../../functions/applyToTrip'
+import useForm from '../../hooks/useForm'
+
 
 function ApplicationFormPage() {
-  const [name, handleName] = useInput('')
-  const [age, handleAge] = useInput('')
-  const [applicationText, handleApplicationText] = useInput('')
-  const [profession, handleProfession] = useInput('')
-  const [country, handleCountry] = useInput('')
-  const [trip, handleTrip] = useInput('')
-
+  const initialState = {
+    name: '',
+    age: '',
+    applicationText: '',
+    profession: '',
+    country: '',
+    trip: ''
+  }
+  const [form, handleInput] = useForm(initialState)
 
   const history = useHistory()
   const tripsList = useRequestData('/trips', {})
@@ -22,51 +26,63 @@ function ApplicationFormPage() {
   })
 
   const body = {
-    name,
-    age,
-    applicationText,
-    profession,
-    country
+    name: form.name,
+    age: form.age,
+    applicationText: form.applicationText,
+    profession: form.profession,
+    country: form.country
   }
 
-  
+  const submitForm = (event) => {
+    event.preventDefault()
+    applyToTrip(form.trip, body)
+  }
+
   return (
     <>
       <h1>ApplicationFormPage</h1>
-      <Input
-        placeholder={'Nome'}
-        value={name}
-        onChange={handleName}
-      />
-      <Input
-        placeholder={'Idade'}
-        value={age}
-        onChange={handleAge}
-      />
-      <Input
-        placeholder={'Motivo'}
-        value={applicationText}
-        onChange={handleApplicationText}
-      />
-      <Input
-        placeholder={'Profissão'}
-        value={profession}
-        onChange={handleProfession}
-      />
-      <Input
-        placeholder={'País'}
-        value={country}
-        onChange={handleCountry}
-      />
-      <Select
-        value={trip}
-        onChange={handleTrip}
-      >
-        <option> - </option>
-        {selectTrips}
-      </Select>
-      <Button onClick={() => applyToTrip(trip, body)}>Enviar</Button>
-      <Button onClick={history.goBack}> Voltar </Button>
+      <form onSubmit={submitForm}>
+        <input
+          name={'name'}
+          placeholder={'Nome'}
+          value={form.name}
+          onChange={handleInput}
+        />
+        <input
+          name={'age'}
+          placeholder={'Idade'}
+          value={form.age}
+          onChange={handleInput}
+        />
+        <input
+          name={'applicationText'}
+          placeholder={'Motivo'}
+          value={form.applicationText}
+          onChange={handleInput}
+        />
+        <input
+          name={'profession'}
+          placeholder={'Profissão'}
+          value={form.profession}
+          onChange={handleInput}
+        />
+        <input
+          name={'country'}
+          placeholder={'País'}
+          value={form.country}
+          onChange={handleInput}
+        />
+        <select
+          name={'trip'}
+          value={form.trip}
+          onChange={handleInput}
+        >
+          <option> - </option>
+          {selectTrips}
+        </select>
+        <button>Enviar</button>
+        {/* <button onClick={history.goBack}> Voltar </button> */}
+      </form>
     </>
   )
 }

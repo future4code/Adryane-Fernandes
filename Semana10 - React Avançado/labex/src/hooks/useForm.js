@@ -7,7 +7,7 @@ function useForm(inicialState){
         const {name, value} = event.target
         setForm({...form, [name]: value})
     }
-
+    
     return [form, onChange]
 }
 
