@@ -26,5 +26,3 @@ export const Subtittle = styled.h3 `
   margin-top: -1rem;
   color: #C5C3BE;
 `
-export const a = styled.div `
-`
