@@ -2,80 +2,106 @@ import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import Header from '../../components/Header'
 import { Input, Button } from '@chakra-ui/react'
-import useInput from '../../hooks/useInput'
 import { useHistory } from 'react-router-dom'
+import useForm from '../../hooks/useForm'
+// import createTrip from '../../functions/createTrip'
 
 import axios from 'axios'
-import {urlApi} from '../../apiConfig/axiosConfig'
+import { urlApi, headersConfig, token } from '../../apiConfig/axiosConfig'
+
 
 function CreateTripPage() {
-    useProtectedPage()
+  useProtectedPage()
 
-    const history = useHistory()
+  const history = useHistory()
 
-    const [name, handleName] = useInput('')
-    const [planet, handlePlanet] = useInput('')
-    const [date, handleDate] = useInput('')
-    const [description, handleDescription] = useInput('')
-    const [durationInDays, handleDuration] = useInput(0)
+  const initialState = {
+    name: '',
+    planet: '',
+    date: '',
+    description: '',
+    durationInDays: 0,
+  }
 
-    
+  const [form, handleInput] = useForm(initialState)
 
-    const createTrip = () => {
-        const body = {
-            name: name,
-            planet: planet,
-            date: date,
-            description: description,
-            durationInDays: durationInDays
-        }
-
-        axios.post(`${urlApi}/trips`, body, {
-            headers:{
-                auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im93T2g5ZWo2bW50akZqNUNRMVB4IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1ODk1NjI5MDh9.aB4dNbTCkToXB7pdzEa-tuMa-QbRQDUd93eva4-cec0'
-            }
-        })
-        .then((res) => {
-            console.log(res.data.trip)
-            
-        }).catch((err) => {
-            console.log(err)
-        })
+  function createTrip() {
+    const body = {
+      name: form.name,
+      planet: form.planet,
+      date: form.date,
+      description: form.descriptio,
+      durationInDays: form.durationInDays
     }
 
-    return (
-        <div>
-            <Header />
+    axios.post(`${urlApi}/trips`, body, {
+      headers: {
+        auth: token
+      }
+    })
+      .then((res) => {
+        console.log(res.data.trip)
+      }).catch((err) => {
+        console.log(err)
+      })
+  }
 
-            <Input
-                placeholder='Nome'
-                value={name}
-                onChange={handleName}
-            />
-            <Input
-                placeholder='Planeta'
-                value={planet}
-                onChange={handlePlanet}
-            />
-            <Input
-                placeholder='Data'
-                value={date}
-                onChange={handleDate}
-            />
-            <Input
-                placeholder='Descrição'
-                value={description}
-                onChange={handleDescription}
-            />
-            <Input
-                placeholder='Duração'
-                value={durationInDays}
-                onChange={handleDuration}
-            />
-            <Button onClick={createTrip}>Criar</Button>
-            <Button onClick={history.goBack}>Voltar</Button>
-        </div>
-    )
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    createTrip()
+  }
+
+
+  return (
+    <div>
+      <Header />
+
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder='Nome'
+          name={'name'}
+          value={form.name}
+          onChange={handleInput}
+          type={'text'}
+        />
+        <select name={'planet'} value={form.planet} onChange={handleInput}>
+          <option> Escolha um planeta </option>
+          <option value={'mercurio'}>Mercúrio</option>
+          <option value={'venus'}>Vênus</option>
+          <option value={'terra'}>Terra</option>
+          <option value={'marte'}>Marte</option>
+          <option value={'jupiter'}>Júpiter</option>
+          <option value={'saturno'}>Saturno</option>
+          <option value={'urano'}>Urano</option>
+          <option value={'netuno'}>Netuno</option>
+        </select>
+
+        <input
+          placeholder='Data'
+          name={'date'}
+          value={form.date}
+          onChange={handleInput}
+          type={'date'}
+        />
+        <input
+          placeholder='Descrição'
+          name={'description'}
+          value={form.description}
+          onChange={handleInput}
+          type={'text'}
+        />
+        <input
+          placeholder='Duração'
+          name={'durationInDays'}
+          value={form.durationInDays}
+          onChange={handleInput}
+          type={'number'}
+        />
+        <button>Criar</button>
+        {/* <Button onClick={history.goBack}>Voltar</Button> */}
+      </form>
+    </div>
+  )
 }
 
 export default CreateTripPage

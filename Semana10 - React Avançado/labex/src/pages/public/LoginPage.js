@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-// import useInput from '../../hooks/useInput'
 import useForm from '../../hooks/useForm'
 import Header from '../../components/Header'
 import login from '../../functions/login'
@@ -11,11 +10,11 @@ import { Input, Button } from '@chakra-ui/react'
 
 
 function LoginPage() {
-  const inicialState = {
+  const initialState = {
     email: '',
     password: ''
   }
-  const [form, onChange] = useForm(inicialState)
+  const [form, handleInput] = useForm(initialState)
 
 
   const history = useHistory()
@@ -27,7 +26,6 @@ function LoginPage() {
     if (token) {
       history.push('/admin/trips/list')
     }
-
   }, [history])
 
   const body = {
@@ -47,20 +45,22 @@ function LoginPage() {
         <Header />
         <form onSubmit={handleSubmit}>
           <input
-            // required
+            required
             name={'email'}
             placeholder={'E-mail'}
             value={form.email}
-            onChange={onChange}
+            onChange={handleInput}
             type={'email'}
+            pattern={'[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+'}
           />
           <input
-            // required
+            required
             name={'password'}
             placeholder={"Senha"}
             value={form.password}
-            onChange={onChange}
+            onChange={handleInput}
             type={'password'}
+            
           // pr="4.5rem"
           // type={show ? "text" : "password"}
           />

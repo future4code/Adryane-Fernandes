@@ -20,6 +20,7 @@ function AdminHomePage() {
 
   const logout = () => {
     window.localStorage.removeItem('token')
+    history.push('/login')
   }
 
   const tripsOrder = tripsList.trips && tripsList.trips.map((trip) => {
