@@ -6,10 +6,6 @@ import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import createTrip from '../../functions/createTrip'
 
-import axios from 'axios'
-import { urlApi, headersConfig, token } from '../../apiConfig/axiosConfig'
-
-
 function CreateTripPage() {
   useProtectedPage()
 
@@ -32,18 +28,23 @@ function CreateTripPage() {
     description: form.description,
     durationInDays: form.durationInDays
   }
-  // 
 
   const handleSubmit = (event) => {
     event.preventDefault()
     createTrip(body)
   }
+  
 
+  let dateNow = new Date().toLocaleDateString()
+  const yearNow = dateNow.substring(6)
+  const monthNow = dateNow.substring(3, 5)
+  const dayNow = dateNow.substring(0, 2)
 
+  console.log(yearNow, monthNow, dayNow)
   return (
     <div>
       <Header />
-
+      {dateNow}
       <form onSubmit={handleSubmit}>
         <input
           required
@@ -53,6 +54,7 @@ function CreateTripPage() {
           onChange={handleInput}
           type={'text'}
           pattern={'(.*[a-z]){5}'}
+          title="Nome deve ter no mínimo 5 letras"
         />
         <select
           required
@@ -60,7 +62,7 @@ function CreateTripPage() {
           value={form.planet}
           onChange={handleInput}
         >
-          <option> Escolha um planeta </option>
+          <option value={null}> Escolha um planeta </option>
           <option value={'mercurio'}>Mercúrio</option>
           <option value={'venus'}>Vênus</option>
           <option value={'terra'}>Terra</option>
@@ -78,19 +80,23 @@ function CreateTripPage() {
           value={form.date}
           onChange={handleInput}
           type={'date'}
+          min={`${yearNow}-${monthNow}-${dayNow}`}
         />
-        <input
+        <textarea
           required
           placeholder='Descrição'
           name={'description'}
           value={form.description}
           onChange={handleInput}
           type={'text'}
+          pattern={'(.*[a-z]){5}'}
+          title="Texto deve ter no mínimo 30 letras"
         />
         <input
           required
           placeholder='Duração'
           name={'durationInDays'}
+          min={50}
           value={form.durationInDays}
           onChange={handleInput}
           type={'number'}
