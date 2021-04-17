@@ -1,9 +1,10 @@
 import React from 'react'
-import { Input, Button, Select } from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import applyToTrip from '../../functions/applyToTrip'
 import useForm from '../../hooks/useForm'
+import Header from '../../components/Header'
+import { Form, Container } from '../../styles/page/public/ApplicationFormPage'
 
 
 function ApplicationFormPage() {
@@ -38,9 +39,9 @@ function ApplicationFormPage() {
   }
 
   return (
-    <>
-      <h1>ApplicationFormPage</h1>
-      <form onSubmit={submitForm}>
+    <Container>
+      <Header />
+      <Form onSubmit={submitForm}>
         <input
           name={'name'}
           placeholder={'Nome'}
@@ -80,10 +81,10 @@ function ApplicationFormPage() {
           {selectTrips}
         </select>
         <button>Enviar</button>
-      </form>
+      </Form>
       <button onClick={() => history.push('/trips/list')}> Voltar </button>
 
-    </>
+    </Container>
   )
 }
 

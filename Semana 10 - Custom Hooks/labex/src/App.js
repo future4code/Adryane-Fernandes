@@ -5,12 +5,12 @@ import { ChakraProvider,  extendTheme } from "@chakra-ui/react"
 
 const colors = {
   brand: {
-    ice: '#C5C3BE',
-    blue: '#4D69B1',
-    orange: '#D98F3B',
-    purple: '#181154',
-    bege: '#F0EBE1'
-
+    lightGreen: '#5EDE67',
+    darkGreen: '#007467',
+    green: '#00AD66',
+    yellow: '#FEAE33',
+    orange: '#DD6847',
+    darkRed: '#B0283E'
   }
 }
 

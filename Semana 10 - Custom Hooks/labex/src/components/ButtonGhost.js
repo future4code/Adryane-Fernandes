@@ -4,7 +4,7 @@ function ButtonGhost(props) {
   return (
     <div onClick={props.onClick}>
       <Button
-        color='white'
+        color={props.color}
         variant="ghost"
         _hover={{ bg: "rgba(255, 255, 255, .1)" }}
         _active={{
