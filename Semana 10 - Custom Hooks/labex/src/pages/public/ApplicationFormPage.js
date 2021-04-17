@@ -10,8 +10,7 @@ import TextAreaPattern from '../../components/form/TextAreaPattern'
 import SelectPattern from '../../components/form/SelectPattern'
 import background from '../../assents/backgroundManInMoon.jpg'
 import { Form, ContainerForm, Container, Image, ButtonGroup, Phrase, Credit, ContainerPhrase } from '../../styles/page/public/ApplicationFormPage'
-import ButtonGhost from '../../components/ButtonGhost'
-import ButtonSolid from '../../components/ButtonSolid'
+import ButtonPattern from '../../components/ButtonPattern'
 import Footer from '../../components/Footer'
 
 
@@ -107,12 +106,13 @@ function ApplicationFormPage() {
           />
 
           <ButtonGroup>
-            <ButtonSolid
+            <ButtonPattern
               name={'Enviar'}
             />
-            <ButtonGhost
+            <ButtonPattern
               onClick={() => history.push('/trips/list')}
               name={'Voltar'}
+              variant={'ghost'}
             />
           </ButtonGroup>
 

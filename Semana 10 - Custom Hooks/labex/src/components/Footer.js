@@ -4,6 +4,8 @@ const Container = styled.footer `
     text-align: center;
     width: 100%;
     padding:  1rem 0 .5rem 0 ;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 `
 function Footer() {
     return <Container>

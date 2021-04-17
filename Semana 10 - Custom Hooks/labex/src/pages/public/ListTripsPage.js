@@ -4,10 +4,7 @@ import { useHistory } from 'react-router-dom'
 import Header from '../../components/Header'
 import { Message, ButtonGroup, MessageAndButton, ContainerCards, Card, Tittle, Description, ContainerInfos, Infos, TittleInfos, Container, ContainerDateDuraction } from '../../styles/page/public/ListTripsPageStyles'
 import Footer from '../../components/Footer'
-import ButtonGhost from '../../components/ButtonGhost'
-import ButtonSolid from '../../components/ButtonSolid'
-
-// import Button from '@chakra-ui/react'
+import ButtonPattern from '../../components/ButtonPattern'
 
 
 function ListTripsPage() {
@@ -51,16 +48,19 @@ function ListTripsPage() {
     })
   return (
     <Container>
-      <Header />
+      <Header 
+        colorLogo={'red'}
+      />
       <MessageAndButton>
         <Message>Bem-vindo(a), viajante!</Message>
         <ButtonGroup>
-          <ButtonGhost
+          <ButtonPattern
             onClick={() => history.push('/')}
             name={'Voltar'}
             color={'black'}
+            variant={'ghost'}
           />
-          <ButtonSolid
+          <ButtonPattern
             onClick={() => history.push('/trips/application')}
             name={'Inscrever-se'}
           />
