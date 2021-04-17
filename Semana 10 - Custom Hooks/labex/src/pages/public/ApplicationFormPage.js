@@ -39,52 +39,71 @@ function ApplicationFormPage() {
   }
 
   return (
-    <Container>
+    <>
       <Header />
-      <Form onSubmit={submitForm}>
-        <input
-          name={'name'}
-          placeholder={'Nome'}
-          value={form.name}
-          onChange={handleInput}
-        />
-        <input
-          name={'age'}
-          placeholder={'Idade'}
-          value={form.age}
-          onChange={handleInput}
-        />
-        <input
-          name={'applicationText'}
-          placeholder={'Motivo'}
-          value={form.applicationText}
-          onChange={handleInput}
-        />
-        <input
-          name={'profession'}
-          placeholder={'Profissão'}
-          value={form.profession}
-          onChange={handleInput}
-        />
-        <input
-          name={'country'}
-          placeholder={'País'}
-          value={form.country}
-          onChange={handleInput}
-        />
-        <select
-          name={'trip'}
-          value={form.trip}
-          onChange={handleInput}
-        >
-          <option> - </option>
-          {selectTrips}
-        </select>
-        <button>Enviar</button>
-      </Form>
-      <button onClick={() => history.push('/trips/list')}> Voltar </button>
+      <Container>
+        <Form onSubmit={submitForm}>
+          <input
+            required
+            name={'name'}
+            placeholder={'Nome'}
+            value={form.name}
+            onChange={handleInput}
+            type={'text'}
+            pattern={'(.*[a-z]){3}'}
+            title="Nome deve ter no mínimo 3 letras"
+          />
+          <input
+            required
+            name={'age'}
+            placeholder={'Idade'}
+            value={form.age}
+            onChange={handleInput}
+            type={'number'}
+            min={18}
+          />
 
-    </Container>
+          <input
+            required
+            name={'profession'}
+            placeholder={'Profissão'}
+            value={form.profession}
+            onChange={handleInput}
+            minlength={5}
+            title="Nome deve ter no mínimo 5 caracteres"
+          />
+          <input
+            required
+            name={'country'}
+            placeholder={'País'}
+            value={form.country}
+            onChange={handleInput}
+          />
+          <textarea
+            required
+            name={'applicationText'}
+            placeholder={'Motivo'}
+            value={form.applicationText}
+            onChange={handleInput}
+            minlength={30}
+            title="Nome deve ter no mínimo 3 letras"
+          />
+          <select
+            required
+            name={'trip'}
+            value={form.trip}
+            onChange={handleInput}
+          >
+            <option> - </option>
+            {selectTrips}
+          </select>
+          <button>Enviar</button>
+          <button onClick={() => history.push('/trips/list')}> Voltar </button>
+
+        </Form>
+
+      </Container>
+    </>
   )
 }
 

@@ -3,7 +3,9 @@ import { urlApi } from "../apiConfig/axiosConfig"
 
 function applyToTrip(id, body){
     axios.post(`${urlApi}/trips/${id}/apply`, body)
-    .then((res) => console.log(res.data))
+    .then((res) => {
+        alert('cadastrada')
+    })
     .catch((err) => console.log(err))
 }
 

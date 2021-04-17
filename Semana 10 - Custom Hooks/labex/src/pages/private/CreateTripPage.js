@@ -89,7 +89,7 @@ function CreateTripPage() {
           value={form.description}
           onChange={handleInput}
           type={'text'}
-          pattern={'(.*[a-z]){5}'}
+          minLength={'30'}
           title="Texto deve ter no mínimo 30 letras"
         />
         <input
