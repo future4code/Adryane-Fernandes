@@ -3,8 +3,16 @@ import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import applyToTrip from '../../functions/applyToTrip'
 import useForm from '../../hooks/useForm'
+
 import Header from '../../components/Header'
-import { Form, Container } from '../../styles/page/public/ApplicationFormPage'
+import InputPattern from '../../components/form/InputPattern'
+import TextAreaPattern from '../../components/form/TextAreaPattern'
+import SelectPattern from '../../components/form/SelectPattern'
+import background from '../../assents/backgroundManInMoon.jpg'
+import { Form, ContainerForm, Container, Image, ButtonGroup, Phrase, Credit, ContainerPhrase } from '../../styles/page/public/ApplicationFormPage'
+import ButtonGhost from '../../components/ButtonGhost'
+import ButtonSolid from '../../components/ButtonSolid'
+import Footer from '../../components/Footer'
 
 
 function ApplicationFormPage() {
@@ -39,71 +47,86 @@ function ApplicationFormPage() {
   }
 
   return (
-    <>
-      <Header />
-      <Container>
+    <Container>
+      <ContainerForm>
+        <Header />
         <Form onSubmit={submitForm}>
-          <input
-            required
+          <InputPattern
+            label={'Nome'}
             name={'name'}
-            placeholder={'Nome'}
+            placeholder={'Aline Moraes'}
             value={form.name}
             onChange={handleInput}
             type={'text'}
             pattern={'(.*[a-z]){3}'}
             title="Nome deve ter no mínimo 3 letras"
           />
-          <input
-            required
+          <InputPattern
+            label={'Idade'}
             name={'age'}
-            placeholder={'Idade'}
+            placeholder={'18'}
             value={form.age}
             onChange={handleInput}
             type={'number'}
             min={18}
           />
 
-          <input
-            required
+          <InputPattern
+            label={'Profissão'}
             name={'profession'}
-            placeholder={'Profissão'}
+            placeholder={'Médico'}
             value={form.profession}
             onChange={handleInput}
             minlength={5}
             title="Nome deve ter no mínimo 5 caracteres"
           />
-          <input
-            required
+          <InputPattern
+            label={'País'}
             name={'country'}
-            placeholder={'País'}
+            placeholder={'Brasil'}
             value={form.country}
             onChange={handleInput}
+            pattern={'(.*[a-z]){3}'}
+            title="Nome deve ter no mínimo 3 letras"
           />
-          <textarea
-            required
+          <TextAreaPattern
+            label={'Motivo'}
             name={'applicationText'}
-            placeholder={'Motivo'}
+            placeholder={'Gosto do espaço'}
             value={form.applicationText}
             onChange={handleInput}
             minlength={30}
             title="Nome deve ter no mínimo 3 letras"
           />
-          <select
-            required
+          <SelectPattern
+            label={'Viagens'}
             name={'trip'}
             value={form.trip}
             onChange={handleInput}
-          >
-            <option> - </option>
-            {selectTrips}
-          </select>
-          <button>Enviar</button>
-          <button onClick={() => history.push('/trips/list')}> Voltar </button>
+            options={selectTrips}
+          />
+
+          <ButtonGroup>
+            <ButtonSolid
+              name={'Enviar'}
+            />
+            <ButtonGhost
+              onClick={() => history.push('/trips/list')}
+              name={'Voltar'}
+            />
+          </ButtonGroup>
 
         </Form>
-
-      </Container>
-    </>
+        <Footer />
+      </ContainerForm>
+      <Image img={background}>
+        {/* <img src={background} alt={'imagem de homem na lua'} /> */}
+        <ContainerPhrase>
+          <Phrase>Um pequeno passo para o homem, um grande salto para a humanidade.</Phrase>
+          <Credit>-Neil Armstrong</Credit>
+        </ContainerPhrase>
+      </Image>
+    </Container>
   )
 }
 

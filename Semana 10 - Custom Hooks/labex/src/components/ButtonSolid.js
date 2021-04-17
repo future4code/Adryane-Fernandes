@@ -14,7 +14,6 @@ function ButtonGhost(props) {
         _active={{
           bg: "#",
           transform: "scale(0.98)",
-          borderColor: "#",
         }}
         _focus={{
           boxShadow:

@@ -1,7 +1,7 @@
 import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import Header from '../../components/Header'
-import { Input, Button } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import createTrip from '../../functions/createTrip'
