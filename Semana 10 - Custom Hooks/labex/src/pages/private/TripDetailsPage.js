@@ -101,8 +101,6 @@ function TripDetailsPage() {
             <ButtonPattern
               onClick={() => history.push('/admin/trips/list')}
               name={'Voltar'}
-              variant={'ghost'}
-              color={'black'}
               margin={'1rem'}
             />
           </Card>
