@@ -9,6 +9,7 @@ import { ButtonGroup, ContainerForm, Container, Image, Phrase, ContainerPhrase, 
 import InputPattern from '../../components/form/InputPattern'
 import ButtonPattern from '../../components/ButtonPattern'
 import Footer from '../../components/Footer'
+import { ButtonSend } from '../../styles/component/ButtonSendStyles'
 
 function LoginPage() {
   const initialState = {
@@ -36,14 +37,13 @@ function LoginPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(form)
     login(history, body)
   }
 
   return (
     <Container>
       <ContainerForm>
-        
+
         <Form onSubmit={handleSubmit}>
           <Header colorLogo={'red'} />
           <InputPattern
@@ -65,15 +65,13 @@ function LoginPage() {
           />
           <ButtonPattern
             onClick={handleClick}
-            name={show ? "Mostrar senha" : "Esconder senha"}
+            name={show ? "Esconder senha" : "Mostrar senha"}
             variant={'ghost'}
             color={'black'}
             margin={'-2rem'}
           />
           <ButtonGroup>
-            <ButtonPattern
-              name={'Entrar'}
-            />
+            <ButtonSend>Entrar</ButtonSend>
             <ButtonPattern
               onClick={() => history.push('/')}
               name={'Voltar'}

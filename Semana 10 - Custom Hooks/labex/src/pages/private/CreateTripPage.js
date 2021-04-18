@@ -11,6 +11,7 @@ import ButtonPattern from '../../components/ButtonPattern'
 import { ButtonGroup, Container, Form, Image, ContainerForm, Phrase } from '../../styles/page/private/CreateTripPageStyles'
 import Footer from '../../components/Footer'
 import background from '../../assents/backgroundCreateTrip.jpg'
+import { ButtonSend } from '../../styles/component/ButtonSendStyles'
 
 
 
@@ -107,9 +108,8 @@ function CreateTripPage() {
             type={'number'}
           />
           <ButtonGroup>
-            <ButtonPattern
-              name={'Criar'}
-            />
+          <ButtonSend>Criar</ButtonSend>
+
             <ButtonPattern
               onClick={() => history.push('/admin/trips/list')}
               name={'Voltar'}

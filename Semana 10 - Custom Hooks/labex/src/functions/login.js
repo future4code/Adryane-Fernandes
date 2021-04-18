@@ -10,9 +10,12 @@ const login = (history, body) => {
         .then((res) => {
             window.localStorage.setItem('token', res.data.token)
             history.push('/admin/trips/list')
+            console.log(res.data);
+        
         })
         .catch((err) => {
             console.log(err);
+            alert('Usuário não existe')
         });
 }
 

@@ -12,6 +12,7 @@ import background from '../../assents/backgroundManInMoon.jpg'
 import { Form, ContainerForm, Container, Image, ButtonGroup, Phrase, Credit, ContainerPhrase } from '../../styles/page/public/ApplicationFormPage'
 import ButtonPattern from '../../components/ButtonPattern'
 import Footer from '../../components/Footer'
+import { ButtonSend } from '../../styles/component/ButtonSendStyles'
 
 
 function ApplicationFormPage() {
@@ -108,9 +109,7 @@ function ApplicationFormPage() {
           />
 
           <ButtonGroup>
-            <ButtonPattern
-              name={'Enviar'}
-            />
+          <ButtonSend>Enviar</ButtonSend>
             <ButtonPattern
               onClick={() => history.push('/trips/list')}
               name={'Voltar'}
