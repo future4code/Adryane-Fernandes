@@ -6,6 +6,7 @@ import LoginPage from '../pages/public/LoginPage'
 import AdminHomePage from '../pages/private/AdminHomePage'
 import CreateTripPage from '../pages/private/CreateTripPage'
 import TripDetailsPage from '../pages/private/TripDetailsPage'
+import Error from '../pages/Error'
 
 function RouterPage() {
   return (
@@ -37,6 +38,10 @@ function RouterPage() {
 
         <Route exact path='/admin/trips/:id'>
           <TripDetailsPage />
+        </Route>
+
+        <Route>
+          <Error />
         </Route>
       </Switch>
     </BrowserRouter>

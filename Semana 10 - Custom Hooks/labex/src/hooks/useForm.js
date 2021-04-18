@@ -7,8 +7,12 @@ function useForm(inicialState){
         const {name, value} = event.target
         setForm({...form, [name]: value})
     }
+
+    const resetForm = () => {
+        setForm(inicialState)
+    }
     
-    return [form, onChange]
+    return [form, onChange, resetForm]
 }
 
 export default useForm

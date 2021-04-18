@@ -24,7 +24,7 @@ function ApplicationFormPage() {
     country: '',
     trip: ''
   }
-  const [form, handleInput] = useForm(initialState)
+  const [form, handleInput, resetForm] = useForm(initialState)
 
   const history = useHistory()
   const tripsList = useRequestData('/trips', {})
@@ -44,6 +44,7 @@ function ApplicationFormPage() {
   const submitForm = (event) => {
     event.preventDefault()
     applyToTrip(form.trip, body)
+    resetForm()
   }
 
   return (
@@ -122,7 +123,6 @@ function ApplicationFormPage() {
         <Footer />
       </ContainerForm>
       <Image img={background}>
-        {/* <img src={background} alt={'imagem de homem na lua'} /> */}
         <ContainerPhrase>
           <Phrase>"Um pequeno passo para o homem, um grande salto para a humanidade."</Phrase>
           <Credit>-Neil Armstrong</Credit>

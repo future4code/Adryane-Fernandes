@@ -5,10 +5,12 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import deleteTrip from '../../functions/deleteTrip'
 import useRequestDataAuth from '../../hooks/useRequestDataAuth'
 import ButtonPattern from '../../components/ButtonPattern'
+import Footer from '../../components/Footer'
+import Loading from '../../components/Loading'
 import { IconButton } from "@chakra-ui/react"
 import { DeleteIcon } from '@chakra-ui/icons'
 import { Container, Main, ButtonGroup, ButtonGroupRight, TripsList, Trip, TripName } from '../../styles/page/private/AdminHomePageStyles'
-import Footer from '../../components/Footer'
+
 
 function AdminHomePage() {
   useProtectedPage()
@@ -28,12 +30,14 @@ function AdminHomePage() {
     return (
       <Trip key={trip.id} >
         <TripName onClick={() => goToTripDatailsPage(trip.id)}>{trip.name}</TripName>
+
         <IconButton
           onClick={() => deleteTrip(trip.id)}
           icon={<DeleteIcon />} />
       </Trip>
     )
   })
+
 
   return (
     <Container>
@@ -61,7 +65,7 @@ function AdminHomePage() {
           </ButtonGroupRight>
         </ButtonGroup>
         <TripsList>
-          {tripsOrder}
+          {tripsOrder ? tripsOrder : <Loading />}
         </TripsList>
       </Main>
       <Footer />

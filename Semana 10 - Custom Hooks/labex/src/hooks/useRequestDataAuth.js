@@ -13,7 +13,7 @@ const useRequestDataAuth = (urlFinal, initialState) => {
         })
             .then((res) => setData(res.data))
             .catch((err) => console.log(err))
-    }, [urlFinal])
+    }, [urlFinal, data])
 
 
     return data

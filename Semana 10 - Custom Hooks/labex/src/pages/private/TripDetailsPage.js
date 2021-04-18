@@ -6,8 +6,9 @@ import useRequestDataAuth from '../../hooks/useRequestDataAuth'
 import decideCandidate from '../../functions/decideCandidate'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { Container, ContainerHeader, Card, Titles, Description, Infos, Tag, InfosGroup, TitleCard, Approved, CardCandidates, Candidate, TitleCardCandidates, NameCandidate, InfosCandidate, InfoCandidate, ButtonGroup } from '../../styles/page/private/TripDetailsPageStyles'
+import { Container, Card, Titles, Description, Infos, Tag, InfosGroup, TitleCard, Approved, CardCandidates, Candidate, TitleCardCandidates, NameCandidate, InfosCandidate, InfoCandidate, ButtonGroup, Main } from '../../styles/page/private/TripDetailsPageStyles'
 import ButtonPattern from '../../components/ButtonPattern'
+import Loading from '../../components/Loading'
 
 
 function TripDetailsPage() {
@@ -64,46 +65,59 @@ function TripDetailsPage() {
     return <Approved>{candidate.name}</Approved>
   })
 
+  const date = () => {
+    let dateNow = tripDetails.trip && tripDetails.trip.date
+    const yearNow = dateNow.substring(0, 4)
+    const monthNow = dateNow.substring(5, 7)
+    const dayNow = dateNow.substring(8)
+
+    const newDate =  dayNow + '/' +  monthNow + '/' +  yearNow
+    return newDate
+  }
+
+
   return (
     <Container>
-      <ContainerHeader>
-        <Header
-          colorLogo={'red'}
-        />
-      </ContainerHeader>
-      <Card>
-        <Titles>{tripDetails.trip && tripDetails.trip.name}</Titles>
-        <Description>{tripDetails.trip && tripDetails.trip.description}</Description>
-        <InfosGroup>
-          <Infos>
-            <Tag>Data</Tag>
-            {tripDetails.trip && tripDetails.trip.date}
-          </Infos>
-          <Infos>
-            <Tag>Dias</Tag>
-            {tripDetails.trip && tripDetails.trip.durationInDays} dias
+      <Header colorLogo={'red'} />
+      {tripDetails.trip && tripDetails.trip.name ?
+        <Main>
+          <Card>
+            <Titles>{tripDetails.trip && tripDetails.trip.name}</Titles>
+            <Description>{tripDetails.trip && tripDetails.trip.description}</Description>
+            <InfosGroup>
+              <Infos>
+                <Tag>Data</Tag>
+                {date()}
+              </Infos>
+              <Infos>
+                <Tag>Dias</Tag>
+                {tripDetails.trip && tripDetails.trip.durationInDays} dias
          </Infos>
-          <Infos>
-            <Tag>Planeta</Tag>
-            {tripDetails.trip && tripDetails.trip.planet}
-          </Infos>
-        </InfosGroup>
-        <ButtonPattern
-          onClick={() => history.push('/admin/trips/list')}
-          name={'Voltar'}
-          variant={'ghost'}
-          color={'black'}
-          margin={'1rem'}
-        />
-      </Card>
-      <Card>
-        <TitleCard>Aprovados</TitleCard>
-        {approved}
-      </Card>
-      <CardCandidates>
-        <TitleCardCandidates>Candidatos</TitleCardCandidates>
-        {candidates}
-      </CardCandidates>
+              <Infos>
+                <Tag>Planeta</Tag>
+                {tripDetails.trip && tripDetails.trip.planet}
+              </Infos>
+            </InfosGroup>
+            <ButtonPattern
+              onClick={() => history.push('/admin/trips/list')}
+              name={'Voltar'}
+              variant={'ghost'}
+              color={'black'}
+              margin={'1rem'}
+            />
+          </Card>
+          <Card>
+            <TitleCard>Aprovados</TitleCard>
+            {approved}
+          </Card>
+          <CardCandidates>
+            <TitleCardCandidates>Candidatos</TitleCardCandidates>
+            {candidates}
+          </CardCandidates>
+        </Main>
+        :
+        <Loading />}
+
       <Footer />
     </Container >
   )

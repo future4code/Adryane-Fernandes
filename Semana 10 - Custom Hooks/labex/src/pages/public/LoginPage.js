@@ -10,6 +10,9 @@ import InputPattern from '../../components/form/InputPattern'
 import ButtonPattern from '../../components/ButtonPattern'
 import Footer from '../../components/Footer'
 import { ButtonSend } from '../../styles/component/ButtonSendStyles'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+import { IconButton, InputGroup, InputRightElement } from "@chakra-ui/react"
+import {Label} from '../../styles/component/LabelStyles'
 
 function LoginPage() {
   const initialState = {
@@ -35,15 +38,16 @@ function LoginPage() {
     password: form.password
   };
 
+  let notExist = false
   const handleSubmit = (event) => {
     event.preventDefault()
     login(history, body)
   }
 
+
   return (
     <Container>
       <ContainerForm>
-
         <Form onSubmit={handleSubmit}>
           <Header colorLogo={'red'} />
           <InputPattern
@@ -55,21 +59,33 @@ function LoginPage() {
             type={'email'}
             pattern={'[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+'}
           />
-          <InputPattern
-            label={'Senha'}
+          
+          <Label>Senha</Label>
+          <InputGroup size="md">
+           <InputPattern
             name={'password'}
             placeholder={"******"}
             value={form.password}
             onChange={handleInput}
             type={show ? "text" : "password"}
           />
-          <ButtonPattern
+            <InputRightElement >
+              
+            <IconButton
             onClick={handleClick}
-            name={show ? "Esconder senha" : "Mostrar senha"}
-            variant={'ghost'}
-            color={'black'}
-            margin={'-2rem'}
+            icon={show ? <ViewIcon /> : <ViewOffIcon />}
+            bg={"rgba(0, 0, 0, 0)"}
+            _active={{
+              bg: "",
+              transform: "",
+              borderColor: "",
+            }}
+            _focus={{
+              boxShadow:""
+            }}
           />
+            </InputRightElement>
+          </InputGroup>
           <ButtonGroup>
             <ButtonSend>Entrar</ButtonSend>
             <ButtonPattern

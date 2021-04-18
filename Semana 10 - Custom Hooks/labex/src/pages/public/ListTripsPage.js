@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import { Message, ButtonGroup, MessageAndButton, ContainerCards, Card, Tittle, Description, ContainerInfos, Infos, TittleInfos, Container, ContainerDateDuraction } from '../../styles/page/public/ListTripsPageStyles'
 import Footer from '../../components/Footer'
 import ButtonPattern from '../../components/ButtonPattern'
-
+import Loading from '../../components/Loading'
 
 function ListTripsPage() {
   const history = useHistory()
@@ -67,7 +67,7 @@ function ListTripsPage() {
         </ButtonGroup>
       </MessageAndButton>
       <ContainerCards>
-        {orderlyTrips}
+        {orderlyTrips ? orderlyTrips : <Loading />}
       </ContainerCards>
       <Footer />
     </Container >

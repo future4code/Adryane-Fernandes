@@ -25,10 +25,10 @@ function CreateTripPage() {
     planet: '',
     date: '',
     description: '',
-    durationInDays: 0,
+    durationInDays: '',
   }
 
-  const [form, handleInput] = useForm(initialState)
+  const [form, handleInput, resetForm] = useForm(initialState)
 
   const body = {
     name: form.name,
@@ -41,6 +41,7 @@ function CreateTripPage() {
   const handleSubmit = (event) => {
     event.preventDefault()
     createTrip(body)
+    resetForm()
   }
 
   const planets = ['Mercúrio', 'Vênus', 'Terra', 'Marte', 'Júpiter', 'Saturno', 'Urano', 'Netuno']

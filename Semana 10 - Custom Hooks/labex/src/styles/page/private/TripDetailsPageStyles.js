@@ -2,14 +2,17 @@ import styled from 'styled-components'
 
 export const Container = styled.div `
   display: grid;
-  grid-template-rows: .5fr 1fr 2fr 1fr;
+  grid-template-rows: .5fr 3fr .25fr;
+
+`
+
+export const Main = styled.main `
+  display: grid;
+  grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr 1fr;
 
   gap: 0.5rem;
-`
 
-export const ContainerHeader = styled.div `
-  grid-column: 1 / -1;
 `
 
 export const Card = styled.div `
@@ -19,10 +22,6 @@ export const Card = styled.div `
   border-radius: 10px;
   text-align: center;
   overflow-y: auto;
-
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 `
 
 export const Titles = styled.p `
@@ -69,6 +68,7 @@ export const CardCandidates = styled(Card) `
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: .25fr repeat(min(1), 2fr);
 
+  overflow-y: auto;
 `
 export const Candidate = styled.div ` 
   border: 1px solid gray;
