@@ -10,7 +10,7 @@ export const ContainerForm = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 2rem 4rem;;
+  padding: 2rem 4rem;
   height: 82%;
 
   justify-content: center;
@@ -37,7 +37,7 @@ export const Image = styled.div`
 export const ContainerPhrase = styled.div`
   color: white;
   font-weight: 800;
-  width: 60%;
+  width: 62%;
   text-shadow: 1px 1px 5px black;
 `
 

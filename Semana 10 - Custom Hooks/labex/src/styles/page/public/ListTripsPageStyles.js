@@ -30,7 +30,6 @@ export const ContainerCards = styled.section`
   gap: 1rem;
   margin-top: 1rem;
 `
-
 export const Card = styled.div`
   padding: 1rem 2rem;
   background: rgba(200,200,180, .5);

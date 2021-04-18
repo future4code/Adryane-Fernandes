@@ -10,7 +10,8 @@ const colors = {
     green: '#00AD66',
     yellow: '#FEAE33',
     orange: '#DD6847',
-    darkRed: '#B0283E'
+    darkRed: '#B0283E',
+    bege: '#F0EBE1'
   }
 }
 
