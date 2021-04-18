@@ -5,9 +5,10 @@ import Header from '../../components/Header'
 import login from '../../functions/login'
 import ImageBackground from '../../assents/backgroundLogin.jpg'
 import { token } from '../../apiConfig/axiosConfig'
-import { ContainerForm, Container, Image, Phrase, ContainerPhrase, Phrase2 } from '../../styles/page/LoginPageStyles'
-import { Input, Button } from '@chakra-ui/react'
-
+import { ButtonGroup, ContainerForm, Container, Image, Phrase, ContainerPhrase, Phrase2, Form } from '../../styles/page/public/LoginPageStyles'
+import InputPattern from '../../components/form/InputPattern'
+import ButtonPattern from '../../components/ButtonPattern'
+import Footer from '../../components/Footer'
 
 function LoginPage() {
   const initialState = {
@@ -42,37 +43,46 @@ function LoginPage() {
   return (
     <Container>
       <ContainerForm>
-        <Header />
-        <form onSubmit={handleSubmit}>
-          <input
-            required
+        
+        <Form onSubmit={handleSubmit}>
+          <Header colorLogo={'red'} />
+          <InputPattern
+            label={'Email'}
             name={'email'}
-            placeholder={'E-mail'}
+            placeholder={'usuario@gmail.com'}
             value={form.email}
             onChange={handleInput}
             type={'email'}
             pattern={'[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+'}
           />
-          <input
-            required
+          <InputPattern
+            label={'Senha'}
             name={'password'}
-            placeholder={"Senha"}
+            placeholder={"******"}
             value={form.password}
             onChange={handleInput}
-            type={'password'}
-            
-          // pr="4.5rem"
-          // type={show ? "text" : "password"}
+            type={show ? "text" : "password"}
           />
-
-          {/* <Button h="1.75rem" size="sm" onClick={handleClick}>
-            {show ? "Mostrar senha" : "Esconder senha"}
-          </Button> */}
-          <button>Entrar</button>
-          {/* <Button onClick={history.goBack}>
-            voltar
-          </Button> */}
-        </form>
+          <ButtonPattern
+            onClick={handleClick}
+            name={show ? "Mostrar senha" : "Esconder senha"}
+            variant={'ghost'}
+            color={'black'}
+            margin={'-2rem'}
+          />
+          <ButtonGroup>
+            <ButtonPattern
+              name={'Entrar'}
+            />
+            <ButtonPattern
+              onClick={() => history.push('/')}
+              name={'Voltar'}
+              variant={'ghost'}
+              color={'black'}
+            />
+          </ButtonGroup>
+        </Form>
+        <Footer />
       </ContainerForm>
 
 
@@ -80,7 +90,7 @@ function LoginPage() {
         <Phrase>Bem-vindo(a), <Phrase2>comandante!</Phrase2></Phrase>
       </ContainerPhrase>
       <Image src={ImageBackground} alt='imagem com astronauta e et se olhando' />
-    </Container>
+    </Container >
 
   )
 }

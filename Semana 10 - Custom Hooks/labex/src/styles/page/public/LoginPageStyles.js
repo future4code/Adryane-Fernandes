@@ -1,19 +1,30 @@
 import styled from 'styled-components'
 
-export const ContainerForm = styled.div `
-  width: 30%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 1px 1px 10px black;
-  background: white;
-`
-
 export const Container = styled.div `
   width: 100vw;
   display: flex;
 `
 
+export const ContainerForm = styled.div `
+  width: 30%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 3fr .25fr;
+  box-shadow: 1px 1px 10px black;
+  background: white;
+`
+
+export const Form = styled.form ` 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+`
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export const Image = styled.img `
   z-index: -1;
   height: 100%;
