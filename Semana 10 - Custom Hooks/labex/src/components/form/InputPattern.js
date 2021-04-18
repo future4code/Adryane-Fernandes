@@ -14,6 +14,7 @@ function InputPattern(props) {
       type={props.type}
       pattern={props.pattern}
       title={props.title}
+      min={props.min}
 
       variant="flushed"
       borderColor='gray'
@@ -21,7 +22,6 @@ function InputPattern(props) {
       borderRadius='10px'
       padding='.5rem'
       marginBottom='1rem'
-      marginTop='-.4rem;'
     />
   </>
 }

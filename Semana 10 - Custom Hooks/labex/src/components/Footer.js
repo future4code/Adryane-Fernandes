@@ -6,6 +6,8 @@ const Container = styled.footer `
     padding:  1rem 0 .5rem 0 ;
     color: rgb(0, 0, 0);
     font-weight: bold;
+
+    grid-column: 1 / -1;
 `
 function Footer() {
     return <Container>

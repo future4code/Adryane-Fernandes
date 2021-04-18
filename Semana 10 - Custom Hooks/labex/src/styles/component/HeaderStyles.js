@@ -6,6 +6,8 @@ export const Container = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  grid-column: 1 / -1;
 `
 
 export const ContainerButton = styled.div`
