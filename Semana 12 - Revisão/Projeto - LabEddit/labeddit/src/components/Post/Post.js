@@ -1,6 +1,6 @@
-import { Card, Name, Text, Functionalities, Likes, comments } from '../styles/components/PostStyles'
+import { Card, Name, Text, Functionalities, Likes, comments } from './PostStyles'
 import { ArrowUpIcon, ArrowDownIcon, ChatIcon } from '@chakra-ui/icons'
-import NewComment from '../components/NewComment'
+import NewComment from '../NewComment/NewComment'
 
 
 function Post(props) {

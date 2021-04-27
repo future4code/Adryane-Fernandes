@@ -1,11 +1,10 @@
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import FeedPage from '../pages/FeedPage'
-import LoginPage from '../pages/LoginPage'
-import RegisterPage from '../pages/RegisterPage'
-import DetailsPostPage from '../pages/DetailsPostPage'
-import ErrorPage from '../pages/ErrorPage'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import FeedPage from '../pages/Feed/FeedPage'
+import LoginPage from '../pages/Login/LoginPage'
+import RegisterPage from '../pages/Register/RegisterPage'
+import DetailsPostPage from '../pages/DetailsPost/DetailsPostPage'
+import ErrorPage from '../pages/Error/ErrorPage'
+import Header from '../components/Header/Header'
 
 function Router() {
   return (

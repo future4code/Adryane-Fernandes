@@ -1,7 +1,7 @@
 import { Textarea, Icon } from '@chakra-ui/react'
-import { Container, ContainerIcon } from '../styles/components/NewCommentStyles'
+import { Container, ContainerIcon } from './NewCommentStyles'
 import { RiSendPlane2Fill } from 'react-icons/ri'
-import { ButtonPattern } from './ButtonPattern'
+import { ButtonPattern } from '../ButtonPattern'
 
 function NewComment() {
   return <Container>

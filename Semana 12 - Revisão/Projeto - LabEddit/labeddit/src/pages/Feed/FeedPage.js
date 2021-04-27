@@ -1,9 +1,9 @@
-import Post from '../components/Post'
-import Footer from '../components/Footer'
+import Post from '../../components/Post/Post'
+import Footer from '../../components/Footer/Footer'
 import { Textarea } from '@chakra-ui/react'
-import { InputPattern } from '../components/InputPattern'
-import { ButtonPattern } from '../components/ButtonPattern'
-import { Container, Posts, CreatePost, Title, ButtonContainer, FooterContainer } from '../styles/pages/FeedStyles'
+import { InputPattern } from '../../components/InputPattern'
+import { ButtonPattern } from '../../components/ButtonPattern'
+import { Container, Posts, CreatePost, Title, ButtonContainer, FooterContainer } from './FeedStyles'
 
 function FeedPage() {
   return <Container>

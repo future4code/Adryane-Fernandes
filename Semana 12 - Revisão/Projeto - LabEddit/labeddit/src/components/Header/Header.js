@@ -1,4 +1,4 @@
-import { Container, Logo } from '../styles/components/HeaderStyles'
+import { Container, Logo } from './HeaderStyles'
 
 function Header() {
     return <Container>

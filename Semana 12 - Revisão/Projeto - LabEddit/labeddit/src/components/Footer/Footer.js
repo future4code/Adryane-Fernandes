@@ -1,4 +1,4 @@
-import { Container } from '../styles/components/FooterStyles'
+import { Container } from './FooterStyles'
 
 function Footer(props) {
   return <Container

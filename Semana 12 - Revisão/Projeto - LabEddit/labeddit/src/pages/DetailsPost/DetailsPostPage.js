@@ -1,6 +1,6 @@
-import { Container, Comments, Text } from '../styles/pages/DetailsPostStyles'
-import Post from '../components/Post'
-import Comment from '../components/Comment'
+import { Container, Comments, Text } from './DetailsPostStyles'
+import Post from '../../components/Post/Post'
+import Comment from '../../components/Comment/Comment'
 
 
 function DetailsPostPage() {

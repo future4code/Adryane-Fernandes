@@ -1,20 +1,24 @@
 import { useState } from 'react'
-import useForm from '../hooks/useForm'
+import { useHistory } from 'react-router-dom'
+import { goToLogin } from '../../router/coordinator'
 import { InputGroup, InputRightElement } from '@chakra-ui/react'
-import { InputPattern } from "../components/InputPattern"
-import { ButtonPattern } from '../components/ButtonPattern'
-import { Container, Card, Title, Text, ButtonRegister } from '../styles/pages/LoginStyles'
+import { InputPattern } from "../../components/InputPattern"
+import { ButtonPattern } from '../../components/ButtonPattern'
+import { Container, Card, Title, Text, ButtonRegister } from './RegisterStyles'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { Button, ContainerButton } from '../styles/ButtonFormStyles'
-import Footer from '../components/Footer'
+import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
+import Footer from '../../components/Footer/Footer'
+import useForm from '../../hooks/useForm'
 
-function LoginPage() {
+function RegisterPage() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
+  const history = useHistory()
 
   const initialState = {
     email: '',
     password: '',
+    username: ''
   }
   const [form, onChange, resetForm] = useForm(initialState)
 
@@ -22,22 +26,30 @@ function LoginPage() {
     event.preventDefault()
     resetForm()
   }
+
   return <Container>
     <Card>
-      <Title>Login</Title>
+      <Title>Cadastro</Title>
+
       <form onSubmit={onSubmitForm}>
         <InputPattern
-          placeholder={'Email'}
+          placeholder="Nome"
+          type={'text'}
+          name={'username'}
+          value={form.username}
+          onChange={onChange}
+        />
+        <InputPattern
+          placeholder="Email"
+          type={'email'}
           name={'email'}
           value={form.email}
           onChange={onChange}
-          type={'email'}
-          pattern={'[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+'}
         />
 
-        <InputGroup size="md">
+        <InputGroup>
           <InputPattern
-            placeholder={"Senha"}
+            placeholder="Senha"
             name={'password'}
             value={form.password}
             onChange={onChange}
@@ -58,10 +70,10 @@ function LoginPage() {
         </InputGroup>
 
         <ContainerButton>
-          <Button type={'submit'}>Entrar</Button>
+          <Button type={'submit'}>Cadastrar</Button>
         </ContainerButton>
       </form>
-      <Text>Não tem uma conta? Se <ButtonRegister>cadastre</ButtonRegister> agora</Text>
+      <Text>Já tem uma conta? Faça <ButtonRegister onCLick={() => goToLogin(history)}>login</ButtonRegister> agora</Text>
     </Card>
     <Footer
       background={'rgb(0, 0, 0)'}
@@ -70,4 +82,4 @@ function LoginPage() {
   </Container>
 }
 
-export default LoginPage
+export default RegisterPage
