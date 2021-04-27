@@ -2,9 +2,11 @@ import styled from 'styled-components'
 import background from '../../assents/backgroundLogin.jpg'
 
 export const Container = styled.main `
-  display: flex;
+  display: grid;
+  grid-template-rows: 92vh 30px;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
   background-image: url(${background});
   background-size: cover;
 `

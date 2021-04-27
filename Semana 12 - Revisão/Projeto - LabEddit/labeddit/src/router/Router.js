@@ -5,6 +5,7 @@ import RegisterPage from '../pages/RegisterPage'
 import DetailsPostPage from '../pages/DetailsPostPage'
 import ErrorPage from '../pages/ErrorPage'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function Router() {
   return (

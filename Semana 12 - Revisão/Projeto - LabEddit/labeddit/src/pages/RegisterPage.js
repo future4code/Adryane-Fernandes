@@ -6,7 +6,7 @@ import { InputPattern } from "../components/InputPattern"
 import { ButtonPattern } from '../components/ButtonPattern'
 import { Container, Card, Title, Text, ButtonRegister } from '../styles/pages/RegisterStyles'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-
+import Footer from '../components/Footer'
 
 function RegisterPage() {
   const [show, setShow] = useState(false)
@@ -47,6 +47,10 @@ function RegisterPage() {
       />
       <Text>Já tem uma conta? Faça <ButtonRegister onCLick={() => goToLogin(history)}>login</ButtonRegister> agora</Text>
     </Card>
+    <Footer 
+      background={'rgb(0, 0, 0)'}
+      color={'white'}
+    />
   </Container>
 }
 
