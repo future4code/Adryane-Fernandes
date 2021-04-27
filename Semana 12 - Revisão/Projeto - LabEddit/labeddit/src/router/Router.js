@@ -25,7 +25,7 @@ function Router() {
             <FeedPage />
           </Route>
 
-          <Route exact path='/post/:id'>
+          <Route exact path='/post'>
             <DetailsPostPage />
           </Route>
 

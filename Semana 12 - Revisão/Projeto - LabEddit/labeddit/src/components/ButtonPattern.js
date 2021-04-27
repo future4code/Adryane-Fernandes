@@ -6,12 +6,13 @@ export function ButtonPattern(props){
     borderRadius='20px'
     background={props.background ? props.background : 'brand.blueDark'}
     color={props.color ? props.color : 'white'} 
-    margin='.5rem'
+    margin={props.margin ? props.margin : '.5rem'} 
     height={props.height}
     size='md'
     onClick={props.onClick}
     icon={props.icon}
     marginBottom={props.marginBottom}
+    padding={props.padding}
 
     _hover={{
       background: props.bgHover ? props.bgHover : '#080852'

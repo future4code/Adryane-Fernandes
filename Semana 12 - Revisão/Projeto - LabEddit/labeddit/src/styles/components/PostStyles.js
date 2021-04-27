@@ -28,9 +28,9 @@ export const Functionalities = styled.div `
   padding-top: .5rem;
 `
 
-const LikesAndComents = styled.div `
+const LikesAndcomments = styled.div `
   display: flex;
   align-items: center;
 ` 
-export const Likes = styled(LikesAndComents) ``
-export const Coments = styled(LikesAndComents) ``
+export const Likes = styled(LikesAndcomments) ``
+export const comments = styled(LikesAndcomments) ``
