@@ -4,31 +4,37 @@ import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import DetailsPostPage from '../pages/DetailsPostPage'
 import ErrorPage from '../pages/ErrorPage'
+import Header from '../components/Header'
 
 function Router() {
-  return <BrowserRouter>
-    <Switch>
-      <Route exact path='/login'>
-        <LoginPage />
-      </Route>
+  return (
+    <>
+      <Header />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/login'>
+            <LoginPage />
+          </Route>
 
-      <Route exact path='/cadastro'>
-        <RegisterPage />
-      </Route>
+          <Route exact path='/cadastro'>
+            <RegisterPage />
+          </Route>
 
-      <Route exact path='/'>
-        <FeedPage />
-      </Route>
+          <Route exact path='/'>
+            <FeedPage />
+          </Route>
 
-      <Route exact path='/post/:id'>
-        <DetailsPostPage />
-      </Route>
+          <Route exact path='/post/:id'>
+            <DetailsPostPage />
+          </Route>
 
-      <Route>
-        <ErrorPage />
-      </Route>
-    </Switch>
-  </BrowserRouter>
+          <Route>
+            <ErrorPage />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default Router

@@ -1,10 +1,13 @@
 import Router from "./router/Router";
+import GlobalStyles from "./styles/GlobalStyles";
+import { AllPages } from './styles/AppStyles'
 
 function App() {
   return (
-    <div>
+    <AllPages>
+      <GlobalStyles />
       <Router />
-    </div>
+    </AllPages>
   );
 }
 
