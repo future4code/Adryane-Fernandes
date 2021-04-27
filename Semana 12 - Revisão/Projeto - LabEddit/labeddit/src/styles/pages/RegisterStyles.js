@@ -16,7 +16,7 @@ export const Card = styled.div `
   width: 22rem;
   box-shadow: 2px 2px 5px gray;
   border-radius: 20px;
-  padding:  0 1rem;
+  padding:  0 2.2rem;
   background: white;
 
   display: flex;
