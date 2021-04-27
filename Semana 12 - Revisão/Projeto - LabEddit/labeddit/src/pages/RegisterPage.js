@@ -1,5 +1,53 @@
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { goToLogin } from '../router/coordinator'
+import { InputGroup, InputRightElement } from '@chakra-ui/react'
+import { InputPattern } from "../components/InputPattern"
+import { ButtonPattern } from '../components/ButtonPattern'
+import { Container, Card, Title, Text, ButtonRegister } from '../styles/pages/RegisterStyles'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+
+
 function RegisterPage() {
-    return <div>RegisterPage</div>
-  }
-  
-  export default RegisterPage
+  const [show, setShow] = useState(false)
+  const handleClick = () => setShow(!show)
+  const history = useHistory()
+
+  return <Container>
+    <Card>
+      <Title>Cadastro</Title>
+      <InputPattern
+        placeholder="Nome"
+      />
+      <InputPattern
+        placeholder="Email"
+      />
+
+      <InputGroup>
+        <InputPattern
+          placeholder="Senha"
+          type={show ? "text" : "password"}
+        />
+        <InputRightElement>
+          <ButtonPattern
+            marginBottom={'-.1rem'}
+            onClick={handleClick}
+            background={'rgba(255, 255, 255, 0)'}
+            color={'#000'}
+            bgHover={'white'}
+            text={show ? <ViewIcon /> : <ViewOffIcon />}
+            boxShadow={'none'}
+            bgActive={'white'}
+          />
+        </InputRightElement>
+      </InputGroup>
+
+      <ButtonPattern
+        text={'Cadastrar'}
+      />
+      <Text>Já tem uma conta? Faça <ButtonRegister onCLick={() => goToLogin(history)}>login</ButtonRegister> agora</Text>
+    </Card>
+  </Container>
+}
+
+export default RegisterPage

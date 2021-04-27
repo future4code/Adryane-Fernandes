@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { goToRegister } from '../router/coordinator'
 import { InputGroup, InputRightElement } from '@chakra-ui/react'
 import { InputPattern } from "../components/InputPattern"
 import { ButtonPattern } from '../components/ButtonPattern'
@@ -41,7 +42,7 @@ function LoginPage() {
       <ButtonPattern
         text={'Entrar'}
       />
-      <Text>Não tem uma conta? Se <ButtonRegister onCLick={() => history.push('/cadastro')}>cadastre</ButtonRegister> agora</Text>
+      <Text>Não tem uma conta? Se <ButtonRegister onCLick={() => goToRegister(history)}>cadastre</ButtonRegister> agora</Text>
     </Card>
   </Container>
 }
