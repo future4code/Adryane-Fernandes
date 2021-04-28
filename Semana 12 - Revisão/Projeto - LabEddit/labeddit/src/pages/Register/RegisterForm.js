@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom' 
 import useForm from '../../hooks/useForm'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
@@ -7,13 +6,10 @@ import { InputGroup, InputRightElement } from '@chakra-ui/react'
 import { InputPattern } from "../../components/InputPattern"
 import { ButtonPattern } from '../../components/ButtonPattern'
 import signup from '../../functions/signup'
-import { token } from '../../APIConfig/token'
 
 function Registerform() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
-
-  const history = useHistory()
 
   const initialState = {
     email: '',
@@ -29,13 +25,9 @@ function Registerform() {
   }
   const onSubmitForm = (event) => {
     event.preventDefault()
-    
     signup(bodyApi)
-    resetForm()
 
-    if (token){
-      history.push('/')
-    }
+    resetForm()
   }
 
   return  <form onSubmit={onSubmitForm}>
