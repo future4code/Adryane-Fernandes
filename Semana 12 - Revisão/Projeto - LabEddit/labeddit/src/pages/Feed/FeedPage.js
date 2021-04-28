@@ -12,18 +12,18 @@ function FeedPage() {
   console.log('posts', postsList)
 
 
-  // const posts = postsList.map((post) => {
-  //   return <Post 
-  //     user={post.username}
-  //     title={post.title}
-  //     text={post.text}
-  //     like={post.userVoteDirection}
-  //     numberComment={post.commentsCount}
-  //   />
-  // })
+  const posts = postsList.map((post) => {
+    return <Post 
+      user={post.username}
+      title={post.title}
+      text={post.text}
+      like={post.userVoteDirection}
+      numberComment={post.commentsCount}
+    />
+  })
   return <Container>
     <Posts>
-      {/* {posts} */}
+      {posts}
     </Posts>
     <div>
       <FeedForm />

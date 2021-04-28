@@ -3,6 +3,7 @@ import { InputPattern } from '../../components/InputPattern'
 import { CreatePost, Title} from './FeedStyles'
 import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
 import useForm from '../../hooks/useForm'
+import createPost from '../../requests/createPost'
 
 function FeedForm(){
   const initialState = {
@@ -11,8 +12,15 @@ function FeedForm(){
   }
   const [form, onChange, resetForm] = useForm(initialState)
 
+  const bodyApi = {
+    text: form.text,
+    title: form.title
+  }
   const onSubmitForm = (event) => {
     event.preventDefault()
+    createPost(bodyApi)
+
+    resetForm()
   }
   return <form onSubmit={onSubmitForm}>
   <CreatePost>
