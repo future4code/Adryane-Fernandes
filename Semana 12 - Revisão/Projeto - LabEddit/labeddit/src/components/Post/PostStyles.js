@@ -15,6 +15,10 @@ export const Name = styled.p `
   margin-bottom: .5rem;
 `
 
+export const Title = styled.p `
+  font-weight: bold;
+`
+
 export const Text = styled.p `
   margin-bottom: .8rem;
 `
@@ -33,4 +37,4 @@ const LikesAndcomments = styled.div `
   align-items: center;
 ` 
 export const Likes = styled(LikesAndcomments) ``
-export const comments = styled(LikesAndcomments) ``
+export const Comments = styled(LikesAndcomments) ``

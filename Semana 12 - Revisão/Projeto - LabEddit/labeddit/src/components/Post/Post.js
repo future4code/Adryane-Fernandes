@@ -1,21 +1,30 @@
-import { Card, Name, Text, Functionalities, Likes, comments } from './PostStyles'
+import { useHistory } from 'react-router-dom'
+import { Card, Name, Title, Text, Functionalities, Likes, Comments } from './PostStyles'
 import { ArrowUpIcon, ArrowDownIcon, ChatIcon } from '@chakra-ui/icons'
 import NewComment from '../NewComment/NewComment'
 
 
 function Post(props) {
+  const history = useHistory()
+  const newComment = () => {
+    if (history.location.pathname !== '/') {
+      return <NewComment />
+    }
+  }
+
   return <Card>
-    <Name>Fulana de Tal</Name>
-    <Text>Lorem ipsulom aksdksd</Text>
+    <Name>{props.user}</Name>
+    <Title>{props.title}</Title>
+    <Text>{props.text}</Text>
     <Functionalities>
       <Likes>
-        <ArrowUpIcon /> 0 <ArrowDownIcon />
+        <ArrowUpIcon /> {props.like} <ArrowDownIcon />
       </Likes>
-      <comments>
-        <ChatIcon /> 1
-      </comments>
+      <Comments>
+        <ChatIcon /> {props.numberComment}
+      </Comments>
     </Functionalities>
-    <NewComment />
+    {newComment()}
   </Card>
 }
 

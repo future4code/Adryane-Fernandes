@@ -7,12 +7,23 @@ import { Container, Posts, CreatePost, Title, ButtonContainer, FooterContainer }
 import useRequestData from '../../hooks/useRequestData'
 
 function FeedPage() {
-  const posts = useRequestData({}, '/posts')
-  console.log(posts)
-  
+  const postsToApi = useRequestData({}, '/posts')
+
+  const postsList = postsToApi && postsToApi
+  console.log('posts', postsList)
+
+  // const posts = postsList.map((post) => {
+  //   return <Post 
+  //     user={post.username}
+  //     title={post.title}
+  //     text={post.text}
+  //     like={post.userVoteDirection}
+  //     numberComment={post.commentsCount}
+  //   />
+  // })
   return <Container>
     <Posts>
-      <Post />
+      {/* {posts} */}
     </Posts>
     <div>
       <CreatePost>
