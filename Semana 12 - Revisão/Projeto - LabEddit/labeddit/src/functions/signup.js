@@ -1,14 +1,14 @@
 import axios from 'axios'
-import { urlApi } from '../ApiConfig/urlApi'
+import { urlApi } from '../APIConfig/urlApi'
 
-const signup = async (body) => {
-  try {
-    const response = await axios.post(`${urlApi}`, body)
-    console.log(response)
-  } catch (err) {
-    console.log(err)
-    alert(err)
-  }
+const signup = (body) => {
+  axios.post(`${urlApi}/signup`, body)
+    .then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+      alert(err)
+    })
 }
 
 export default signup
