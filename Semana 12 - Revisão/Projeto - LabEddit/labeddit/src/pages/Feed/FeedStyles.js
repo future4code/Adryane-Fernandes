@@ -25,11 +25,6 @@ export const Title = styled.div`
   font-weight: 500;
 `
 
-export const ButtonContainer = styled.div`
-  width: 100%;
-  text-align: center;
-`
-
 export const FooterContainer = styled.div`
   background: white;
   padding: 2rem 1rem;
