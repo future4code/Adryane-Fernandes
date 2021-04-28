@@ -4,7 +4,7 @@ import { urlApi } from '../APIConfig/axiosConfig'
 function login(body){
   axios.post(`${urlApi}/login`, body)
   .then((res) => {
-    window.localStorage.setItem('token', res.data.token)
+    window.localStorage.setresetFormItem('token', res.data.token)
   }).catch((err) => {
     console.log(err)
   })

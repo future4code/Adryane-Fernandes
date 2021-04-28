@@ -6,14 +6,10 @@ import useRequestData from '../../hooks/useRequestData'
 import FeedForm from './FeedForm'
 
 function FeedPage() {
-  const postsToApi = useRequestData({}, '/posts')
+  const postsToApi = useRequestData([], '/posts')
 
-  const postsList = postsToApi && postsToApi
-  console.log('posts', postsList)
-
-
-  const posts = postsList.map((post) => {
-    return <Post 
+  const posts = postsToApi && postsToApi.map((post) => {
+    return <Post
       user={post.username}
       title={post.title}
       text={post.text}
@@ -21,6 +17,8 @@ function FeedPage() {
       numberComment={post.commentsCount}
     />
   })
+
+
   return <Container>
     <Posts>
       {posts}
