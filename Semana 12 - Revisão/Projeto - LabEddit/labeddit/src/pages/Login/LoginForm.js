@@ -5,7 +5,7 @@ import { InputPattern } from "../../components/InputPattern"
 import { ButtonPattern } from '../../components/ButtonPattern'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
-import login from '../../functions/login'
+import login from '../../requests/login'
 
 
 function LoginForm() {

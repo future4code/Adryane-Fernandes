@@ -5,7 +5,7 @@ import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
 import { InputGroup, InputRightElement } from '@chakra-ui/react'
 import { InputPattern } from "../../components/InputPattern"
 import { ButtonPattern } from '../../components/ButtonPattern'
-import signup from '../../functions/signup'
+import signup from '../../requests/signup'
 
 function Registerform() {
   const [show, setShow] = useState(false)

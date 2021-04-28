@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { urlApi } from '../APIConfig/urlApi'
+import { urlApi } from '../APIConfig/axiosConfig'
 
 function login(body){
   axios.post(`${urlApi}/login`, body)
