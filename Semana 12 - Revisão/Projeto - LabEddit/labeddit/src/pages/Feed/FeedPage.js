@@ -1,10 +1,10 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory, useEffect } from 'react-router-dom'
 import Post from '../../components/Post/Post'
-
 import Footer from '../../components/Footer/Footer'
 import { Container, Posts, FooterContainer } from './FeedStyles'
 import useRequestData from '../../hooks/useRequestData'
 import FeedForm from './FeedForm'
+import { token } from '../../APIConfig/token'
 
 
 function FeedPage() {
@@ -14,7 +14,13 @@ function FeedPage() {
   const goToPostDetails = (id) => {
     history.push(`/post/${id}`)
   }
-  
+  useEffect(() => {
+    if (!token){
+      history.push('/login')
+    }
+  })
+
+
   const posts = postsToApi && postsToApi.map((post) => {
     return <Post
       key={post.id}
@@ -26,8 +32,7 @@ function FeedPage() {
       onClick={() => goToPostDetails(post.id)}
     />
   })
-
-
+  
   return <Container>
     <Posts>
       {posts}
