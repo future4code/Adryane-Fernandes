@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { urlApi } from '../APIConfig/axiosConfig'
+import { BASE_URL } from '../APIConfig/axiosConfig'
 
 function login(body){
-  axios.post(`${urlApi}/login`, body)
+  axios.post(`${BASE_URL}/login`, body)
   .then((res) => {
     window.localStorage.setresetFormItem('token', res.data.token)
   }).catch((err) => {

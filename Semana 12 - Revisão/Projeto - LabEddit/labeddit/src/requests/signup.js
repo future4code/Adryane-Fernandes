@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { urlApi } from '../APIConfig/axiosConfig'
+import { BASE_URL } from '../APIConfig/axiosConfig'
 
 const signup = (body) => {
-  axios.post(`${urlApi}/signup`, body)
+  axios.post(`${BASE_URL}/signup`, body)
     .then((res) => {
       window.localStorage.setItem('token', res.data.token)
     }).catch((err) => {

@@ -14,16 +14,16 @@ function Post(props) {
 
   return <Card>
     <div onClick={props.onClick}>
-      <Name>{props.user}</Name>
+      <Name>{props.username}</Name>
       <Title>{props.title}</Title>
       <Text>{props.text}</Text>
     </div>
     <Functionalities>
       <Likes>
-        <ArrowUpIcon /> {props.like} <ArrowDownIcon />
+        <ArrowUpIcon /> {props.userVoteDirection} <ArrowDownIcon />
       </Likes>
       <Comments>
-        <ChatIcon /> {props.numberComment}
+        <ChatIcon /> {props.commentsCount}
       </Comments>
     </Functionalities>
     {newComment()}

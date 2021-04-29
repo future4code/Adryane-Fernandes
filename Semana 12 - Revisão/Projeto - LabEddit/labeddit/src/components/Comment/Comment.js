@@ -1,14 +1,14 @@
 import { Container, Name, Text, Likes } from './CommentStyles'
 import { ArrowUpIcon, ArrowDownIcon } from '@chakra-ui/icons'
 
-function Comment() {
+function Comment(props) {
   return <Container>
     <div>
-      <Name>Name</Name>
-      <Text>asdasdasd</Text>
+      <Name>{props.username}</Name>
+      <Text>{props.text}</Text>
     </div>
     <Likes>
-        <ArrowUpIcon /> 0 <ArrowDownIcon />
+        <ArrowUpIcon /> {props.userVoteDirection} <ArrowDownIcon />
       </Likes>
   </Container>
 }
