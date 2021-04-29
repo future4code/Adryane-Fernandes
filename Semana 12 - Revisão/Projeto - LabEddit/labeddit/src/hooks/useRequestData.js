@@ -12,7 +12,7 @@ function useRequestData(initialState, finalUrl) {
     .catch((err) => {
       alert(err)
     })
-  }, [finalUrl])
+  }, [finalUrl, data])
 
   return data
 }

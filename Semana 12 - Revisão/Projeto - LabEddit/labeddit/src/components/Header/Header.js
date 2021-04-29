@@ -1,9 +1,14 @@
-import { Container, Logo } from './HeaderStyles'
+import { Container, Logo, LogoutButton } from './HeaderStyles'
 
 function Header() {
-    return <Container>
-        <Logo>LabEddit</Logo>
-    </Container>
+  const logout = () => {
+    window.localStorage.removeItem('token')
+  }
+
+  return <Container>
+    <Logo>LabEddit</Logo>
+    <LogoutButton onClick={logout}>Logout</LogoutButton>
+  </Container>
 }
 
 export default Header

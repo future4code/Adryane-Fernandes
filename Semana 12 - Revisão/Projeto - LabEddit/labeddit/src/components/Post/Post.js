@@ -13,9 +13,11 @@ function Post(props) {
   }
 
   return <Card>
-    <Name>{props.user}</Name>
-    <Title>{props.title}</Title>
-    <Text>{props.text}</Text>
+    <div onClick={props.onClick}>
+      <Name>{props.user}</Name>
+      <Title>{props.title}</Title>
+      <Text>{props.text}</Text>
+    </div>
     <Functionalities>
       <Likes>
         <ArrowUpIcon /> {props.like} <ArrowDownIcon />
