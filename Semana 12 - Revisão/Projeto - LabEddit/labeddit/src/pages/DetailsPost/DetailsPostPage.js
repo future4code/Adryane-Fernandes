@@ -6,19 +6,20 @@ import Comment from '../../components/Comment/Comment'
 import Footer from '../../components/Footer/Footer'
 import useRequestData from '../../hooks/useRequestData'
 import { token } from '../../APIConfig/token'
+import vote from '../../requests/vote'
 
 function DetailsPostPage() {
   const pathParams = useParams()
   const infosPost = useRequestData({}, `/posts/${pathParams.id}`)
   const post = infosPost.post
-  console.log(post)
 
   const history = useHistory()
+
   useEffect(() => {
     if (!token) {
       history.push('/login')
     }
-  })
+  }, [history])
 
   const oneComment = post && post.comments.map((post) => {
     return <Comment 
@@ -27,15 +28,23 @@ function DetailsPostPage() {
       userVoteDirection={post.userVoteDirection}
     />
   })
-  // console.log(comments)
+
+  const voteUp = (id) => {
+    vote(pathParams.id, {direction: +1})
+  }
+  const voteLow = (id) => {
+    vote(pathParams.id, {direction: -1})
+  }
 
   return <Container>
     <Post
       username={post && post.username}
       title={post && post.title}
       text={post && post.text}
-      userVoteDirection={post && post.userVoteDirection}
+      votesCount={post && post.votesCount}
       commentsCount={post && post.commentsCount}
+      onCLickUp={() => voteUp(post.id)}
+      onCLickLow={() => voteLow(post.id)}
     />
     <Text>Comentários</Text>
     <Comments>

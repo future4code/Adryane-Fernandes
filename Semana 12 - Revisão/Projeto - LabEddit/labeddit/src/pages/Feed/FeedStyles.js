@@ -8,8 +8,7 @@ export const Container = styled.main`
 `
 
 export const Posts = styled.section`
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
+ 
 `
 
 export const CreatePost = styled.div`
@@ -27,7 +26,6 @@ export const Title = styled.div`
 
 export const FooterContainer = styled.div`
   background: white;
-  padding: 2rem 1rem;
   margin: 1rem;
   border-radius: 10px;
   border: 1px solid #c4c4c4;

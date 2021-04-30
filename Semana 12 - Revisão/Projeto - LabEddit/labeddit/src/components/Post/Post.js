@@ -3,16 +3,14 @@ import { Card, Name, Title, Text, Functionalities, Likes, Comments } from './Pos
 import { ArrowUpIcon, ArrowDownIcon, ChatIcon } from '@chakra-ui/icons'
 import NewComment from '../NewComment/NewComment'
 
-
 function Post(props) {
   const history = useHistory()
-  
 
   const newComment = () => {
     if (history.location.pathname !== '/') {
       return <NewComment />
     }
-  }
+  } 
 
   return <Card>
     <div onClick={props.onClick}>
@@ -22,7 +20,9 @@ function Post(props) {
     </div>
     <Functionalities>
       <Likes>
-        <ArrowUpIcon /> {props.userVoteDirection} <ArrowDownIcon />
+        <button onClick={props.onCLickUp}><ArrowUpIcon /> </button>
+        {props.votesCount}
+        <button onClick={props.onCLickLow}><ArrowDownIcon /></button>
       </Likes>
       <Comments>
         <ChatIcon /> {props.commentsCount}

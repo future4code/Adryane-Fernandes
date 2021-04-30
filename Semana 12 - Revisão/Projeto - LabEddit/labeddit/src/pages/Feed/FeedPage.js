@@ -6,6 +6,7 @@ import { Container, Posts, FooterContainer } from './FeedStyles'
 import useRequestData from '../../hooks/useRequestData'
 import FeedForm from './FeedForm'
 import { token } from '../../APIConfig/token'
+import vote from '../../requests/vote'
 
 
 function FeedPage() {
@@ -16,24 +17,33 @@ function FeedPage() {
     history.push(`/post/${id}`)
   }
   useEffect(() => {
-    if (!token){
+    if (!token) {
       history.push('/login')
     }
-  })
+  }, [history])
 
-
+  
+  const voteUp = (id) => {
+    vote(id, {direction: +1})
+  }
+  const voteLow = (id) => {
+    vote(id, {direction: -1})
+  }
+  
   const posts = apiPosts.posts && apiPosts.posts.map((post) => {
     return <Post
       key={post.id}
       username={post.username}
       title={post.title}
       text={post.text}
-      userVoteDirection={post.userVoteDirection}
+      votesCount={post.votesCount}
       commentsCount={post.commentsCount}
       onClick={() => goToPostDetails(post.id)}
+      onCLickUp={() => voteUp(post.id)}
+      onCLickLow={() => voteLow(post.id)}
     />
   })
-  
+
   return <Container>
     <Posts>
       {posts}
