@@ -1,18 +1,15 @@
-import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
-import { InputGroup, InputRightElement } from '@chakra-ui/react'
 import { InputPattern } from "../../components/InputPattern"
-import { ButtonPattern } from '../../components/ButtonPattern'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
+// import { ButtonPattern } from '../../components/ButtonPattern'
+import { ButtonPattern, ContainerButton } from '../../styles/ButtonFormStyles'
 import login from '../../requests/login'
 import { token } from '../../APIConfig/token'
+import InputPassword from '../../components/InputPassword'
 
 
 function LoginForm() {
-  const [show, setShow] = useState(false)
-  const handleClick = () => setShow(!show)
+  
   const history = useHistory()
 
   const initialState = {
@@ -44,31 +41,13 @@ function LoginForm() {
       type={'email'}
       pattern={'[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+'}
     />
-
-    <InputGroup size="md">
-      <InputPattern
-        placeholder={"Senha"}
-        name={'password'}
-        value={form.password}
-        onChange={onChange}
-        type={show ? "text" : "password"}
-      />
-      <InputRightElement>
-        <ButtonPattern
-          marginBottom={'-.1rem'}
-          onClick={handleClick}
-          background={'rgba(255, 255, 255, 0)'}
-          color={'#000'}
-          bgHover={'white'}
-          text={show ? <ViewIcon /> : <ViewOffIcon />}
-          boxShadow={'none'}
-          bgActive={'white'}
-        />
-      </InputRightElement>
-    </InputGroup>
+    <InputPassword 
+      value={form.password}
+      onChange={onChange}
+    />
 
     <ContainerButton>
-      <Button type={'submit'}>Entrar</Button>
+      <ButtonPattern type={'submit'}>Entrar</ButtonPattern>
     </ContainerButton>
   </form>
 }

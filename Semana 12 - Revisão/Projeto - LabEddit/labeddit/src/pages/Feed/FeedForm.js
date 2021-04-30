@@ -1,7 +1,7 @@
 import { Textarea } from '@chakra-ui/react'
 import { InputPattern } from '../../components/InputPattern'
 import { CreatePost, Title} from './FeedStyles'
-import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
+import { ButtonPattern, ContainerButton } from '../../styles/ButtonFormStyles'
 import useForm from '../../hooks/useForm'
 import createPost from '../../requests/createPost'
 
@@ -43,7 +43,7 @@ function FeedForm(){
       name={'text'}
     />
     <ContainerButton>
-      <Button type={'submit'}>Postar</Button>      
+      <ButtonPattern type={'submit'}>Postar</ButtonPattern>      
     </ContainerButton>
   </CreatePost>
   
