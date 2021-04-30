@@ -8,8 +8,10 @@ function Comment(props) {
       <Text>{props.text}</Text>
     </div>
     <Likes>
-        <ArrowUpIcon /> {props.userVoteDirection} <ArrowDownIcon />
-      </Likes>
+      <button onClick={props.onClickUp}><ArrowUpIcon /></button>
+      {props.votesCount}
+      <button onClick={props.onClickLow}><ArrowDownIcon /></button>
+    </Likes>
   </Container>
 }
 
