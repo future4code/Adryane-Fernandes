@@ -8,14 +8,14 @@ import useRequestData from '../../hooks/useRequestData'
 import { token } from '../../APIConfig/token'
 import vote from '../../requests/vote'
 import voteComment from '../../requests/voteComment'
-
+import Loading from '../../components/Loading/Loading'
 
 function DetailsPostPage() {
   const pathParams = useParams()
   const infosPost = useRequestData({}, `/posts/${pathParams.id}`)
   const post = infosPost.post
 
-  console.log(post )
+  console.log(post)
   const history = useHistory()
 
   useEffect(() => {
@@ -49,22 +49,27 @@ function DetailsPostPage() {
     />
   })
 
-  return <Container>
-    <Post
-      username={post && post.username}
-      title={post && post.title}
-      text={post && post.text}
-      votesCount={post && post.votesCount}
-      commentsCount={post && post.commentsCount}
-      onCLickUp={voteUp}
-      onCLickLow={voteLow}
-    />
-    <Text>Comentários</Text>
-    <Comments>
-      {oneComment}
-    </Comments>
-    <Footer />
-  </Container>
+  return <>
+    {!post ? <Loading /> :
+      <Container>
+        <Post
+          username={post && post.username}
+          title={post && post.title}
+          text={post && post.text}
+          votesCount={post && post.votesCount}
+          commentsCount={post && post.commentsCount}
+          onCLickUp={voteUp}
+          onCLickLow={voteLow}
+        />
+        <Text>Comentários</Text>
+        <Comments>
+          {oneComment}
+        </Comments>
+        <Footer />
+      </Container>
+    }
+
+  </>
 }
 
 export default DetailsPostPage

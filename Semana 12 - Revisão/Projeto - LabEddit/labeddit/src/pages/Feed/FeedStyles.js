@@ -7,10 +7,6 @@ export const Container = styled.main`
   grid-template-columns: 2fr 1fr;
 `
 
-export const Posts = styled.section`
- 
-`
-
 export const CreatePost = styled.div`
   background: white;
   padding: 1rem;

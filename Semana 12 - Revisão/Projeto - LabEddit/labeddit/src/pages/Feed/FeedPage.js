@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import useRequestData from '../../hooks/useRequestData'
 import Post from '../../components/Post/Post'
 import Footer from '../../components/Footer/Footer'
-import { Container, Posts, FooterContainer } from './FeedStyles'
-import useRequestData from '../../hooks/useRequestData'
+import Loading from '../../components/Loading/Loading'
 import FeedForm from './FeedForm'
 import { token } from '../../APIConfig/token'
+import { Container, FooterContainer } from './FeedStyles'
 import vote from '../../requests/vote'
-
 
 function FeedPage() {
   const history = useHistory()
@@ -22,14 +22,14 @@ function FeedPage() {
     }
   }, [history])
 
-  
+
   const voteUp = (id) => {
-    vote(id, {direction: +1})
+    vote(id, { direction: +1 })
   }
   const voteLow = (id) => {
-    vote(id, {direction: -1})
+    vote(id, { direction: -1 })
   }
-  
+
   const posts = apiPosts.posts && apiPosts.posts.map((post) => {
     return <Post
       key={post.id}
@@ -44,17 +44,23 @@ function FeedPage() {
     />
   })
 
-  return <Container>
-    <Posts>
-      {posts}
-    </Posts>
-    <div>
-      <FeedForm />
-      <FooterContainer>
-        <Footer />
-      </FooterContainer>
-    </div>
-  </Container >
+  return <>
+    {!apiPosts.posts ? <Loading /> :
+      <Container>
+        <section>
+          {posts}
+        </section>
+        <div>
+          <FeedForm />
+          <FooterContainer>
+            <Footer />
+          </FooterContainer>
+        </div>
+      </Container >
+    }
+  </>
+
+
 }
 
 export default FeedPage
