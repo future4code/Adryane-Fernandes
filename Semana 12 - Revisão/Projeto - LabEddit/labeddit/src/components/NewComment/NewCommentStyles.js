@@ -8,5 +8,8 @@ export const Container = styled.div `
 export const ContainerIcon = styled.div `
   display: flex;
   justify-content: flex-end;
-  /* padding: .3rem; */
+`
+
+export const Button = styled.button `
+  margin: 0 .5rem .5rem 0;
 `

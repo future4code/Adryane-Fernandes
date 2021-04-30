@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { Container, Comments, Text } from './DetailsPostStyles'
 import Post from '../../components/Post/Post'
 import Comment from '../../components/Comment/Comment'
+import Footer from '../../components/Footer/Footer'
 import useRequestData from '../../hooks/useRequestData'
 import { token } from '../../APIConfig/token'
 
@@ -40,6 +41,7 @@ function DetailsPostPage() {
     <Comments>
       {oneComment}
     </Comments>
+    <Footer />
   </Container>
 }
 

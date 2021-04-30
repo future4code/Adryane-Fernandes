@@ -6,6 +6,8 @@ import NewComment from '../NewComment/NewComment'
 
 function Post(props) {
   const history = useHistory()
+  
+
   const newComment = () => {
     if (history.location.pathname !== '/') {
       return <NewComment />
