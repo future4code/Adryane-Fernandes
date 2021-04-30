@@ -1,17 +1,12 @@
-import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { ButtonPattern, ContainerButton } from '../../styles/ButtonFormStyles'
-import { InputGroup, InputRightElement, Button } from '@chakra-ui/react'
 import { InputPattern } from "../../components/InputPattern"
 import signup from '../../requests/signup'
 import { token } from '../../APIConfig/token'
 import InputPassword from '../../components/InputPassword'
 
 function Registerform() {
-  const [show, setShow] = useState(false)
-  const handleClick = () => setShow(!show)
   const history = useHistory()
 
   const initialState = {
@@ -57,7 +52,7 @@ function Registerform() {
       value={form.password}
       onChange={onChange}
     />
-    
+
     <ContainerButton>
       <ButtonPattern type={'submit'}>Cadastrar</ButtonPattern>
     </ContainerButton>

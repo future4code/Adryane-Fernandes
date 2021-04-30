@@ -7,7 +7,7 @@ import Loading from '../../components/Loading/Loading'
 import FeedForm from './FeedForm'
 import { token } from '../../APIConfig/token'
 import { Container, FooterContainer } from './FeedStyles'
-import vote from '../../requests/vote'
+import { voteUp, voteLow } from '../../functions/vote'
 
 function FeedPage() {
   const history = useHistory()
@@ -21,14 +21,6 @@ function FeedPage() {
       history.push('/login')
     }
   }, [history])
-
-
-  const voteUp = (id) => {
-    vote(id, { direction: +1 })
-  }
-  const voteLow = (id) => {
-    vote(id, { direction: -1 })
-  }
 
   const posts = apiPosts.posts && apiPosts.posts.map((post) => {
     return <Post
