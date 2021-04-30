@@ -23,8 +23,10 @@ function DetailsPostPage() {
   }, [history])
 
 
-  const oneComment = post && post.comments.map((comment) => {
+  const allComments = post && post.comments.map((comment) => {
+
     return <Comment
+      key={comment.id}
       username={comment.username}
       text={comment.text}
       votesCount={comment.votesCount}
@@ -47,7 +49,7 @@ function DetailsPostPage() {
         />
         <Text>Comentários</Text>
         <Comments>
-          {oneComment}
+          {allComments}
         </Comments>
         <Footer />
       </Container>
