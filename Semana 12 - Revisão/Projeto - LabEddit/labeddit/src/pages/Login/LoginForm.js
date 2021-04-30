@@ -1,10 +1,9 @@
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import { InputPattern } from "../../components/InputPattern"
-// import { ButtonPattern } from '../../components/ButtonPattern'
 import { ButtonPattern, ContainerButton } from '../../styles/ButtonFormStyles'
 import login from '../../requests/login'
-import { token } from '../../APIConfig/token'
+// import { token } from '../../APIConfig/token'
 import InputPassword from '../../components/InputPassword'
 
 
@@ -18,18 +17,9 @@ function LoginForm() {
   }
   const [form, onChange, resetForm] = useForm(initialState)
 
-  const bodyApi = {
-    email: form.email,
-    password: form.password
-  }
   const onSubmitForm = (event) => {
     event.preventDefault()
-    login(bodyApi)
-
-    if (token) {
-      history.push('/')
-    }
-    resetForm()
+    login(form, resetForm, history)
   }
 
   return <form onSubmit={onSubmitForm}>

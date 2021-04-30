@@ -1,17 +1,12 @@
-import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Container, Card, Title, Text, ButtonRegister } from './LoginStyles'
 import Footer from '../../components/Footer/Footer'
 import LoginForm from './LoginForm'
-import { token } from '../../APIConfig/token'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 function LoginPage() {
+  useUnprotectedPage()
   const history = useHistory()
-  useEffect(() => {
-    if (token){
-      history.push('/')
-    }
-  }, [history])
 
   return <Container>
     <Card>

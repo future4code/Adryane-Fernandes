@@ -1,27 +1,18 @@
-import { useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Container, Comments, Text } from './DetailsPostStyles'
+import useProtectedPage from '../../hooks/useProtectedPage'
 import Post from '../../components/Post/Post'
 import Comment from '../../components/Comment/Comment'
 import Footer from '../../components/Footer/Footer'
 import useRequestData from '../../hooks/useRequestData'
-import { token } from '../../APIConfig/token'
 import Loading from '../../components/Loading/Loading'
 import { voteUp, voteLow } from '../../functions/vote'
 
 function DetailsPostPage() {
+  useProtectedPage()
   const pathParams = useParams()
   const infosPost = useRequestData({}, `/posts/${pathParams.id}`)
   const post = infosPost.post
-
-  const history = useHistory()
-
-  useEffect(() => {
-    if (!token) {
-      history.push('/login')
-    }
-  }, [history])
-
 
   const allComments = post && post.comments.map((comment) => {
 

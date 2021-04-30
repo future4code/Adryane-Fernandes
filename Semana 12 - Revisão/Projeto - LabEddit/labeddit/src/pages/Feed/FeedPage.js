@@ -8,8 +8,10 @@ import FeedForm from './FeedForm'
 import { token } from '../../APIConfig/token'
 import { Container, FooterContainer } from './FeedStyles'
 import { voteUp, voteLow } from '../../functions/vote'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 function FeedPage() {
+  useProtectedPage()
   const history = useHistory()
   const apiPosts = useRequestData([], '/posts')
 
