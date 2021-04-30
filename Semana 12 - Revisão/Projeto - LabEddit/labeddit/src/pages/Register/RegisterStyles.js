@@ -12,7 +12,7 @@ export const Container = styled.main `
 `
 
 export const Card = styled.div `
-  height: 60%;
+  height: 28rem;
   width: 22rem;
   box-shadow: 2px 2px 5px gray;
   border-radius: 20px;

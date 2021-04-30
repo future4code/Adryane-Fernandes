@@ -30,14 +30,17 @@ function FeedForm(){
       name={'title'}
       value={form.title}
       onChange={onChange}
+      
     />
     <Textarea
+      required
       placeholder={'O que quer dizer hoje?'}
+      value={form.text}
+      onChange={onChange}
+
       borderColor={'black'}
       h={'15rem'}
       name={'text'}
-      value={form.text}
-      onChange={onChange}
     />
     <ContainerButton>
       <Button type={'submit'}>Postar</Button>      

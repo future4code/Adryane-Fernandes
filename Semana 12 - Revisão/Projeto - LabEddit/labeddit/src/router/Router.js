@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import FeedPage from '../pages/Feed/FeedPage'
 import LoginPage from '../pages/Login/LoginPage'
@@ -7,9 +8,10 @@ import ErrorPage from '../pages/Error/ErrorPage'
 import Header from '../components/Header/Header'
 
 function Router() {
+  const history = useHistory()
   return (
     <>
-      <Header />
+      <Header onClick={() => history.push('/')}/>
       <BrowserRouter>
         <Switch>
           <Route exact path='/login'>

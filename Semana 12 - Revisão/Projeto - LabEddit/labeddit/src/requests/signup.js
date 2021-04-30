@@ -6,7 +6,7 @@ const signup = (body) => {
     .then((res) => {
       window.localStorage.setItem('token', res.data.token)
     }).catch((err) => {
-      alert(err)
+      console.log(err)
     })
 }
 

@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom'
-import { Card, Name, Title, Text, Functionalities, Likes, Comments } from './PostStyles'
+import { Card, Name, Title, Text, Functionalities, Likes, Comments, CountComments } from './PostStyles'
 import { ArrowUpIcon, ArrowDownIcon, ChatIcon } from '@chakra-ui/icons'
 import NewComment from '../NewComment/NewComment'
 
@@ -25,7 +25,7 @@ function Post(props) {
         <button onClick={props.onCLickLow}><ArrowDownIcon /></button>
       </Likes>
       <Comments>
-        <ChatIcon /> {props.commentsCount}
+        <ChatIcon /> <CountComments>{props.commentsCount} </CountComments> 
       </Comments>
     </Functionalities>
     {newComment()}

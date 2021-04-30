@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import { InputGroup, InputRightElement } from '@chakra-ui/react'
 import { InputPattern } from "../../components/InputPattern"
@@ -6,12 +7,13 @@ import { ButtonPattern } from '../../components/ButtonPattern'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Button, ContainerButton } from '../../styles/ButtonFormStyles'
 import login from '../../requests/login'
+import { token } from '../../APIConfig/token'
 
 
 function LoginForm() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
-
+  const history = useHistory()
 
   const initialState = {
     email: '',
@@ -27,6 +29,9 @@ function LoginForm() {
     event.preventDefault()
     login(bodyApi)
 
+    if (token) {
+      history.push('/')
+    }
     resetForm()
   }
 

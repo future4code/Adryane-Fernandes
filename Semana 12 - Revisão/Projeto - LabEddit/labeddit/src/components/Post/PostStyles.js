@@ -38,3 +38,7 @@ const LikesAndcomments = styled.div `
 ` 
 export const Likes = styled(LikesAndcomments) ``
 export const Comments = styled(LikesAndcomments) ``
+
+export const CountComments = styled.span `
+  margin-left: .2rem;
+` 

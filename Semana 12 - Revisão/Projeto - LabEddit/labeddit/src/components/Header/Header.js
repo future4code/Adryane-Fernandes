@@ -1,6 +1,6 @@
 import { Container, Logo, LogoutButton } from './HeaderStyles'
 
-function Header() {
+function Header(props) {
   const logout = () => {
     window.localStorage.removeItem('token')
   }

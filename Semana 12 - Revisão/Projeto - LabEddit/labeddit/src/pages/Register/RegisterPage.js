@@ -18,7 +18,7 @@ function RegisterPage() {
     <Card>
       <Title>Cadastro</Title>
       <Registerform />
-      <Text>Já tem uma conta? Faça <ButtonRegister onCLick={() => goToLogin(history)}>login</ButtonRegister> agora</Text>
+      <Text>Já tem uma conta? Faça <ButtonRegister onClick={() => history.push('/login')}>login</ButtonRegister> agora</Text>
     </Card>
     <Footer
       background={'rgb(0, 0, 0)'}

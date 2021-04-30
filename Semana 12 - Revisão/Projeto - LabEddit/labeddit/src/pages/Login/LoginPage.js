@@ -17,7 +17,7 @@ function LoginPage() {
     <Card>
       <Title>Login</Title>
       <LoginForm />
-      <Text>Não tem uma conta? Se <ButtonRegister>cadastre</ButtonRegister> agora</Text>
+      <Text>Não tem uma conta? Se <ButtonRegister onClick={() => history.push('/cadastro')}>cadastre</ButtonRegister> agora</Text>
     </Card>
     <Footer
       background={'rgb(0, 0, 0)'}
