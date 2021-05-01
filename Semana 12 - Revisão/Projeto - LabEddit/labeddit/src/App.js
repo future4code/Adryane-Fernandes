@@ -1,7 +1,9 @@
 import Router from "./router/Router";
 import GlobalStyles from "./styles/GlobalStyles";
 import { AllPages } from './styles/AppStyles'
-import { ChakraProvider, extendTheme} from "@chakra-ui/react"
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
 
 const theme = extendTheme({
   colors: {
@@ -17,8 +19,11 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <AllPages>
-        <GlobalStyles />
-        <Router />
+        <BrowserRouter>
+          <GlobalStyles />
+          <Header/>
+          <Router />
+        </BrowserRouter>
       </AllPages>
     </ChakraProvider>
   );
