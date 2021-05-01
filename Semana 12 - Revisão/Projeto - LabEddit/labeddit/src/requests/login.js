@@ -9,7 +9,7 @@ function login(body, resetForm, history){
     resetForm()
     goToFeed(history)
   }).catch((err) => {
-    console.log(err)
+    alert(err.response.data.message)
   })
 }
 

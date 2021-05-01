@@ -6,7 +6,7 @@ function createComment(body, id){
   .then((res) => {
     console.log(res.data)
   }).catch((err) => {
-    alert(err)
+    alert(err.response.data.message)
   })
 }
 

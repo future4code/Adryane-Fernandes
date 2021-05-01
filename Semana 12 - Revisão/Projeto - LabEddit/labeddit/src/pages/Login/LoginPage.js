@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer'
 import LoginForm from './LoginForm'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
-function LoginPage() {
+function LoginPage({buttonHeader, setButtonHeader}) {
   useUnprotectedPage()
   const history = useHistory()
 

@@ -6,7 +6,7 @@ function voteComment(idPost, idComment, body){
   .then((res) => {
     console.log(res.data)
   }).catch((err) => {
-    alert(err)
+    alert(err.response.data.message)
   })
 }
 

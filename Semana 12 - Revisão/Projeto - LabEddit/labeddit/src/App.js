@@ -21,7 +21,7 @@ function App() {
       <AllPages>
         <BrowserRouter>
           <GlobalStyles />
-          <Header/>
+          <Header />
           <Router />
         </BrowserRouter>
       </AllPages>

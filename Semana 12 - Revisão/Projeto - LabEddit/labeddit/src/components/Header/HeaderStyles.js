@@ -11,13 +11,22 @@ export const Container = styled.header`
   align-items: center;
 `
 
-export const Logo = styled.h1 `
+export const ContainerLogo = styled.div`
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+`
+export const Image = styled.img`
+  width: 5rem;
+`
+export const TextLogo = styled.h1`
+  margin-left: -.6rem;
   font-size: 1.8rem;
   color: white;
   font-weight: 800;
 `
-
-export const LogoutButton = styled.button `
+export const LogoutButton = styled.button`
   background: white;
   padding: 0.5rem .8rem;
   border-radius: 20px;
