@@ -54,7 +54,7 @@
 
 
 // EX03
-// let tasks = []
+// let tasks = ['Correr até Madri']
 // tasks.push(process.argv[2])
 
 // console.log(tasks)
