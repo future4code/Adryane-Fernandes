@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"tsc && node ./build/ex03.js",
+    "start":"tsc && node ./build/ex04.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
