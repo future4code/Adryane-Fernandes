@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { users, types } from "./usersList";
+import { users, types, user } from "./usersList";
 
 const app = express();
 app.use(express.json());
@@ -45,6 +45,31 @@ app.get("/users/:type", (req: Request, res: Response) => {
     res.status(400).send({ message: err.message });
   }
 });
+
+app.put("/users/add", (req: Request, res: Response) => {
+  try {
+    const {id, age, email, name, type} = req.body
+
+    const body: user = {
+      id,
+      age,
+      email,
+      name,
+      type
+    } 
+
+    if(!body){
+      throw new Error("complete filling")
+    }
+
+    users.push(body)
+
+    res.status(200).send("ok")
+
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");

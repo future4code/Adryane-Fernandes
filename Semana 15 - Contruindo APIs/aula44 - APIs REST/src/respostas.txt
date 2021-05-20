@@ -1,5 +1,5 @@
 Exercício 1
-a) Usaria o método get
+a) Usaria o método get.
 b) /users/all
 
 Exercício 2
@@ -7,4 +7,8 @@ a) Passei por path params, por que o parâmetro que ele vai receber já está pr
 b) Criei uma validação com o enum dos types para garantir.
 
 Exercício 3
-a) Usei o query
+a) Usei o query.
+
+Exercício 4
+a) Nada mudou, a funcionalidade continua a mesma.
+b) Não, já que considero esse método apenas para atualizar informações já existentes.
