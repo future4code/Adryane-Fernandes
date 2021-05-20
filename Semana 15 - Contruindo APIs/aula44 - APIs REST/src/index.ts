@@ -97,7 +97,28 @@ app.put("/users/update", (req: Request, res: Response) => {
   }
 });
 
+app.patch("/users/update/name",  (req: Request, res: Response) => {
+  try {
+    const { name, id } = req.body
+    
+    if(!name || !id ){
+      throw new Error("incomplete information")
+    }
+    if(!name.includes("-ALTERADO")){
+      throw new Error("the name has not been changed to be changed again ")
+    }
 
+    users.forEach((user) => {
+      if(user.id === id && user.name.includes("-ALTERADO")){
+        user.name = name + " -REAUTERADO"
+      }
+    })
+
+    res.end()
+  } catch (err) {
+    res.status(400).send({ message: err.message })
+  }
+})
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
