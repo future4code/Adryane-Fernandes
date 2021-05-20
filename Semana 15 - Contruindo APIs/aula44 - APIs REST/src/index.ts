@@ -70,21 +70,34 @@ app.post("/users/add", (req: Request, res: Response) => {
   }
 });
 
-app.put("/users/update/name", (req: Request, res: Response) => {
+app.put("/users/update", (req: Request, res: Response) => {
   try {
-    const { name, id } = req.body;
+    const { id, age, email, name, type } = req.body;
+
+    const body: user = {
+      id,
+      age,
+      email,
+      name,
+      type,
+    };
 
     users.forEach((user) => {
-      if (user.id === id) {
-        user.name = name + " -ALTERADO"
+      if (user.id === body.id) {
+        user.name = body.name + " -ALTERADO";
+        user.age = body.age;
+        user.email = body.email;
+        user.type = body.type;
       }
     });
 
-    res.end()
+    res.end();
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
 });
+
+
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
