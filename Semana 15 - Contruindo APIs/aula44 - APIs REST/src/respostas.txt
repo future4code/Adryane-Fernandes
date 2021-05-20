@@ -1,4 +1,7 @@
 Exercício 1
 a) Usaria o método get
-b) /users
+b) /users/all
 
+Exercício 2
+a) Passei por query params, por que retornará mais de um usuário.
+b) Criei uma validação com o enum dos types para garantir.
