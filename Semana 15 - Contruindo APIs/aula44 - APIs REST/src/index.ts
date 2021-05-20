@@ -97,28 +97,45 @@ app.put("/users/update", (req: Request, res: Response) => {
   }
 });
 
-app.patch("/users/update/name",  (req: Request, res: Response) => {
+app.patch("/users/update/name", (req: Request, res: Response) => {
   try {
-    const { name, id } = req.body
-    
-    if(!name || !id ){
-      throw new Error("incomplete information")
+    const { name, id } = req.body;
+
+    if (!name || !id) {
+      throw new Error("incomplete information");
     }
-    if(!name.includes("-ALTERADO")){
-      throw new Error("the name has not been changed to be changed again ")
+    if (!name.includes("-ALTERADO")) {
+      throw new Error("the name has not been changed to be changed again ");
     }
 
     users.forEach((user) => {
-      if(user.id === id && user.name.includes("-ALTERADO")){
-        user.name = name + " -REAUTERADO"
+      if (user.id === id && user.name.includes("-ALTERADO")) {
+        user.name = name + " -REAUTERADO";
       }
-    })
+    });
 
-    res.end()
+    res.end();
   } catch (err) {
-    res.status(400).send({ message: err.message })
+    res.status(400).send({ message: err.message });
   }
-})
+});
+
+app.delete("/users/delete/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+
+    if (isNaN(id)) {
+      throw new Error("the id must be numeric");
+    }
+
+    const indexUser = users.findIndex((user) => user.id === id);
+    users.splice(indexUser, 1)
+
+    res.end();
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
