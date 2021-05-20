@@ -1,0 +1,4 @@
+Exercício 1
+a) Usaria o método get
+b) /users
+
