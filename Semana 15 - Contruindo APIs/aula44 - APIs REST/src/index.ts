@@ -6,22 +6,41 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/users/all", (req: Request, res: Response) => {
+app.get("/users", (req: Request, res: Response) => {
   res.status(200).send(users);
 });
 
-app.get("/users", (req: Request, res: Response) => {
+app.get("/users/search/", (req: Request, res: Response) => {
   try {
-    const type = String(req.query.type).toUpperCase()
+    const name = String(req.query.name).toLowerCase();
 
-    if(type !== types.ADMIN && type !== types.NORMAL){
-      throw new Error("type must be admin or normal")
+    if (!name) {
+      throw new Error("missing parameter");
     }
 
-    const result = users.filter((user) =>  user.type === type)
+    const result = users.filter((user) => user.name.toLowerCase() === name);
 
-    res.status(200).send(result)
-    
+    if (!result) {
+      throw new Error("user not found");
+    }
+
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
+
+app.get("/users/:type", (req: Request, res: Response) => {
+  try {
+    const type = req.params.type.toUpperCase();
+
+    if (type !== types.ADMIN && type !== types.NORMAL) {
+      throw new Error("type must be admin or normal");
+    }
+
+    const result = users.filter((user) => user.type === type);
+
+    res.status(200).send(result);
   } catch (err) {
     res.status(400).send({ message: err.message });
   }

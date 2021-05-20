@@ -3,5 +3,8 @@ a) Usaria o método get
 b) /users/all
 
 Exercício 2
-a) Passei por query params, por que retornará mais de um usuário.
+a) Passei por path params, por que o parâmetro que ele vai receber já está pré-definido.
 b) Criei uma validação com o enum dos types para garantir.
+
+Exercício 3
+a) Usei o query
