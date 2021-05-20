@@ -46,30 +46,45 @@ app.get("/users/:type", (req: Request, res: Response) => {
   }
 });
 
-app.put("/users/add", (req: Request, res: Response) => {
+app.post("/users/add", (req: Request, res: Response) => {
   try {
-    const {id, age, email, name, type} = req.body
+    const { id, age, email, name, type } = req.body;
 
     const body: user = {
       id,
       age,
       email,
       name,
-      type
-    } 
+      type,
+    };
 
-    if(!body){
-      throw new Error("complete filling")
+    if (!body) {
+      throw new Error("complete filling");
     }
 
-    users.push(body)
+    users.push(body);
 
-    res.status(200).send("ok")
-
+    res.status(200).send("ok");
   } catch (err) {
-    res.status(400).send({message: err.message})
+    res.status(400).send({ message: err.message });
   }
-})
+});
+
+app.put("/users/update/name", (req: Request, res: Response) => {
+  try {
+    const { name, id } = req.body;
+
+    users.forEach((user) => {
+      if (user.id === id) {
+        user.name = name + " -ALTERADO"
+      }
+    });
+
+    res.end()
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
