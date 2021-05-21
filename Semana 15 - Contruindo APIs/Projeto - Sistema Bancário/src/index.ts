@@ -112,14 +112,13 @@ app.post("/account/transfer", (req: Request, res: Response) => {
     if (sender[0].balance < value) {
       throw new Error("insufficient funds");
     }
-    
 
     const newSpending: spending = {
       id: sender[0].extract.length + 1,
       date: dateNow(),
       value,
       description: `Transferido para ${recipient[0].name}`,
-      category: categoryTransition.EXPENSE
+      category: categoryTransition.EXPENSE,
     };
     sender[0].balance -= value;
     sender[0].extract.push(newSpending);
@@ -129,7 +128,7 @@ app.post("/account/transfer", (req: Request, res: Response) => {
       date: dateNow(),
       value,
       description: `Transferência de ${sender[0].name}`,
-      category: categoryTransition.REVENUE
+      category: categoryTransition.REVENUE,
     };
     recipient[0].balance += value;
     recipient[0].extract.push(newRevenue);
@@ -170,7 +169,7 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
       date: date ? date : dateNow(),
       value,
       description,
-      category: categoryTransition.EXPENSE
+      category: categoryTransition.EXPENSE,
     };
 
     customerAccount[0].extract.push(newPedding);
@@ -197,7 +196,15 @@ app.put("/account/add/balance", (req: Request, res: Response) => {
         client.cpf === cpf &&
         client.name.toLowerCase().includes(name.toLowerCase())
       ) {
+        const newRevenue: spending = {
+          id: client.extract.length + 1,
+          date: dateNow(),
+          value,
+          description: "Valor depositado",
+          category: categoryTransition.REVENUE,
+        };
         client.balance += value;
+        client.extract.push(newRevenue);
       }
     });
 
