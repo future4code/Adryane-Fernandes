@@ -8,6 +8,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/account/all", (req: Request, res: Response) => {
+  try {
+    res.status(200).send(accounts);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+
 app.post("/account/create", (req: Request, res: Response) => {
   try {
     const { name, cpf, birthDate } = req.body;
