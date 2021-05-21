@@ -145,22 +145,24 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
       throw new Error("it is not possible to mark payments for the past");
     }
 
-    accounts.forEach((client) => {
-      if (client.id === id) {
-        if (client.balance < value) {
-          throw new Error("insufficient funds");
-        }
+    const customerAccount = accounts.filter((client) => client.id === id);
 
-        const newPedding: spending = {
-          id: client.extract.length + 1,
-          date: date ? date : dateNow(),
-          value,
-          description,
-        };
+    if (customerAccount.length === 0) {
+      throw new Error("id is wrong");
+    }
 
-        client.extract.push(newPedding);
-      }
-    });
+    if (customerAccount[0].balance < value) {
+      throw new Error("insufficient funds");
+    }
+
+    const newPedding: spending = {
+      id: customerAccount[0].extract.length + 1,
+      date: date ? date : dateNow(),
+      value,
+      description,
+    };
+
+    customerAccount[0].extract.push(newPedding);
 
     res.end();
   } catch (error) {
