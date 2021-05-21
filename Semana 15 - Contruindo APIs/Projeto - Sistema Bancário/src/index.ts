@@ -96,15 +96,15 @@ app.post("/account/transfer", (req: Request, res: Response) => {
         client.cpf === cpf &&
         client.name.toLowerCase().includes(name.toLowerCase())
     );
+    if (sender.length === 0) {
+      throw new Error("sender information is wrong");
+    }
+
     const recipient = accounts.filter(
       (client) =>
         client.cpf === recipientCpf &&
         client.name.toLowerCase().includes(recipientName.toLowerCase())
     );
-
-    if (sender.length === 0) {
-      throw new Error("payer information is wrong");
-    }
     if (recipient.length === 0) {
       throw new Error("recipient information is wrong");
     }
