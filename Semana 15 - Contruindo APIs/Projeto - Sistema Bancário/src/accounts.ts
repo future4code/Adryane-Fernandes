@@ -4,17 +4,39 @@ type client = {
   cpf: number;
   birthDate: string;
   balance: number;
-  spending: number[];
+  expenseHistory: spending[];
 };
 
-export const accounts: client[] = [
+type spending = {
+  date: string;
+  value: number;
+  description: string;
+};
+
+const accounts: client[] = [
   {
     id: 1,
     name: "Wanda Maximorff",
     cpf: 12345678985,
     birthDate: "01/05/1992",
     balance: 200000,
-    spending: [1000, 500, 859, 6000],
+    expenseHistory: [
+      {
+        date: "16/04/2021",
+        value: 250000,
+        description: "Terreno em Westview",
+      },
+      {
+        date: "17/04/2021",
+        value: 120,
+        description: "Frauda para os gêmeos",
+      },
+      {
+        date: "18/04/2021",
+        value: 320,
+        description: "Fantasias pro Halloween",
+      }
+    ]
   },
   {
     id: 2,
@@ -22,7 +44,13 @@ export const accounts: client[] = [
     cpf: 78945612314,
     birthDate: "15/10/1975",
     balance: 0.05,
-    spending: [2, 50, 15, 10],
+    expenseHistory: [
+      {
+        date: "25/04/2021",
+        value: 10,
+        description: "Leite pras crianças",
+      },
+    ],
   },
   {
     id: 3,
@@ -30,6 +58,19 @@ export const accounts: client[] = [
     cpf: 45612378974,
     birthDate: "07/08/1996",
     balance: 1000000,
-    spending: [200],
+    expenseHistory: [
+      {
+        date: "21/03/2021",
+        value: 1000,
+        description: "Investimento no tesouro direto",
+      },
+      {
+        date: "17/04/2021",
+        value: 2500,
+        description: "Investimento em fundos imobiliários",
+      },
+    ],
   },
 ];
+
+export default accounts;

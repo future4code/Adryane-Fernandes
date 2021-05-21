@@ -9,10 +9,7 @@ function calculatingAge(birthDate: string) {
   const currentYear = currentDate.getFullYear();
 
   let age = currentYear - yearOfBirth;
-  if (
-    currentMonth < birthMonth ||
-    (birthMonth === currentMonth && currentDay < birthday)
-  ) {
+  if ( currentMonth < birthMonth || (birthMonth === currentMonth && currentDay < birthday) ) {
     age--;
   }
 

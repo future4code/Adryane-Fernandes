@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { accounts } from "./accounts";
+import accounts from "./accounts";
 import calculatingAge from "./functions/calculatingAge";
 
 const app = express();
@@ -42,7 +42,7 @@ app.post("/account/create", (req: Request, res: Response) => {
       cpf,
       birthDate,
       balance: 0,
-      spending: [],
+      expenseHistory: [],
     };
 
     accounts.push(newAccount);
