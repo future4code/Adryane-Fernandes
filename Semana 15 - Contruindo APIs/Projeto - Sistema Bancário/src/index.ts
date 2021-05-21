@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import accounts from "./accounts";
+import { accounts, spending, client } from "./accounts";
 import calculatingAge from "./functions/calculatingAge";
+import dateNow from "./functions/dateNow";
+import itIsPast from './functions/itIsPast'
 
 const app = express();
 
@@ -18,30 +20,31 @@ app.get("/account/all", (req: Request, res: Response) => {
 
 app.get("/account/balance", (req: Request, res: Response) => {
   try {
-    const name = String(req.query.name).toLowerCase()
-    const cpf = Number(req.query.cpf)
+    const name = String(req.query.name).toLowerCase();
+    const cpf = Number(req.query.cpf);
 
-    if(!name || !cpf){
+    if (!name || !cpf) {
       throw new Error("missing information");
     }
 
-    const customerAccount = accounts.filter((client) => client.cpf === cpf && client.name.toLowerCase().includes(name))
+    const customerAccount = accounts.filter(
+      (client) => client.cpf === cpf && client.name.toLowerCase().includes(name)
+    );
 
-    if(customerAccount.length === 0){
+    if (customerAccount.length === 0) {
       throw new Error("invalid cpf or name");
     }
 
     const result = {
-      id:  customerAccount[0].id,
-      balance: customerAccount[0].balance
-    }
+      id: customerAccount[0].id,
+      balance: customerAccount[0].balance,
+    };
 
-    res.status(200).send(result)
-
+    res.status(200).send(result);
   } catch (error) {
-    res.status(400).send({ message: error.message })
+    res.status(400).send({ message: error.message });
   }
-})
+});
 
 app.post("/account/create", (req: Request, res: Response) => {
   try {
@@ -63,7 +66,7 @@ app.post("/account/create", (req: Request, res: Response) => {
       throw new Error("under 18 cannot open an account");
     }
 
-    const newAccount = {
+    const newAccount: client = {
       id: accounts.length + 1,
       name,
       cpf,
@@ -80,32 +83,73 @@ app.post("/account/create", (req: Request, res: Response) => {
   }
 });
 
-app.put("/account/add/balance", (req: Request, res: Response)  => {
+app.post("/account/:id/pay", (req: Request, res: Response) => {
   try {
-    const {name, cpf, value} = req.body
+    const id = Number(req.params.id);
+    const { value, description, date } = req.body;
 
-    if(!name || !cpf){
+    if (!id) {
+      throw new Error("missing id");
+    }
+    if (!value || !description) {
       throw new Error("missing information");
     }
-    if(!value){
+    if(itIsPast(date)){
+      throw new Error("it is not possible to mark payments for the past");
+    }
+
+    accounts.forEach((client) => {
+      if (client.id === id) {
+        if (client.balance < value) {
+          throw new Error("insufficient funds");
+        }
+
+        const newPedding: spending = {
+          id: client.extract.length + 1,
+          date: date ? date : dateNow(),
+          value,
+          description,
+        };
+
+        client.extract.push(newPedding)
+      }
+    });
+
+    res.end()
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+
+app.put("/account/add/balance", (req: Request, res: Response) => {
+  try {
+    const { name, cpf, value } = req.body;
+
+    if (!name || !cpf) {
+      throw new Error("missing information");
+    }
+    if (!value) {
       throw new Error("missing value");
     }
 
     const customerAccount = accounts.map((client) => {
-      if(client.cpf === cpf && client.name.toLowerCase().includes(name.toLowerCase())){
-        client.balance += value
+      if (
+        client.cpf === cpf &&
+        client.name.toLowerCase().includes(name.toLowerCase())
+      ) {
+        client.balance += value;
       }
-    })
+    });
 
-    if(customerAccount.length === 0){
+    if (customerAccount.length === 0) {
       throw new Error("invalid name or cpf");
     }
 
-    res.end()
+    res.end();
   } catch (error) {
-    res.status(400).send({message: error.message})
+    res.status(400).send({ message: error.message });
   }
-})
+});
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");

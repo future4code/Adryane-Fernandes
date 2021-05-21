@@ -1,4 +1,4 @@
-type client = {
+export type client = {
   id: number;
   name: string;
   cpf: number;
@@ -7,14 +7,14 @@ type client = {
   extract: spending[];
 };
 
-type spending = {
+export type spending = {
   id: number,
   date: string;
   value: number;
   description: string;
 };
 
-const accounts: client[] = [
+export const accounts: client[] = [
   {
     id: 1,
     name: "Wanda Maximorff",
@@ -80,4 +80,3 @@ const accounts: client[] = [
   },
 ];
 
-export default accounts;
