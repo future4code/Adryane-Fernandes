@@ -22,11 +22,10 @@ app.get("/account/balance", (req: Request, res: Response) => {
     const cpf = Number(req.query.cpf)
 
     if(!name || !cpf){
-      throw new Error("invalid information");
+      throw new Error("missing information");
     }
 
     const customerAccount = accounts.filter((client) => client.cpf === cpf && client.name.toLowerCase().includes(name))
-    console.log(customerAccount)
 
     if(customerAccount.length === 0){
       throw new Error("invalid cpf or name");
@@ -75,13 +74,38 @@ app.post("/account/create", (req: Request, res: Response) => {
 
     accounts.push(newAccount);
 
-    res.status(200).send();
+    res.end();
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
 });
 
+app.put("/account/add/balance", (req: Request, res: Response)  => {
+  try {
+    const {name, cpf, value} = req.body
 
+    if(!name || !cpf){
+      throw new Error("missing information");
+    }
+    if(!value){
+      throw new Error("missing value");
+    }
+
+    const customerAccount = accounts.map((client) => {
+      if(client.cpf === cpf && client.name.toLowerCase().includes(name.toLowerCase())){
+        client.balance += value
+      }
+    })
+
+    if(customerAccount.length === 0){
+      throw new Error("invalid name or cpf");
+    }
+
+    res.end()
+  } catch (error) {
+    res.status(400).send({message: error.message})
+  }
+})
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
