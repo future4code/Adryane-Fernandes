@@ -112,18 +112,27 @@ app.post("/account/transfer", (req: Request, res: Response) => {
     if (sender[0].balance < value) {
       throw new Error("insufficient funds");
     }
-    sender[0].balance -= value;
+    
 
     const newSpending: spending = {
       id: sender[0].extract.length + 1,
       date: dateNow(),
       value,
-      description: `Transferido para ${recipientName}`,
-      type: categoryTransition.EXPENSE
+      description: `Transferido para ${recipient[0].name}`,
+      category: categoryTransition.EXPENSE
     };
+    sender[0].balance -= value;
     sender[0].extract.push(newSpending);
 
+    const newRevenue: spending = {
+      id: recipient[0].extract.length + 1,
+      date: dateNow(),
+      value,
+      description: `Transferência de ${sender[0].name}`,
+      category: categoryTransition.REVENUE
+    };
     recipient[0].balance += value;
+    recipient[0].extract.push(newRevenue);
 
     res.end();
   } catch (error) {
@@ -161,7 +170,7 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
       date: date ? date : dateNow(),
       value,
       description,
-      type: categoryTransition.EXPENSE
+      category: categoryTransition.EXPENSE
     };
 
     customerAccount[0].extract.push(newPedding);
