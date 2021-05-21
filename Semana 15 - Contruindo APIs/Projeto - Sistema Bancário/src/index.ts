@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { accounts, spending, client } from "./accounts";
+import { accounts, spending, client, categoryTransition } from "./accounts";
 import calculatingAge from "./functions/calculatingAge";
 import dateNow from "./functions/dateNow";
 import itIsPast from "./functions/itIsPast";
@@ -119,6 +119,7 @@ app.post("/account/transfer", (req: Request, res: Response) => {
       date: dateNow(),
       value,
       description: `Transferido para ${recipientName}`,
+      type: categoryTransition.EXPENSE
     };
     sender[0].extract.push(newSpending);
 
@@ -160,6 +161,7 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
       date: date ? date : dateNow(),
       value,
       description,
+      type: categoryTransition.EXPENSE
     };
 
     customerAccount[0].extract.push(newPedding);

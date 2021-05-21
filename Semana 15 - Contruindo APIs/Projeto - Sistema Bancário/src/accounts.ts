@@ -7,11 +7,17 @@ export type client = {
   extract: spending[];
 };
 
+export enum categoryTransition {
+  REVENUE = "Receita",
+  EXPENSE = "Despesa",
+}
+
 export type spending = {
-  id: number,
+  id: number;
   date: string;
   value: number;
   description: string;
+  category: categoryTransition;
 };
 
 export const accounts: client[] = [
@@ -27,20 +33,23 @@ export const accounts: client[] = [
         date: "16/04/2021",
         value: 250000,
         description: "Terreno em Westview",
+        category: categoryTransition.EXPENSE
       },
       {
         id: 2,
         date: "17/04/2021",
         value: 120,
         description: "Frauda para os gêmeos",
+        category: categoryTransition.EXPENSE
       },
       {
         id: 3,
         date: "18/04/2021",
         value: 320,
         description: "Fantasias pro Halloween",
-      }
-    ]
+        category: categoryTransition.EXPENSE
+      },
+    ],
   },
   {
     id: 2,
@@ -54,6 +63,7 @@ export const accounts: client[] = [
         date: "25/04/2021",
         value: 10,
         description: "Leite pras crianças",
+        category: categoryTransition.EXPENSE
       },
     ],
   },
@@ -69,14 +79,15 @@ export const accounts: client[] = [
         date: "21/03/2021",
         value: 1000,
         description: "Investimento no tesouro direto",
+        category: categoryTransition.EXPENSE
       },
       {
         id: 2,
         date: "17/04/2021",
         value: 2500,
         description: "Investimento em fundos imobiliários",
+        category: categoryTransition.EXPENSE
       },
     ],
   },
 ];
-
