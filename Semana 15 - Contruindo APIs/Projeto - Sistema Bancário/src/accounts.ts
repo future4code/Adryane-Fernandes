@@ -4,7 +4,7 @@ type client = {
   cpf: number;
   birthDate: string;
   balance: number;
-  expenseHistory: spending[];
+  extract: spending[];
 };
 
 type spending = {
@@ -20,7 +20,7 @@ const accounts: client[] = [
     cpf: 12345678985,
     birthDate: "01/05/1992",
     balance: 200000,
-    expenseHistory: [
+    extract: [
       {
         date: "16/04/2021",
         value: 250000,
@@ -44,7 +44,7 @@ const accounts: client[] = [
     cpf: 78945612314,
     birthDate: "15/10/1975",
     balance: 0.05,
-    expenseHistory: [
+    extract: [
       {
         date: "25/04/2021",
         value: 10,
@@ -58,7 +58,7 @@ const accounts: client[] = [
     cpf: 45612378974,
     birthDate: "07/08/1996",
     balance: 1000000,
-    expenseHistory: [
+    extract: [
       {
         date: "21/03/2021",
         value: 1000,
