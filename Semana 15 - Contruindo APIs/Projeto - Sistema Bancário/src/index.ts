@@ -3,7 +3,7 @@ import cors from "cors";
 import { accounts, spending, client } from "./accounts";
 import calculatingAge from "./functions/calculatingAge";
 import dateNow from "./functions/dateNow";
-import itIsPast from './functions/itIsPast'
+import itIsPast from "./functions/itIsPast";
 
 const app = express();
 
@@ -83,6 +83,53 @@ app.post("/account/create", (req: Request, res: Response) => {
   }
 });
 
+app.post("/account/transfer", (req: Request, res: Response) => {
+  try {
+    const { name, cpf, value, recipientName, recipientCpf } = req.body;
+
+    if (!name || !cpf || !value || !recipientName || !recipientCpf) {
+      throw new Error("missing information");
+    }
+
+    const sender = accounts.filter(
+      (client) =>
+        client.cpf === cpf &&
+        client.name.toLowerCase().includes(name.toLowerCase())
+    );
+    const recipient = accounts.filter(
+      (client) =>
+        client.cpf === recipientCpf &&
+        client.name.toLowerCase().includes(recipientName.toLowerCase())
+    );
+
+    if (sender.length === 0) {
+      throw new Error("payer information is wrong");
+    }
+    if (recipient.length === 0) {
+      throw new Error("recipient information is wrong");
+    }
+
+    if (sender[0].balance < value) {
+      throw new Error("insufficient funds");
+    }
+    sender[0].balance -= value;
+
+    const newSpending: spending = {
+      id: sender[0].extract.length + 1,
+      date: dateNow(),
+      value,
+      description: `Transferido para ${recipientName}`,
+    };
+    sender[0].extract.push(newSpending);
+
+    recipient[0].balance += value;
+
+    res.end();
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+
 app.post("/account/:id/pay", (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
@@ -94,7 +141,7 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
     if (!value || !description) {
       throw new Error("missing information");
     }
-    if(itIsPast(date)){
+    if (itIsPast(date)) {
       throw new Error("it is not possible to mark payments for the past");
     }
 
@@ -111,11 +158,11 @@ app.post("/account/:id/pay", (req: Request, res: Response) => {
           description,
         };
 
-        client.extract.push(newPedding)
+        client.extract.push(newPedding);
       }
     });
 
-    res.end()
+    res.end();
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
