@@ -19,3 +19,14 @@ Content-Type: application/json
    "email": "nobara_kugisake@jjk.com"
 }
 
+###
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+   "title": "Alimentar os cães",
+   "description": "Dar comida pro meu cão que era dois agr é um grnadão",
+   "limitDate": "15/07/2021",
+   "creatorUserId": 15
+}
+
