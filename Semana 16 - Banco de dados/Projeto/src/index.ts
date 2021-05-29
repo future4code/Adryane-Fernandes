@@ -18,6 +18,24 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/task/:id", async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id)
+
+    const [user] = await connection.raw(`
+      SELECT tasks.id, title, description, limit_date, status, creator_user_id, nickname
+      FROM users
+      JOIN tasks
+      ON users.id = tasks.creator_user_id
+      WHERE tasks.id = ${id};
+    `)
+
+    res.status(200).send(user)
+  } catch (err) {
+    res.status(400).send({ message: err.message })
+  }
+})
+
 app.post("/user/edit/:id", async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
