@@ -7,12 +7,16 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
 
-    const result = await connection.raw(`
+    const [result] = await connection.raw(`
       SELECT * FROM users
       WHERE id = ${id}
     `);
 
-    res.status(200).send(result[0]);
+    if(!result[0]){
+      throw new Error("id does not exist"); 
+    }
+
+    res.status(200).send(result);
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -29,6 +33,10 @@ app.get("/task/:id", async (req: Request, res: Response) => {
       ON users.id = tasks.creator_user_id
       WHERE tasks.id = ${id};
     `)
+
+    if(!user[0]){
+      throw new Error("User does not exist");
+    }
 
     res.status(200).send(user)
   } catch (err) {
