@@ -3,6 +3,16 @@ import { app } from "./app";
 import { connection } from "./connection";
 import formatDate from "./functions/formatDate";
 
+app.get("/user/all", async (req: Request, res: Response) => {
+  try {
+    const result = await connection("users")
+
+    res.status(200).send(result)
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
+
 app.get("/user/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -12,8 +22,8 @@ app.get("/user/:id", async (req: Request, res: Response) => {
       WHERE id = ${id}
     `);
 
-    if(!result[0]){
-      throw new Error("id does not exist"); 
+    if (!result[0]) {
+      throw new Error("id does not exist");
     }
 
     res.status(200).send(result);
@@ -24,7 +34,7 @@ app.get("/user/:id", async (req: Request, res: Response) => {
 
 app.get("/task/:id", async (req: Request, res: Response) => {
   try {
-    const id = Number(req.params.id)
+    const id = Number(req.params.id);
 
     const [user] = await connection.raw(`
       SELECT tasks.id, title, description, limit_date, status, creator_user_id, nickname
@@ -32,17 +42,17 @@ app.get("/task/:id", async (req: Request, res: Response) => {
       JOIN tasks
       ON users.id = tasks.creator_user_id
       WHERE tasks.id = ${id};
-    `)
+    `);
 
-    if(!user[0]){
+    if (!user[0]) {
       throw new Error("User does not exist");
     }
 
-    res.status(200).send(user)
+    res.status(200).send(user);
   } catch (err) {
-    res.status(400).send({ message: err.message })
+    res.status(400).send({ message: err.message });
   }
-})
+});
 
 app.post("/user/edit/:id", async (req: Request, res: Response) => {
   try {
@@ -111,14 +121,14 @@ app.put("/task", async (req: Request, res: Response) => {
     if (!title || !description || !limitDate || !creatorUserId) {
       throw new Error("incomplete information");
     }
-    
+
     const users = await connection("users");
     for (const user of users) {
       if (user.creator_user_id === creatorUserId) {
         throw new Error("user not found");
       }
     }
-    
+
     await connection.raw(`
       INSERT INTO tasks (title, description, limit_date, creator_user_id)
       VALUES(
