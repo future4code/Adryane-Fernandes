@@ -5,9 +5,9 @@ import formatDate from "./functions/formatDate";
 
 app.get("/user/all", async (req: Request, res: Response) => {
   try {
-    const result = await connection("users")
+    const result = await connection("users");
 
-    res.status(200).send(result)
+    res.status(200).send(result);
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -16,6 +16,10 @@ app.get("/user/all", async (req: Request, res: Response) => {
 app.get("/user/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
+
+    if (!id) {
+      throw new Error("incomplete information");
+    }
 
     const [result] = await connection.raw(`
       SELECT * FROM users
@@ -32,9 +36,35 @@ app.get("/user/:id", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/task", async (req: Request, res: Response) => {
+  try {
+    const creatorUserId = req.query.creatorUserId;
+
+    if (!creatorUserId) {
+      throw new Error("incomplete information");
+    }
+
+    const [result] = await connection.raw(`
+      SELECT *
+      FROM tasks
+      JOIN users
+      ON tasks.creator_user_id = users.id
+      WHERE creator_user_id = ${creatorUserId}
+    `);
+
+    res.status(200).send({ tasks: result });
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
+
 app.get("/task/:id", async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
+
+    if (!id) {
+      throw new Error("incomplete information");
+    }
 
     const [user] = await connection.raw(`
       SELECT tasks.id, title, description, limit_date, status, creator_user_id, nickname
