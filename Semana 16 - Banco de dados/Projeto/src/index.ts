@@ -25,6 +25,14 @@ app.put("/user", async (req: Request, res: Response) => {
       throw new Error("incomplete information");
     }
 
+    const users = await connection("users")
+    for (const user of users) {
+      if(user.nickname === nickname){
+        throw new Error("nickname already exists");
+      } else if(user.email === email){
+        throw new Error("email already exists");
+      }
+    }
 
     await connection.raw(`
       INSERT INTO users (name, nickname, email)
