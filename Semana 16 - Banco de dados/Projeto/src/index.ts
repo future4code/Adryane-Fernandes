@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { app } from "./app";
 import { connection } from "./connection";
-import formatDate from "./functions/formatDate";
 
 app.get("/user/all", async (req: Request, res: Response) => {
   try {
@@ -142,7 +141,7 @@ app.put("/task", async (req: Request, res: Response) => {
       VALUES(
         "${title}",
         "${description}",
-        "${formatDate(limitDate)}",
+        "${limitDate.split('/').reverse().join('-')}",
         ${creatorUserId}
       )
     `);

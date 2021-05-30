@@ -24,9 +24,9 @@ PUT http://localhost:3003/task
 Content-Type: application/json
 
 {
-   "title": "Alimentar os cães",
-   "description": "Dar comida pro meu cão que era dois agr é um grnadão",
-   "limitDate": "15/07/2021",
-   "creatorUserId": 15
+   "title": "Treinar expransão de domínio",
+   "description": "Treinar com o Gojo",
+   "limitDate": "02/06/2021",
+   "creatorUserId": 5
 }
 
