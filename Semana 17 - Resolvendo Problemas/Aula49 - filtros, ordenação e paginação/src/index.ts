@@ -22,32 +22,6 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-app.get(
-  "/recipes/all",
-  async function (req: Request, res: Response): Promise<void> {
-    try {
-      const result = await connection.raw(`
-         SELECT title, name AS "author", description
-         FROM recipes_aula48
-         JOIN users_aula48 
-         ON user_id = users_aula48.id;
-      `);
-
-      const recipes: recipe[] = result[0];
-
-      if (!recipes.length) {
-        res.statusCode = 404;
-        throw new Error("No recipes found");
-      }
-
-      res.status(200).send(recipes);
-    } catch (error) {
-      console.log(error);
-      res.send(error.message || error.sqlMessage);
-    }
-  }
-);
-
 app.get("/recipes", async (req: Request, res: Response) => {
   try {
     const name = req.query.name as string;
@@ -58,10 +32,7 @@ app.get("/recipes", async (req: Request, res: Response) => {
     }
 
     const result = await connection.raw(`
-      SELECT title, name AS "author", description
-      FROM recipes_aula48
-      JOIN users_aula48 
-      ON user_id = users_aula48.id
+      SELECT * FROM aula48_exercicio
       WHERE name LIKE "%${name}%";
    `);
 
