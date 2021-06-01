@@ -44,16 +44,21 @@ app.get("/users", async (req: Request, res: Response) => {
   try {
     const name = req.query.name as string;
 
+    if (!name) {
+      res.statusCode = 400;
+      throw new Error("Incomplete parameters");
+    }
+
     const [users] = await connection.raw(`
     SELECT id, name, email, type
     FROM aula48_exercicio
     WHERE LOWER(name) LIKE "%${name.toLowerCase()}%";    
  `);
 
-    // if (!users[0].length) {
-    //   res.statusCode = 404;
-    //   throw new Error("No users found");
-    // }
+    if (!users.length) {
+      res.statusCode = 404;
+      throw new Error("No users found");
+    }
 
     res.status(200).send(users);
   } catch (error) {
