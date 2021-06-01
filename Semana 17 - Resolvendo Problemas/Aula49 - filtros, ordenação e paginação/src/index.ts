@@ -67,6 +67,33 @@ app.get("/users", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/users/:type", async (req: Request, res: Response) => {
+  try {
+    const type = req.params.type as string;
+
+    if (!type) {
+      res.statusCode = 400;
+      throw new Error("Incomplete parameters");
+    }
+
+    const [users] = await connection.raw(`
+    SELECT id, name, email, type
+    FROM aula48_exercicio
+    WHERE LOWER(type) LIKE "%${type.toLowerCase()}%";    
+ `);
+
+    if (!users.length) {
+      res.statusCode = 404;
+      throw new Error("No user found");
+    }
+
+    res.status(200).send(users);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error.message || error.sqlMessage);
+  }
+})
+
 const server = app.listen(3003, () => {
   console.log(`Server is running in http://localhost:3003`);
 });
