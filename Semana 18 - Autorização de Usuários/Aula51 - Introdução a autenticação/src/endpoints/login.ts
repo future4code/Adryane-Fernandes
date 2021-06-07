@@ -4,7 +4,7 @@ import generatedtoken from "../services/generatedToken";
 import emailIsValid from "../validation/emailIsValid";
 
 
-async function login(req: Request, res: Response) {
+async function login(req: Request, res: Response): Promise<void> {
   try {
     const { email, password } = req.body;
 

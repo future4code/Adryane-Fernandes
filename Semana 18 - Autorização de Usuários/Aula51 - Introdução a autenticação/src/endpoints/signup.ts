@@ -5,7 +5,7 @@ import generatedtoken from "../services/generatedToken";
 import emailIsValid from "../validation/emailIsValid";
 import passwordIsValid from "../validation/passwordIsValid";
 
-async function signup(req: Request, res: Response) {
+async function signup(req: Request, res: Response): Promise<void> {
   try {
     const {email, password} = req.body
 
