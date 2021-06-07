@@ -1,13 +1,11 @@
 import express from "express";
 import { AddressInfo } from "net";
-import generatedId from "./services/generatedId";
+import createUser from "./endpoints/createUser";
 
 const app = express();
 app.use(express.json());
 
-const id = generatedId()
-
-
+app.post('/users/create', createUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
