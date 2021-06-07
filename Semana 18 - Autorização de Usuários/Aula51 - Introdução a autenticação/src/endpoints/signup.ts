@@ -5,7 +5,7 @@ import generatedtoken from "../services/generatedToken";
 import emailIsValid from "../validation/emailIsValid";
 import passwordIsValid from "../validation/passwordIsValid";
 
-async function createUser(req: Request, res: Response) {
+async function signup(req: Request, res: Response) {
   try {
     const {email, password} = req.body
 
@@ -40,4 +40,4 @@ async function createUser(req: Request, res: Response) {
   }
 }
 
-export default createUser
+export default signup

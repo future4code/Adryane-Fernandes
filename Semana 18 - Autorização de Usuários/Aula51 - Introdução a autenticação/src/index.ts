@@ -1,6 +1,6 @@
 import express from "express";
 import { AddressInfo } from "net";
-import createUser from "./endpoints/createUser";
+import createUser from "./endpoints/signup";
 
 const app = express();
 app.use(express.json());
