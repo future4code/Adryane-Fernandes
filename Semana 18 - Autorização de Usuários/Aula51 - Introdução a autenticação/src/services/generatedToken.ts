@@ -13,3 +13,5 @@ function generatedtoken(id: authenticationData): string {
 
   return token
 }
+
+export default generatedtoken

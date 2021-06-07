@@ -5,7 +5,7 @@ import createUser from "./endpoints/createUser";
 const app = express();
 app.use(express.json());
 
-app.post('/users/create', createUser)
+app.post('/user/signup', createUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
