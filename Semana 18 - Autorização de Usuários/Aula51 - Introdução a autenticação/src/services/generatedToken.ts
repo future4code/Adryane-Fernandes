@@ -1,8 +1,5 @@
 import * as jwt from "jsonwebtoken";
-
-type authenticationData = {
-  id: string
-}
+import {authenticationData} from '../types/types'
 
 function generatedtoken(id: authenticationData): string {
   const token = jwt.sign(

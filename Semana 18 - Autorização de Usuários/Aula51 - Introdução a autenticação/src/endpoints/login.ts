@@ -3,6 +3,7 @@ import connection from "../connection";
 import generatedtoken from "../services/generatedToken";
 import emailIsValid from "../validation/emailIsValid";
 
+
 async function login(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
