@@ -19,7 +19,6 @@ async function login(req: Request, res: Response): Promise<void> {
       throw new Error("Password not entered");
     }
 
-
     const [user] = await connection.raw(`
       SELECT * FROM user
       WHERE email = "${email}";
@@ -32,9 +31,9 @@ async function login(req: Request, res: Response): Promise<void> {
 
     const token = generatedtoken({
       id: user[0].id,
-      role: user.role
+      role: user[0].role
     });
-
+    
     res.send({ token: token });
   } catch (error) {
     res.status(500).send({ message: error.message || error.sqlMessage });
