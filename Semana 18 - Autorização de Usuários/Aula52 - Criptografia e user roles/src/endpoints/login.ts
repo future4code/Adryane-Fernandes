@@ -30,7 +30,10 @@ async function login(req: Request, res: Response): Promise<void> {
       throw new Error("incorrect password");
     }
 
-    const token = generatedtoken(user[0].id);
+    const token = generatedtoken({
+      id: user[0].id,
+      role: user.role
+    });
 
     res.send({ token: token });
   } catch (error) {

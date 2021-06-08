@@ -1,9 +1,9 @@
 import * as jwt from "jsonwebtoken";
 import {authenticationData} from '../types/types'
 
-export function generatedtoken(id: authenticationData): string {
+export function generatedtoken(payload: authenticationData): string {
   const token = jwt.sign(
-    { id: id }, 
+    payload, 
     process.env.JWT_KEY!, 
     {expiresIn: "5min"}
   );
@@ -11,11 +11,11 @@ export function generatedtoken(id: authenticationData): string {
   return token
 }
 
-export function getData(token: string): authenticationData {
-    const payload = jwt.verify(token, process.env.JWT_KEY!) as any
-    const result = {
-      id: payload.id
-    }
+export function getTokenData(token: string): authenticationData {
+    const result: authenticationData = jwt.verify(
+      token, 
+      process.env.JWT_KEY!
+    ) as authenticationData
 
     return result
 }

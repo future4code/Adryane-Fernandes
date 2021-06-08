@@ -5,10 +5,11 @@ import { generatedtoken } from "../services/authenticator";
 import emailIsValid from "../validation/emailIsValid";
 import passwordIsValid from "../validation/passwordIsValid";
 import { createHash } from "../services/hashManager";
+import { USER_ROLES } from "../types/types";
 
 async function signup(req: Request, res: Response): Promise<void> {
   try {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
 
     if (!email) {
       res.statusCode = 400;
@@ -22,18 +23,24 @@ async function signup(req: Request, res: Response): Promise<void> {
     }
     passwordIsValid(password);
 
+    if (!(role in USER_ROLES)) {
+      res.statusCode = 400;
+      throw new Error("Role must be 'NORMAL' or 'ADMIN'");
+    }
+
     const id = generatedId();
-    
+
     await connection.raw(`
-      INSERT INTO user (id, email, password)
+      INSERT INTO user (id, email, password, role)
       VALUES(
         "${id}",
         "${email}",
-        "${createHash(password)}"
+        "${createHash(password)}",
+        "${role}"
       )
     `);
 
-    const token = generatedtoken({ id });
+    const token = generatedtoken({ id, role });
 
     res.status(201).send({ token: token });
   } catch (error) {
