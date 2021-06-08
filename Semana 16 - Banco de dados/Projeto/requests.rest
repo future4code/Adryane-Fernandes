@@ -1,0 +1,32 @@
+GET http://localhost:3003/user/2
+
+###
+POST http://localhost:3003/user/edit/5
+Content-Type: application/json
+
+{
+  "name": "Megume Fushiguro",
+  "nickname": "gojozinho"
+}
+
+###
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+   "name":"Nobara Kugisake",
+   "nickname": "menina-dos-pregos",
+   "email": "nobara_kugisake@jjk.com"
+}
+
+###
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+   "title": "Treinar expransão de domínio",
+   "description": "Treinar com o Gojo",
+   "limitDate": "02/06/2021",
+   "creatorUserId": 5
+}
+
