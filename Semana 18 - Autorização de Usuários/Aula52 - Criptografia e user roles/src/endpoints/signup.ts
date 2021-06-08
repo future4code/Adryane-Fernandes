@@ -4,6 +4,7 @@ import generatedId from "../services/generatedId";
 import { generatedtoken } from "../services/authenticator";
 import emailIsValid from "../validation/emailIsValid";
 import passwordIsValid from "../validation/passwordIsValid";
+import { createHash } from "../services/hashManager";
 
 async function signup(req: Request, res: Response): Promise<void> {
   try {
@@ -22,13 +23,13 @@ async function signup(req: Request, res: Response): Promise<void> {
     passwordIsValid(password);
 
     const id = generatedId();
-
+    
     await connection.raw(`
       INSERT INTO user (id, email, password)
       VALUES(
         "${id}",
         "${email}",
-        "${password}"
+        "${createHash(password)}"
       )
     `);
 

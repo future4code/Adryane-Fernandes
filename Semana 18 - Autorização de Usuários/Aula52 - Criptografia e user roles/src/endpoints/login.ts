@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 import { generatedtoken } from "../services/authenticator";
+import { compareHash } from "../services/hashManager";
 import emailIsValid from "../validation/emailIsValid";
 
 async function login(req: Request, res: Response): Promise<void> {
@@ -18,12 +19,18 @@ async function login(req: Request, res: Response): Promise<void> {
       throw new Error("Password not entered");
     }
 
-    const [result] = await connection.raw(`
+
+    const [user] = await connection.raw(`
       SELECT * FROM user
-      WHERE email = "${email}" AND password = "${password}";
+      WHERE email = "${email}";
     `);
 
-    const token = generatedtoken(result[0].id);
+    if(!compareHash(password, user[0].password)){
+      res.statusCode = 401;
+      throw new Error("incorrect password");
+    }
+
+    const token = generatedtoken(user[0].id);
 
     res.send({ token: token });
   } catch (error) {
