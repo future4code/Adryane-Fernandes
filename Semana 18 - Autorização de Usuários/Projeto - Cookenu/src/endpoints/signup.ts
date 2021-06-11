@@ -24,10 +24,10 @@ async function signup(req: Request, res: Response): Promise<void> {
       throw new Error("Password too short, it must be at least 6 characters");
     }
 
-    const id = idGenerator();
-    const hashPassword = createHash(password);
+    const id: string = idGenerator();
+    const hashPassword: string = createHash(password);
 
-    const token = generetedToken({ id });
+    const token: string = generetedToken({ id });
 
     await connection.raw(`
       INSERT INTO user_cookenu (id, name, email, password)
