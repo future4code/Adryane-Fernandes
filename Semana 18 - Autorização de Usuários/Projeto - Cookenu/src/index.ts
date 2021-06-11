@@ -1,6 +1,8 @@
 import app from "./app";
 import login from "./endpoints/login";
 import signup from "./endpoints/signup";
+import getProfile from "./endpoints/getProfile";
 
-app.post("/user/signup", signup)
-app.post("/user/login", login)
+app.get("/user/profile", getProfile)
+app.post("/signup", signup)
+app.post("/login", login)

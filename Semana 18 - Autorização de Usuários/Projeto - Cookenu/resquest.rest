@@ -1,5 +1,8 @@
+GET http://localhost:3003/user/profile
+
+
 ### Cadastro
-POST http://localhost:3003/user/signup
+POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
@@ -9,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Login
-POST http://localhost:3003/user/login
+POST http://localhost:3003/login
 Content-Type: application/json
 
 {
