@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../connection";
-import currentDate from "../function/currentDate";
+import { currentDate } from "../function/currentDate";
 import { getTokenData } from "../services/authenticator";
 import { idGenerator } from "../services/idGenerator";
 import { authenticatorData } from "../types";
@@ -36,7 +36,7 @@ async function createRecipe(req: Request, res: Response): Promise<void> {
         "${idUser.id}"
       );
     `);
-    
+
     res.status(201).send({ message: "created" });
   } catch (error) {
     res.send({ message: error.message || error.sqlMessage });

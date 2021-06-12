@@ -14,5 +14,13 @@ CREATE TABLE recipe_cookenu (
     FOREIGN KEY (user_id) REFERENCES user_cookenu(id)
 );
 
+CREATE TABLE followers_cookenu(
+	follower_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (follower_id) REFERENCES user_cookenu(id),
+    followed_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (followed_id) REFERENCES user_cookenu(id)
+);
+
 SELECT * FROM user_cookenu;
 SELECT * FROM recipe_cookenu;
+SELECT * FROM followers_cookenu;
