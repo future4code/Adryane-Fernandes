@@ -13,7 +13,7 @@ async function getProfile(req: Request, res: Response): Promise<void> {
     const { id } = getTokenData(authorization!);
 
     const [profile] = await connection.raw(`
-      SELECT * FROM user_cookenu
+      SELECT id, name, email FROM user_cookenu
       WHERE id = "${id}"
     `)
 
