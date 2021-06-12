@@ -8,7 +8,7 @@ import { authenticatorData } from "../types";
 async function createRecipe(req: Request, res: Response): Promise<void> {
   try {
     const { title, description } = req.body;
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
 
     if (!title) {
       res.statusCode = 400;

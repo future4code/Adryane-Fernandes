@@ -5,13 +5,13 @@ import { getTokenData } from "../services/authenticator";
 
 async function getFeed(req: Request, res: Response): Promise<void> {
   try {
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
     if (!token) {
       res.statusCode = 403;
       throw new Error("not authorized");
     }
 
-    const { id } = getTokenData(token!);
+    const { id } = getTokenData(token);
     userExist(id)
 
     const [profile] = await connection.raw(`

@@ -8,7 +8,7 @@ async function editRecipe(req: Request, res: Response): Promise<void> {
   try {
     const idRecipe: string = req.params.id;
     const { title, description } = req.body;
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
 
     if (!idRecipe) {
       res.statusCode = 400;
@@ -23,7 +23,7 @@ async function editRecipe(req: Request, res: Response): Promise<void> {
       throw new Error("not authorized");
     }
 
-    const tokenData: authenticatorData = getTokenData(token!);
+    const tokenData: authenticatorData = getTokenData(token);
     userExist(tokenData.id)
     if(tokenData.role === USER_ROLES.ADMIN){
       res.statusCode = 403

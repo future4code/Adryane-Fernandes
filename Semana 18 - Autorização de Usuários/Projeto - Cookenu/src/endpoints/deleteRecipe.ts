@@ -7,7 +7,7 @@ import { authenticatorData, USER_ROLES } from "../types";
 async function deleteRecipe(req: Request, res: Response): Promise<void> {
   try {
     const idRecipe: string = req.params.id;
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
 
     if (!idRecipe) {
       res.statusCode = 400;
@@ -18,7 +18,7 @@ async function deleteRecipe(req: Request, res: Response): Promise<void> {
       throw new Error("not authorized");
     }
 
-    const tokenData: authenticatorData = getTokenData(token!);
+    const tokenData: authenticatorData = getTokenData(token);
     userExist(tokenData.id)
 
     const [userRecipeId] = await connection.raw(`

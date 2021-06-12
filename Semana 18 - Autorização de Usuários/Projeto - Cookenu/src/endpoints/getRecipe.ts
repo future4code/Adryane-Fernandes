@@ -7,7 +7,7 @@ import { authenticatorData } from "../types";
 async function getRecipe(req: Request, res: Response): Promise<void> {
   try {
     const id: string = req.params.id;
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
     if (!id) {
       res.statusCode = 400;
       throw new Error("parameter is missing");
@@ -17,7 +17,7 @@ async function getRecipe(req: Request, res: Response): Promise<void> {
       throw new Error("not authorized");
     }
 
-    const idUser: authenticatorData = getTokenData(token!);
+    const idUser: authenticatorData = getTokenData(token);
     userExist(idUser.id)
 
     const [recipe] = await connection.raw(`

@@ -6,7 +6,7 @@ import { authenticatorData } from "../types";
 
 async function unfollowUser(req: Request, res: Response): Promise<void> {
   try {
-    const token: string | undefined = req.headers.authorization;
+    const token = req.headers.authorization as string;
     const userToUnfollowId: string = req.body.userToUnfollowId;
 
     if (!token) {
