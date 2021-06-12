@@ -7,8 +7,10 @@ import createRecipe from "./endpoints/createRecipe";
 import getRecipe from "./endpoints/getRecipe";
 import followUser from "./endpoints/followUser";
 import unfollowUser from "./endpoints/unfollowUser";
+import getFeed from "./endpoints/getFeed";
 
 app.get("/user/profile", getProfile)
+app.get("/user/feed", getFeed)
 app.get("/user/:id", getOtherProfile)
 
 app.get("/recipe/:id", getRecipe)
