@@ -34,6 +34,9 @@ async function followUser(req: Request, res: Response): Promise<void> {
     if(error.sqlMessage && error.sqlMessage.includes("unauthorized token")){
       res.statusCode = 403
     }
+    if(error.message.includes("jwt expired")){
+      res.status(403).send({message: "Token expired"})
+    }
     
     res.send({ message: error.message || error.sqlMessage });
   }
