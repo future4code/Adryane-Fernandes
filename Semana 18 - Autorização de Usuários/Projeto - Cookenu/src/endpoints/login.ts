@@ -31,7 +31,8 @@ async function login(req: Request, res: Response): Promise<void> {
     }
 
     const id: string = user[0].id
-    const token: string = generetedToken({ id })
+    const token: string = generetedToken({ id, role: user[0].role })
+
 
     res.send({ token });
   } catch (error) {

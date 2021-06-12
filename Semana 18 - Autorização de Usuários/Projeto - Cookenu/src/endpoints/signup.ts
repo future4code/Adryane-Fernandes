@@ -5,10 +5,11 @@ import { createHash } from "../services/hashManager";
 import { generetedToken } from "../services/authenticator";
 import validEmail from "../validations/validEmail";
 import validPassword from "../validations/validPassword";
+import { USER_ROLES } from "../types";
 
 async function signup(req: Request, res: Response): Promise<void> {
   try {
-    const { email, name, password } = req.body;
+    const { email, name, role, password } = req.body;
 
     if(!email || !name || !password){
       res.statusCode = 400
@@ -23,19 +24,25 @@ async function signup(req: Request, res: Response): Promise<void> {
       res.statusCode = 400
       throw new Error("Password too short, it must be at least 6 characters");
     }
+    if(!(role in USER_ROLES)){
+      res.statusCode = 400
+      throw new Error("role was not passed, or parameter is different from 'NORMAL' or 'ADMIN'");
+    }
 
     const id: string = idGenerator();
     const hashPassword: string = createHash(password);
 
-    const token: string = generetedToken({ id });
+    const token: string = generetedToken({ id, role });
+
 
     await connection.raw(`
-      INSERT INTO user_cookenu (id, name, email, password)
+      INSERT INTO user_cookenu (id, name, email, password, role)
       VALUES(
         "${id}",
         "${name}",
         "${email}",
-        "${hashPassword}"
+        "${hashPassword}",
+        "${role}"
       )
     `)
 

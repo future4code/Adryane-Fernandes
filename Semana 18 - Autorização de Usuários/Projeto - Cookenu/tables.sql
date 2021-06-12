@@ -10,6 +10,7 @@ CREATE TABLE recipe_cookenu (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     creation_date DATE NOT NULL,
+    role ENUM("NORMAL", "ADMIN") DEFAULT "NORMAL",
     user_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user_cookenu(id)
 );
