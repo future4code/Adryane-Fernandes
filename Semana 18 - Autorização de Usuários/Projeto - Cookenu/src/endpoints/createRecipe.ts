@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import currentDate from "../function/currentDate";
 import { getTokenData } from "../services/authenticator";
 import { idGenerator } from "../services/idGenerator";
+import { authenticatorData } from "../types";
 
 async function createRecipe(req: Request, res: Response): Promise<void> {
   try {
     const { title, description } = req.body;
-    const authorization = req.headers.authorization;
+    const authorization: string | undefined = req.headers.authorization;
 
     if (!title) {
       res.statusCode = 400;
@@ -21,19 +23,20 @@ async function createRecipe(req: Request, res: Response): Promise<void> {
       throw new Error("not authorized");
     }
 
-    const idRecipe = idGenerator();
-    const idUser = getTokenData(authorization);
+    const idRecipe: string = idGenerator();
+    const idUser: authenticatorData = getTokenData(authorization);
 
     await connection.raw(`
-      INSERT INTO recipe_cookenu (id, title, description, user_id)
+      INSERT INTO recipe_cookenu (id, title, description, creation_date, user_id)
       VALUES(
         "${idRecipe}",
         "${title}",
         "${description}",
+        "${currentDate()}",
         "${idUser.id}"
       );
     `);
-
+    
     res.status(201).send({ message: "created" });
   } catch (error) {
     res.send({ message: error.message || error.sqlMessage });
