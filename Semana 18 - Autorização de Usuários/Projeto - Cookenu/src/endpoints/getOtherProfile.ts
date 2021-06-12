@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import connection from "../connection";
 import { getTokenData } from "../services/authenticator";
 
-async function getOtherProfile(req: Request, res: Response) {
+async function getOtherProfile(req: Request, res: Response): Promise<void> {
   try {
     const idOtherProfile: string | undefined = req.params.id
     const authorization: string | undefined = req.headers.authorization
