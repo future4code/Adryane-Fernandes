@@ -10,6 +10,7 @@ import unfollowUser from "./endpoints/unfollowUser";
 import getFeed from "./endpoints/getFeed";
 import editRecipe from "./endpoints/editRecipe";
 import deleteRecipe from "./endpoints/deleteRecipe";
+import deleteUser from "./endpoints/deleteUser";
 
 app.get("/user/profile", getProfile)
 app.get("/user/feed", getFeed)
@@ -25,3 +26,4 @@ app.post("/recipe", createRecipe)
 app.put("/recipe/:id/edit", editRecipe)
 
 app.delete("/recipe/:id/delete", deleteRecipe)
+app.delete("/user/:id/delete", deleteUser)
