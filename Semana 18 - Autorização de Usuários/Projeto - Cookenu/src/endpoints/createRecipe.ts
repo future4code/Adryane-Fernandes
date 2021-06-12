@@ -8,7 +8,7 @@ import { authenticatorData } from "../types";
 async function createRecipe(req: Request, res: Response): Promise<void> {
   try {
     const { title, description } = req.body;
-    const authorization: string | undefined = req.headers.authorization;
+    const token: string | undefined = req.headers.authorization;
 
     if (!title) {
       res.statusCode = 400;
@@ -18,13 +18,13 @@ async function createRecipe(req: Request, res: Response): Promise<void> {
       res.statusCode = 400;
       throw new Error("empty description");
     }
-    if (!authorization) {
+    if (!token) {
       res.statusCode = 403;
       throw new Error("not authorized");
     }
 
     const idRecipe: string = idGenerator();
-    const idUser: authenticatorData = getTokenData(authorization);
+    const idUser: authenticatorData = getTokenData(token);
 
     await connection.raw(`
       INSERT INTO recipe_cookenu (id, title, description, creation_date, user_id)

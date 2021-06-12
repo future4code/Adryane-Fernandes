@@ -6,10 +6,10 @@ import { authenticatorData } from "../types";
 
 async function followUser(req: Request, res: Response): Promise<void> {
   try {
-    const authorization: string | undefined = req.headers.authorization;
+    const token: string | undefined = req.headers.authorization;
     const userToFollowId: string = req.body.userToFollowId;
 
-    if (!authorization) {
+    if (!token) {
       res.statusCode = 403;
       throw new Error("not authorized");
     }
@@ -18,7 +18,7 @@ async function followUser(req: Request, res: Response): Promise<void> {
       throw new Error("parameter is missing");
     }
 
-    const idFollower: authenticatorData = getTokenData(authorization);
+    const idFollower: authenticatorData = getTokenData(token);
     userExist(idFollower.id)
 
     await connection.raw(`

@@ -6,17 +6,17 @@ import { getTokenData } from "../services/authenticator";
 async function getOtherProfile(req: Request, res: Response): Promise<void> {
   try {
     const idOtherProfile: string | undefined = req.params.id
-    const authorization: string | undefined = req.headers.authorization
+    const token: string | undefined = req.headers.authorization
     if(!idOtherProfile){
       res.statusCode = 400
       throw new Error("parameter is missing");
     }
-    if(!authorization){
+    if(!token){
       res.statusCode = 403
       throw new Error("not authorized");
     }
 
-    const { id } = getTokenData(authorization!)
+    const { id } = getTokenData(token!)
     userExist(id)
 
     const [profile] = await connection.raw(`

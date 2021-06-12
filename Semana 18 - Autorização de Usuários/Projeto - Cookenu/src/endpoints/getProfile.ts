@@ -4,13 +4,13 @@ import { getTokenData } from "../services/authenticator";
 
 async function getProfile(req: Request, res: Response): Promise<void> {
   try {
-    const authorization: string | undefined = req.headers.authorization;
-    if (!authorization) {
+    const token: string | undefined = req.headers.authorization;
+    if (!token) {
       res.statusCode = 403;
       throw new Error("not authorized");
     }
 
-    const { id } = getTokenData(authorization!);
+    const { id } = getTokenData(token!);
 
     const [profile] = await connection.raw(`
       SELECT id, name, email FROM user_cookenu

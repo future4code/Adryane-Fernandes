@@ -7,17 +7,17 @@ import { authenticatorData } from "../types";
 async function getRecipe(req: Request, res: Response): Promise<void> {
   try {
     const id: string = req.params.id;
-    const authorization: string | undefined = req.headers.authorization;
+    const token: string | undefined = req.headers.authorization;
     if (!id) {
       res.statusCode = 400;
       throw new Error("parameter is missing");
     }
-    if (!authorization) {
+    if (!token) {
       res.statusCode = 403;
       throw new Error("not authorized");
     }
 
-    const idUser: authenticatorData = getTokenData(authorization!);
+    const idUser: authenticatorData = getTokenData(token!);
     userExist(idUser.id)
 
     const [recipe] = await connection.raw(`
