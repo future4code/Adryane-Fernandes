@@ -30,7 +30,7 @@ async function getOtherProfile(req: Request, res: Response): Promise<void> {
       WHERE id = "${idOtherProfile}";
     `)
 
-    res.send(profile)
+    res.send(profile[0])
   } catch (error) {
     res.send({ message: error.message || error.sqlMessage })
   }

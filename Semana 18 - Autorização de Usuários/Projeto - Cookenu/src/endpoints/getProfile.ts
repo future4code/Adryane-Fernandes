@@ -17,7 +17,7 @@ async function getProfile(req: Request, res: Response): Promise<void> {
       WHERE id = "${id}"
     `)
 
-    res.send(profile);
+    res.send(profile[0]);
   } catch (error) {
     res.status(500).send({ message: error.message || error.sqlMessage });
   }
