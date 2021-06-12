@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import { userExist } from "../function/userExist";
 import { getTokenData } from "../services/authenticator";
 
 async function getOtherProfile(req: Request, res: Response): Promise<void> {
@@ -16,14 +17,7 @@ async function getOtherProfile(req: Request, res: Response): Promise<void> {
     }
 
     const { id } = getTokenData(authorization!)
-    const [userExist] = await connection.raw(`
-      SELECT id FROM user_cookenu
-      WHERE id = "${id}";
-    `)
-    if(!userExist[0]){
-      res.statusCode = 403
-      throw new Error("unauthorized token");
-    }
+    userExist(id)
 
     const [profile] = await connection.raw(`
       SELECT id, name, email FROM user_cookenu

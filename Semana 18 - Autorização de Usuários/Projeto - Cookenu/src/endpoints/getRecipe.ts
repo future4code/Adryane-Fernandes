@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import { userExist } from "../function/userExist";
 import { getTokenData } from "../services/authenticator";
 import { authenticatorData } from "../types";
 
@@ -17,14 +18,7 @@ async function getRecipe(req: Request, res: Response): Promise<void> {
     }
 
     const idUser: authenticatorData = getTokenData(authorization!);
-    const [userExist] = await connection.raw(`
-      SELECT id FROM user_cookenu
-      WHERE id = "${idUser.id}";
-    `);
-    if (!userExist[0]) {
-      res.statusCode = 403;
-      throw new Error("unauthorized token");
-    }
+    userExist(idUser.id)
 
     const [recipe] = await connection.raw(`
       SELECT * FROM recipe_cookenu
