@@ -27,6 +27,10 @@ async function getRecipe(req: Request, res: Response): Promise<void> {
 
     res.send(recipe[0]);
   } catch (error) {
+    if(error.message.includes("jwt expired")){
+      res.status(403).send({message: "Token expired"})
+    }
+    
     res.send({ message: error.message || error.sqlMessage });
   }
 }

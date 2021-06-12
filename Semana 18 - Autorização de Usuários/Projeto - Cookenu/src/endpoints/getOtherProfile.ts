@@ -26,7 +26,11 @@ async function getOtherProfile(req: Request, res: Response): Promise<void> {
 
     res.send(profile[0])
   } catch (error) {
-    res.send({ message: error.message || error.sqlMessage })
+    if(error.message.includes("jwt expired")){
+      res.status(403).send({message: "Token expired"})
+    }
+    
+    res.send({ message: error.message || error.sqlMessage });
   }
 }
 

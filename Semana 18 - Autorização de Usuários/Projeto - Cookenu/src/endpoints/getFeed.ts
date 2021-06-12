@@ -23,12 +23,11 @@ async function getFeed(req: Request, res: Response): Promise<void> {
 
     res.send(profile);
   } catch (error) {
-    if(error.sqlMessage && error.sqlMessage.includes("jwt expired")){
-      res.statusCode = 403
-      res.send("Token expired")
+    if(error.message.includes("jwt expired")){
+      res.status(403).send({message: "Token expired"})
     }
     
-    res.status(500).send({ message: error.message || error.sqlMessage });
+    res.send({ message: error.message || error.sqlMessage });
   }
 }
 
