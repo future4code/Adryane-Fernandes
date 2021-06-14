@@ -1,16 +1,11 @@
 import { Request, Response } from "express";
 import connection from "../connection";
-import { getTokenData } from "../services/authenticator";
+import getData from "../services/getData";
 
 async function getProfile(req: Request, res: Response): Promise<void> {
   try {
     const token = req.headers.authorization;
-    const verificadToken = getTokenData(token as string);
-
-    if(verificadToken.role !== "NORMAL"){
-      res.statusCode = 403
-      throw new Error("Only a normal user can access this funcionality")
-    }
+    const verificadToken = getData(token!);
 
     const [result] = await connection.raw(`
       SELECT * FROM user
