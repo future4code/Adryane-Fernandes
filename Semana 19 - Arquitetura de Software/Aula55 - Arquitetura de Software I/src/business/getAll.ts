@@ -7,6 +7,10 @@ import { getTokenData } from "../services/authenticator";
 
 async function getAll(token: string): Promise<user[]> {
   try {
+    if(!token){
+      throw new Error("not authorization");
+    }
+    
     const tokenData: authenticatorData = getTokenData(token);
     
     verifyToken(tokenData)

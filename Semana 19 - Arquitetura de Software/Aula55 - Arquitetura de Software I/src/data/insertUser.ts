@@ -1,7 +1,7 @@
 import { user } from "../model/types";
 import { connection } from "./connection";
 
-async function insertUser(user: user){
+async function insertUser(user: user): Promise<void>{
   try {
     await connection.raw(`
       INSERT INTO user_aula55 (id, name, email, password, role)
