@@ -1,0 +1,27 @@
+GET http://localhost:3003
+
+###
+GET http://localhost:3003/actors/Tony
+
+###
+GET http://localhost:3003/actors?gender=female
+
+###
+PUT http://localhost:3003/actors/002/update
+Content-Type: application/json
+
+{
+  "salary":10
+}
+
+### 
+DELETE http://localhost:3003/actors/delete/001
+
+# PUT http://localhost:3003/actors/4
+# Content-Type: application/json
+
+# {
+#    "birthDate":"1929-12-12",
+#    "gender":"FEMALE",
+#    "salary":999999
+# }
