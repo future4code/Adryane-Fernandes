@@ -1,6 +1,5 @@
-import { connection } from "../data/connection";
 import selectUser from "../data/selectUser";
-import { userLogin } from "../model/types";
+import { authenticatorData, userLogin } from "../model/types";
 import { generateToken } from "../services/authenticator";
 import { compareHash } from "../services/hashManager";
 
@@ -20,7 +19,7 @@ async function login(user: userLogin): Promise<string> {
       throw new Error("incorrect password");
     }
 
-    const dataUser = {
+    const dataUser: authenticatorData = {
       id: result.id as string,
       role: result.role,
     };

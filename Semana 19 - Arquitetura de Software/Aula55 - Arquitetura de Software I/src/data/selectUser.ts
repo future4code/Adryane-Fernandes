@@ -1,4 +1,4 @@
-import { user, userLogin } from "../model/types";
+import { user } from "../model/types";
 import { connection } from "./connection";
 
 async function selectUser(email: string): Promise<user> {
