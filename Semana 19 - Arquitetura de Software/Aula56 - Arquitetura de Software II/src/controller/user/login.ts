@@ -8,7 +8,7 @@ export const login = async (
    try {
       const { email, password } = req.body
 
-      const token: string = await loginBusiness(email, password)
+      const token: string = await loginBusiness({email, password})
 
       res.send({
          message: "Usuário logado!",
