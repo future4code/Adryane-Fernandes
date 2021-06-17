@@ -1,4 +1,5 @@
 import { connection } from "../../data/BaseDatabase";
+import { UserDatabase } from "../../data/user/UserDatabase";
 import { user } from "../../model/types";
 import { generateToken } from "../../services/authenticator";
 import { generateId } from "../../services/generateId";
@@ -14,15 +15,15 @@ export async function signupBusiness(user: user): Promise<string> {
 
     const hashPassword: string = hashCreate(user.password);
 
-    await connection.raw(`
-      INSERT INTO user_labook (id, name, email, password)
-      VALUES(
-        "${id}",
-        "${user.name}",
-        "${user.email}",
-        "${hashPassword}"
-      )
-    `);
+    const dataUser = {
+      id,
+      name: user.name,
+      email: user.email,
+      password: hashPassword
+    }
+
+    const database = new UserDatabase()
+    database.insertUser(dataUser)
 
     const token: string = generateToken({ id });
 
