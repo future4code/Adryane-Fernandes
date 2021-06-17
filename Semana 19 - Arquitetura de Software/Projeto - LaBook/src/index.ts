@@ -1,37 +1,9 @@
-/**************************** IMPORTS ******************************/
-
-
-import knex from "knex";
-import dotenv from "dotenv";
-import Knex from "knex";
 import { authenticationData, user, post } from "./model/types";
 import { hashCreate } from "./services/hashManager";
 import { generateId } from "./services/generateId";
 import { generateToken } from "./services/authenticator";
 import { signup } from "./controller/user/signup";
 import { app } from "./controller/app";
-
-/**************************** CONFIG ******************************/
-
-dotenv.config();
-
-export const connection: Knex = knex({
-  client: "mysql",
-  connection: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: 3306,
-    multipleStatements: true,
-  },
-});
-
-
-
-
-
-/**************************** ENDPOINTS ******************************/
 
 app.post("/users/signup", signup);
 

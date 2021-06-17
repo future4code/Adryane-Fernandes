@@ -3,7 +3,7 @@ export type authenticationData = {
 }
 
 export type user = {
-  id: string,
+  id?: string,
   name: string,
   email: string,
   password: string
