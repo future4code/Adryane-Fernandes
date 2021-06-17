@@ -1,7 +1,6 @@
 /**************************** IMPORTS ******************************/
 
-import express, { Express, Request, Response } from "express";
-import cors from "cors";
+
 import knex from "knex";
 import dotenv from "dotenv";
 import Knex from "knex";
@@ -10,6 +9,7 @@ import { hashCreate } from "./services/hashManager";
 import { generateId } from "./services/generateId";
 import { generateToken } from "./services/authenticator";
 import { signup } from "./controller/user/signup";
+import { app } from "./controller/app";
 
 /**************************** CONFIG ******************************/
 
@@ -27,9 +27,7 @@ export const connection: Knex = knex({
   },
 });
 
-const app: Express = express();
-app.use(express.json());
-app.use(cors());
+
 
 
 
@@ -152,6 +150,4 @@ app.post("/users/signup", signup);
 
 /**************************** SERVER INIT ******************************/
 
-app.listen(3003, () => {
-  console.log("Server running on port 3003");
-});
+
