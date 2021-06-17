@@ -1,9 +1,13 @@
 import { user } from "../../model/types";
-import { connection } from "../BaseDatabase";
+import { BaseDatabase } from "../BaseDatabase";
 
-export class UserDatabase {
-  insertUser = async (user: user): Promise<void> => {
-    await connection.raw(`
+export class UserDatabase extends BaseDatabase{
+  constructor(){
+    super();
+  }
+
+  public insertUser = async (user: user): Promise<void> => {
+    await this.connection.raw(`
       INSERT INTO user_labook (id, name, email, password)
       VALUES(
         "${user.id}",

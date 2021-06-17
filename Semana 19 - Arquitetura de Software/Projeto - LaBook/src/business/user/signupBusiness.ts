@@ -1,4 +1,3 @@
-import { connection } from "../../data/BaseDatabase";
 import { UserDatabase } from "../../data/user/UserDatabase";
 import { user } from "../../model/types";
 import { generateToken } from "../../services/authenticator";
@@ -7,13 +6,26 @@ import { hashCreate } from "../../services/hashManager";
 
 export async function signupBusiness(user: user): Promise<string> {
   try {
-    if (!user.name || !user.email || !user.password) {
-      throw new Error('"name", "email" and "password" must be provided');
+    if (!user.name) {
+      throw new Error("Field 'name' is empty, and it is mandatory.");
+    }
+    if (!user.email) {
+      throw new Error("Field 'email' is empty, and it is mandatory.");
+    }
+    if (!user.password) {
+      throw new Error("Field 'password' is empty, and it is mandatory.");
     }
 
     const id: string = generateId();
 
+    if(!id){
+      throw new Error("Error generating id");
+    }
+
     const hashPassword: string = hashCreate(user.password);
+    if(!hashPassword){
+      throw new Error("Password Encryption Error");
+    }
 
     const dataUser = {
       id,
@@ -26,6 +38,9 @@ export async function signupBusiness(user: user): Promise<string> {
     database.insertUser(dataUser)
 
     const token: string = generateToken({ id });
+    if(!hashPassword){
+      throw new Error("Not authorized. Unable to generate authorization.");
+    }
 
     return token
   } catch (error) {
