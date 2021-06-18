@@ -4,7 +4,7 @@ export type authenticationData = {
 
 export type user = {
   id?: string,
-  name: string,
+  name?: string,
   email: string,
   password: string
 }

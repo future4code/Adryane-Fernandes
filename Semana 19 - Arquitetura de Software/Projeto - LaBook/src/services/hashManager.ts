@@ -8,6 +8,6 @@ export function hashCreate(password: string): string{
   return hash
 }
 
-export function compareHash(password: string, hash: string): boolean{
-  return compareSync(password, hash)
-} 
+export function compareHash(password: string, hash: string): boolean {
+  return compareSync(password, hash);
+}
