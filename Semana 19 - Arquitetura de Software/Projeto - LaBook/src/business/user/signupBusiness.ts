@@ -3,29 +3,23 @@ import { user } from "../../model/types";
 import { generateToken } from "../../services/authenticator";
 import { generateId } from "../../services/generateId";
 import { hashCreate } from "../../services/hashManager";
+import { CustomError } from "../error/CustomError";
+import { ValidateData } from "../validation/ValidateData";
 
 export async function signupBusiness(user: user): Promise<string> {
   try {
-    if (!user.name) {
-      throw new Error("Field 'name' is empty, and it is mandatory.");
-    }
-    if (!user.email) {
-      throw new Error("Field 'email' is empty, and it is mandatory.");
-    }
-    if (!user.password) {
-      throw new Error("Field 'password' is empty, and it is mandatory.");
-    }
+    const validateData = new ValidateData()
+    const database = new UserDatabase()
+
+    validateData.isEmpty(user.name, "name")
+    validateData.isEmpty(user.email, "email")
+    validateData.isEmpty(user.password, "password")
 
     const id: string = generateId();
-
-    if(!id){
-      throw new Error("Error generating id");
-    }
+    validateData.internalError(id, "Error generating id")
 
     const hashPassword: string = hashCreate(user.password);
-    if(!hashPassword){
-      throw new Error("Password Encryption Error");
-    }
+    validateData.internalError(hashPassword, "Password encryption error")
 
     const dataUser = {
       id,
@@ -34,16 +28,13 @@ export async function signupBusiness(user: user): Promise<string> {
       password: hashPassword
     }
 
-    const database = new UserDatabase()
     database.insertUser(dataUser)
 
     const token: string = generateToken({ id });
-    if(!hashPassword){
-      throw new Error("Not authorized. Unable to generate authorization.");
-    }
-
+    validateData.notAuthorization(token)
+    
     return token
   } catch (error) {
-    throw new Error(error.message);
+    throw new CustomError(error.statusCode, error.message);
   }
 }

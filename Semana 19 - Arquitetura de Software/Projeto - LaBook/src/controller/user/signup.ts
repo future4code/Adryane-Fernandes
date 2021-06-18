@@ -15,6 +15,6 @@ export const signup = async (req: Request, res: Response) => {
 
     res.status(201).send({ token })
   } catch (error) {
-    res.status(400).send({ message: error.sqlMessage || error.message });
+    res.status(error.statusCode).send({ message: error.message || error.sqlMessage });
   }
 }

@@ -7,7 +7,8 @@ export class UserDatabase extends BaseDatabase{
   }
 
   public insertUser = async (user: user): Promise<void> => {
-    await this.connection.raw(`
+
+      await this.connection.raw(`
       INSERT INTO user_labook (id, name, email, password)
       VALUES(
         "${user.id}",
@@ -15,6 +16,6 @@ export class UserDatabase extends BaseDatabase{
         "${user.email}",
         "${user.password}"
       )
-    `);
+    `);    
   }
 }
