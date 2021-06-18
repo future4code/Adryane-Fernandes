@@ -19,6 +19,12 @@ export type post = {
   photo: string,
   description: string,
   type: POST_TYPES,
-  createdAt: Date,
+  createdAt: string,
   authorId: string
+}
+
+export type postByBody = {
+  photo: string,
+  description: string,
+  type: POST_TYPES,
 }

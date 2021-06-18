@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { signupBusiness } from "../../business/user/signupBusiness";
 
-
-
 export const signup = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
