@@ -11,15 +11,19 @@ export async function signupBusiness(user: user): Promise<string> {
     const validateData = new ValidateData()
     const database = new UserDatabase()
 
-    validateData.isEmpty(user.name, "name")
-    validateData.isEmpty(user.email, "email")
-    validateData.isEmpty(user.password, "password")
+    if(!user.name || !user.email || !user.password){
+      throw new CustomError(400, "The fields 'name', 'email', and 'password' are required.");
+    }
 
     const id: string = generateId();
-    validateData.internalError(id, "Error generating id")
+    if(!id){
+      throw new CustomError(500, "Error generating id");
+    }
 
     const hashPassword: string = hashCreate(user.password);
-    validateData.internalError(hashPassword, "Password encryption error")
+    if(!hashPassword){
+      throw new CustomError(500, "Password encryption error");
+    }
 
     const dataUser = {
       id,
@@ -31,7 +35,10 @@ export async function signupBusiness(user: user): Promise<string> {
     database.insertUser(dataUser)
 
     const token: string = generateToken({ id });
-    validateData.notAuthorization(token)
+    if(!token){
+      throw new CustomError(401, "Not authorized. Unable to generate authorization."); 
+    }
+
     
     return token
   } catch (error) {
