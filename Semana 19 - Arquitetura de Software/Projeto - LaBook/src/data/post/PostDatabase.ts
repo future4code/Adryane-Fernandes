@@ -21,4 +21,14 @@ export class PostDatabase extends BaseDatabase {
       )
     `);
   };
+
+  public selectById = async (id: string): Promise<post[]> => {
+    
+    const [result]: any = await this.connection.raw(` 
+      SELECT * FROM ${this.nameDatabase} 
+      WHERE id = "${id}"
+    `)
+    
+    return result[0]
+  };
 }

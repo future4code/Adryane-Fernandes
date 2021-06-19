@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
-import { currentDate } from "../../business/date/currentDate";
 import createPostBusiness from "../../business/post/createPostBusiness";
-import { PostDatabase } from "../../data/post/PostDatabase";
-import { authenticationData, postByBody, post } from "../../model/types";
-import { getTokenData } from "../../services/authenticator";
-import { generateId } from "../../services/generateId";
+import { postByBody} from "../../model/types";
 
 const createPost = async (req: Request, res: Response) => {
   try {
