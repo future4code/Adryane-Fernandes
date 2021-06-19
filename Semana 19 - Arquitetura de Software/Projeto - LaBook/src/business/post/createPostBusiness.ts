@@ -8,8 +8,14 @@ import { CustomError } from "../error/CustomError";
 const createPostBusiness = (post: postByBody, token: string) => {
   try {
     const tokenData: authenticationData = getTokenData(token);
+    if(!tokenData){
+      throw new CustomError(401, "Not authorized. Unable to generate authorization."); 
+    }
 
     const id: string = generateId();
+    if(!id){
+      throw new CustomError(500, "Error generating id");
+    }
 
     const dataPost: post = {
       id: id,

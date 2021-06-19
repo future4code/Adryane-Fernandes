@@ -30,7 +30,10 @@ const loginBusiness = async (user: user) => {
     const token: string = generateToken({
       id: result[0].id,
     });
-
+    if(!token){
+      throw new CustomError(401, "Not authorized. Unable to generate authorization."); 
+    }
+    
     return token;
   } catch (error) {
     throw new CustomError(error.statusCode, error.message);
