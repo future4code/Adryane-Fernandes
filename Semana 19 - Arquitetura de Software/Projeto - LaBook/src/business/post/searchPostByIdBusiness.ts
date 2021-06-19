@@ -7,6 +7,9 @@ export const searchPostByIdBusiness = async (id: string) => {
     const postDatabase = new PostDatabase()
 
     const result = await postDatabase.selectById(id)
+    if(!result){
+      throw new CustomError(404, "User not found");
+    }
 
     return result
   } catch (error) {
