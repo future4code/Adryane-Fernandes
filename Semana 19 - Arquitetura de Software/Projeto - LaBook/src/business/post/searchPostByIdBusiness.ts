@@ -1,5 +1,4 @@
 import { PostDatabase } from "../../data/post/PostDatabase";
-import { post } from "../../model/types";
 import { CustomError } from "../error/CustomError";
 
 export const searchPostByIdBusiness = async (id: string) => {
