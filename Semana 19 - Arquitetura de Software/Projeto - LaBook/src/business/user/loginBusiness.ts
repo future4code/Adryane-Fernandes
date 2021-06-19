@@ -1,4 +1,3 @@
-import { compareSync } from "bcryptjs";
 import { UserDatabase } from "../../data/user/UserDatabase";
 import { user } from "../../model/types";
 import { generateToken } from "../../services/authenticator";

@@ -4,6 +4,8 @@ import { generateToken } from "../../services/authenticator";
 import { generateId } from "../../services/generateId";
 import { hashCreate } from "../../services/hashManager";
 import { CustomError } from "../error/CustomError";
+import emailIsValid from "../validation/emailIsValid";
+import passwordIsValid from "../validation/passwordIsValid";
 
 export async function signupBusiness(user: user): Promise<string> {
   try {
@@ -11,6 +13,8 @@ export async function signupBusiness(user: user): Promise<string> {
     if(!user.name || !user.email || !user.password){
       throw new CustomError(400, "The fields 'name', 'email', and 'password' are required.");
     }
+    emailIsValid(user.email)
+    passwordIsValid(user.password)
 
     const id: string = generateId();
     if(!id){
@@ -36,7 +40,6 @@ export async function signupBusiness(user: user): Promise<string> {
     if(!token){
       throw new CustomError(401, "Not authorized. Unable to generate authorization."); 
     }
-
     
     return token
   } catch (error) {
