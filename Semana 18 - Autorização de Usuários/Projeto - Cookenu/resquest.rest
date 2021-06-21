@@ -1,0 +1,18 @@
+### Cadastro
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+  "name": "Teste",
+  "email": "teste02@email.com",
+  "password": "teste01"
+}
+
+### Login
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "demi-lovato@popstar.com",
+  "password": "exDisney"
+}
