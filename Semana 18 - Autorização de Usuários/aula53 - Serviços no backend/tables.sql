@@ -1,0 +1,18 @@
+CREATE TABLE user (
+	id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM("NORMAL", "ADMIN") DEFAULT "NORMAL"
+);
+
+CREATE TABLE address (
+	CEP VARCHAR(255) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    number INT NOT NULL,
+    complement VARCHAR(255),
+    neighborhood VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    user_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
