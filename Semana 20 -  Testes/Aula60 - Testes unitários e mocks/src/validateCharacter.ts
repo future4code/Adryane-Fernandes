@@ -1,6 +1,6 @@
-import { character } from "./model/interfaces";
+import { Character } from "./model/interfaces";
 
-export function validateCharacter(input: character): boolean {
+export function validateCharacter(input: Character): boolean {
   if (
     !input.name ||
     !input.life ||

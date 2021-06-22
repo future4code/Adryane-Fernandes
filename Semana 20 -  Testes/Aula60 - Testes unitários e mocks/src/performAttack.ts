@@ -1,6 +1,6 @@
-import { character } from "./model/interfaces";
+import { Character } from "./model/interfaces";
 
-export function performAttack(attacker: character, defender: character, validate: (input: any) => boolean){
+export function performAttack(attacker: Character, defender: Character, validate: (input: Character) => boolean){
   if(!validate(attacker) || !validate(defender)){
     throw new Error ("Invalid Character")
   }

@@ -1,9 +1,9 @@
-import { character } from "../src/model/interfaces";
+import { Character } from "../src/model/interfaces";
 import { validateCharacter } from "../src/validateCharacter";
 
 describe("Teste da função de validar informações do caracter", () => {
   test("Falso para nome vazio", () => {
-    const character: character = {
+    const character: Character = {
       name: "",
       defense: 10,
       life: 20,
@@ -15,7 +15,7 @@ describe("Teste da função de validar informações do caracter", () => {
   });
 
   test("False para defesa igual a 0", () => {
-    const character: character = {
+    const character: Character = {
       name: "Lilith",
       defense: 0,
       life: 20,
@@ -27,7 +27,7 @@ describe("Teste da função de validar informações do caracter", () => {
   });
 
   test("False para vida igual a 0", () => {
-    const character: character = {
+    const character: Character = {
       name: "Lilith",
       defense: 20,
       life: 0,
@@ -39,7 +39,7 @@ describe("Teste da função de validar informações do caracter", () => {
   });
 
   test("False para poder igual a 0", () => {
-    const character: character = {
+    const character: Character = {
       name: "Lilith",
       defense: 10,
       life: 20,
@@ -51,7 +51,7 @@ describe("Teste da função de validar informações do caracter", () => {
   });
 
   test("Falso para campo numérico negativo", () => {
-    const character: character = {
+    const character: Character = {
       name: "Lilith",
       defense: -20,
       life: 20,
@@ -63,7 +63,7 @@ describe("Teste da função de validar informações do caracter", () => {
   });
 
   test("True se estiver tudo preenchido e acima de 0", () => {
-    const character: character = {
+    const character: Character = {
       name: "Lilith",
       defense: 20,
       life: 1500,
