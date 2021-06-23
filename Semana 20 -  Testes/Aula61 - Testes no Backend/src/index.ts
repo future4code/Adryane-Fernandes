@@ -1,5 +1,5 @@
 import express, { Response, Request, NextFunction } from 'express'
-import { GetProfileById } from './controller/getProfileById'
+import { GetProfileById } from './controller/GetProfileById'
 import "express-async-errors"
 
 export const app = express()

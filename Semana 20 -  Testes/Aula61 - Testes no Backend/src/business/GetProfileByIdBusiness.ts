@@ -1,15 +1,13 @@
-import { GetProfileByIdData } from "../data/GetProfileByIdData";
+import  UserData from "../data/UserData";
 import { user } from "../model/interfaces";
 
 export class GetProfileByIdBusiness {
   async execute(id: string): Promise<user> {
-    const getProfileByIdData = new GetProfileByIdData()
-
     if (!id) {
       throw new Error("id not informed");
     }
 
-    const user: user = await getProfileByIdData.selectUser(id)
+    const user: user = await UserData.selectUser(id)
     if(!user){
       throw new Error("user not exist");
     }
@@ -17,3 +15,5 @@ export class GetProfileByIdBusiness {
     return user
   }
 }
+
+export default new GetProfileByIdBusiness()
