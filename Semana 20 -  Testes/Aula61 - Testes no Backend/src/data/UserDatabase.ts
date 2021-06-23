@@ -1,7 +1,7 @@
 import { user } from "../model/interfaces";
 import { Connection } from "./Connection";
 
-export class UserData extends Connection{
+export class UserDatabase extends Connection{
   async selectUser(id: string): Promise<user> {
     const [user] = await this.connection.raw(`
       SELECT * FROM user_aula61
@@ -12,4 +12,4 @@ export class UserData extends Connection{
   }
 }
 
-export default new UserData()
+export default new UserDatabase()
