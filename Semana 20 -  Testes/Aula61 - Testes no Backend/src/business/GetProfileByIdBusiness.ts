@@ -10,6 +10,9 @@ export class GetProfileByIdBusiness {
     }
 
     const user: user = await getProfileByIdData.selectUser(id)
+    if(!user){
+      throw new Error("user not exist");
+    }
 
     return user
   }
